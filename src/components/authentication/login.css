@@ -1,0 +1,21 @@
+.login .container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 600px;
+  padding:40px;
+}
+
+h1, h3 {
+  margin: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+button {
+  margin:20px;
+}
+
+span {
+  margin: 5px;
+}
