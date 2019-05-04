@@ -76,7 +76,7 @@ export default class NavBar extends React.Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} to="/" onClick={this.localLogout}>
+                  <NavLink href="/" onClick={this.localLogout}>
                 Log Out
                 </NavLink>
                 </NavItem>

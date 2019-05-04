@@ -1,6 +1,6 @@
 // import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
-import API from "../../modules/APIManager";
+import API from "../../modules/spotifyAPIManager";
 
 
 
@@ -29,7 +29,7 @@ export default class Test extends Component {
 
 
     handleTest = () => {
-      API.get.try()
+      API.get.getUserPlaylists()
     }
 
 
@@ -39,7 +39,7 @@ export default class Test extends Component {
       return (
         <div className="App">
 
-          <button onClick={this.handlePlay}>Get tracks
+          <button onClick={this.handleTest}>Get tracks
             </button>
         </div>
       );

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Container, Button } from "reactstrap"
-import API from "../../modules/APIManager"
+import API from "../../modules/spotifyAPIManager"
 import QuizBox from "../quiz/QuizBox"
 
 

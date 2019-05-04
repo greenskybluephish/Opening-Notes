@@ -33,11 +33,9 @@ export default {
       )
     },
     async getUserPlaylists() {
-      //returns an array of objects with playlist name (like "Favorite Smashing Pumpkins jamz")
-      //and the id of the playlist. Use this to feed the playlists selection list
-        
+
       try {
-          const playlistsResponse = await spotifyAPI.getAlbumTracks("709gu2Yj2tfqmNMIEDfOPg", )
+          const playlistsResponse = await spotifyAPI.getUserPlaylists()
            console.log(playlistsResponse)
 
       }

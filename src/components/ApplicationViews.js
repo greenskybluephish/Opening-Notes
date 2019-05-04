@@ -7,31 +7,39 @@ import AuthRoute from "./authentication/AuthRoute"
 import Quiz from "./quiz/Quiz"
 
 
+
 class ApplicationViews extends Component {
   state = {
-
     access_token: "",
     deviceId: "",
     loggedIn: false,
     error: "",
     playerCheckInterval: null,
+    userLoggedIn: false,
+    currentUser: ""
   };
 
-  isAuthenticated = () => sessionStorage.getItem("access_token");
-
-  async componentDidMount() {
-    await this.isAuthenticated();
-      this.setState({access_token: sessionStorage.getItem("access_token")})
-      this.setState({ loggedIn: true });
-      // check every second for the player.
-      this.playerCheckInterval = setInterval(() => this.checkForPlayer(), 1000);
+    componentDidMount() {
+      if (localStorage.getItem("oauthio_cache") !== null && this.state.userLoggedIn === false) {
+        this.setLoginStatus(true);
+      }
     }
-  
-    checkForPlayer = () => {
-      const token = this.state.access_token
+
+    setLoginStatus = (status) => {
+      this.setState({userLoggedIn: status})
+      const spotifyRequest = window.OAuth.create("spotify");
+      const accessToken = spotifyRequest.access_token
+      this.setState({access_token: accessToken})
+            // check every second for the player.
+      this.playerCheckInterval = setInterval(() => this.checkForPlayer(accessToken), 1000);
+  }
+
+
+    checkForPlayer = (token) => {
   
       if (window.Spotify !== null) {
         clearInterval(this.playerCheckInterval);
+
         this.player = new window.Spotify.Player({
           name: "Brians's Spotify Player",
           getOAuthToken: cb => { cb(token); },
@@ -50,9 +58,9 @@ class ApplicationViews extends Component {
         console.error(e);
         this.setState({ loggedIn: false });
       });
+
       this.player.on('account_error', e => { console.error(e); });
       this.player.on('player_state_changed', state => { console.log(state); });
-  
   
       // Ready
       this.player.on('ready', async data => {
@@ -64,9 +72,8 @@ class ApplicationViews extends Component {
           iframe.style.left = '-1000px';
         }
         let { device_id } = data;
-        
-         await this.setState({ deviceId: device_id });
-         console.log("Let the music play on!");
+         await this.setState({ deviceId: device_id, loggedIn: true });
+         console.log("Quiz time!");
       });
     }
 
@@ -80,12 +87,11 @@ class ApplicationViews extends Component {
           exact
           path="/"
           render={props => {
-            if (!this.isAuthenticated()) {
-              return <Redirect to="/login" />;
-            } else {
+            if (this.state.userLoggedIn) {
               return <Redirect to="/home" />;
-            }
-          }}
+          } else {
+            return <Redirect to="/login" />;
+          }}}
         />
         <AuthRoute
           path="/home"
@@ -94,7 +100,7 @@ class ApplicationViews extends Component {
         <Route
           path="/login"
           render={() => {
-            return <Login access_token={this.state.access_token} />;
+            return <Login userLoggedIn={this.state.userLoggedIn} setLoginStatus={this.setLoginStatus}/>;
           }}
         />
         <AuthRoute
