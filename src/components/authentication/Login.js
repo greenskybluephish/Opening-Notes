@@ -6,29 +6,23 @@ import "./login.css"
 
 class Login extends Component {
 
-  // Downloads oauth.js from CDN, pretty much like adding external scripts
-  componentDidMount () {
 
-  
-  }
-
-  handleClick(e) {
+  handleClick = (e) => {
     // Prevents page reload
     e.preventDefault();
 
     // Initializes OAuth.io with API key
-    this.props.authenticateUser()
-    
-
-      
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.access_token !== this.props.access_token) {
-      this.props.history.push("/home")
-    }
-  }
+      window.OAuth.initialize("rKtNmq0HtvZws6tMLOJFcXiyypo");
   
+      window.OAuth.popup("spotify", { cache: true }).done(spotify => {
+        sessionStorage.setItem("access_token", spotify.access_token);
+        // do some stuff with result
+        spotify.me().then(data => {
+          sessionStorage.setItem("username", data.name);
+          this.props.history.push("/home")
+  })})}
+
+
 
   render() {
     return (
@@ -36,7 +30,7 @@ class Login extends Component {
     
     <h1>Welcome to Common Ground</h1>
     <h3>Please log in to continue</h3>
-    <Button onClick={this.handleClick.bind(this)} size="lg" bg-color="#E3E0DA" >
+    <Button onClick={this.handleClick} size="lg" bg-color="primary" >
              <span className="fa fa-spotify"></span> Sign in with Spotify
            </Button>
            </Container>
