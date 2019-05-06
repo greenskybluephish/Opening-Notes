@@ -53,6 +53,7 @@ export default class Test extends Component {
     showTracks = (event) => {
       const playlistURI = event.target.id
       this.setState({showTracks: !this.state.showTracks, activePlaylist: playlistURI})
+      this.toggle();
     }
 
       render() {

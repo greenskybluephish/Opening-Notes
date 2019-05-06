@@ -5,7 +5,9 @@ import { Button } from 'reactstrap'
 
 export default class SongFile extends Component {
 
-
+handleClick = (event) => {
+  this.props.addToQuiz(event)
+}
 
 render() {
   const  {
@@ -29,8 +31,8 @@ render() {
             <td className="text-center">{albumName}</td>
 
             <td className="text-right">
-                <Button className="btn-icon" color="success" size="sm">
-                    <i className="icon-simple-add"></i>
+                <Button value={trackId} onClick={this.handleClick} className="btn-icon" color="success" size="sm">
+                    <i value={trackId}  className="icon-simple-add"></i>
                 </Button>{` `}
                 <Button className="btn-icon" color="danger" size="sm">
                     <i className="icon-simple-delete" />
