@@ -1,4 +1,4 @@
-import SpotifyWebAPI from "./spotify-web-api"
+
 
 
 const remoteURL = "https://api.spotify.com/v1";
@@ -7,8 +7,6 @@ const baseURL = "https://calm-mesa-57338.herokuapp.com";
 const spotifyRequest = window.OAuth.create("spotify");
 const accessToken = spotifyRequest.access_token
 
-const spotifyAPI = new SpotifyWebAPI();
-spotifyAPI.setAccessToken(accessToken);
 
 
 
@@ -33,7 +31,8 @@ export default {
       )
     },
     async getUserPlaylists() {
-
+      const spotifyRequest = window.OAuth.create("spotify");
+      const accessToken = spotifyRequest.access_token
       try {
         const playlistResponse = await fetch("https://api.spotify.com/v1/me/playlists", 
           {
@@ -53,6 +52,8 @@ export default {
   },
 
   async getPlaylistTracks(playlistURI) {
+    const spotifyRequest = window.OAuth.create("spotify");
+    const accessToken = spotifyRequest.access_token
     try { 
       let response = await fetch(`${remoteURL}/playlists/${playlistURI}/tracks?market=US&fields=items(track(id%2Cname%2Curi%2C%20album(name)%2Cartists(name)))&limit=100`,         {
         headers: {
@@ -86,17 +87,17 @@ export default {
           let startingPoint = arrayLoudness.findIndex(section => section > -15.5)
           if (startingPoint <= 2 && startingPoint >= 0) {
             // console.log([uri, sections[startingPoint].start*1000, 1])
-            return [uri, sections[startingPoint].start * 1000]
+            return (sections[startingPoint].start * 1000)
           } else {
             if (arrayLoudness[0] > arrayLoudness[1]) {
               // console.log([uri, 0, 2])
-              return [uri, 0]
+              return 0
             } else {
               let firstSections = arrayLoudness.slice(0, 5);
               let averageLoudness = firstSections.reduce((a, b) => a + b) / firstSections.length;
               let newPoint = sections.findIndex(section => section.loudness > averageLoudness);
               // console.log([uri, sections[newPoint].start* 1000, 3])
-              return [uri, sections[newPoint].start * 1000]
+              return (sections[newPoint].start * 1000)
 
             }
           }
@@ -139,6 +140,28 @@ export default {
         },
         method: "PUT"
       })
+    },
+    async startPlayback(deviceId, quizTracks) {
+      const spotifyRequest = window.OAuth.create("spotify");
+      const accessToken = spotifyRequest.access_token
+      try { 
+        await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
+          body: JSON.stringify({
+            "uris": quizTracks,
+            "position_ms": 0
+          }), 
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json"
+          },
+          method: "PUT"
+        })
+      } 
+      catch(err) {
+        //return error note.
+        console.error(err);
+      }
     }
   }
 

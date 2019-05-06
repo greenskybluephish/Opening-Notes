@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import spotifyAPIManager from "../../modules/spotifyAPIManager"
+// import spotifyAPIManager from "../../modules/spotifyAPIManager"
 import { Button } from 'reactstrap'
-
+import "../../assets/css/nucleo-icons.css";
 
 export default class SongFile extends Component {
 
 handleClick = (event) => {
-  this.props.addToQuiz(event)
+  this.props.addToQuiz(this.props.track.track)
 }
 
 render() {
@@ -20,7 +20,7 @@ render() {
           }],
     "id": trackId,
     "name": trackName,
-    "uri": trackURI
+    // "uri": trackURI
     } = this.props.track.track
 
   return (
@@ -32,10 +32,10 @@ render() {
 
             <td className="text-right">
                 <Button value={trackId} onClick={this.handleClick} className="btn-icon" color="success" size="sm">
-                    <i value={trackId}  className="icon-simple-add"></i>
+                    <i value={trackId}  className="tim-icons icon-alert-circle-exc"></i>
                 </Button>{` `}
                 <Button className="btn-icon" color="danger" size="sm">
-                    <i className="icon-simple-delete" />
+                    <i className="tim-icons icon-simple-delete" />
                 </Button>
             </td>
         </tr>

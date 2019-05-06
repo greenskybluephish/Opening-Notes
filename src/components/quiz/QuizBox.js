@@ -19,8 +19,14 @@ export default class QuizBox extends Component {
     inputAnswer: "",
     correctAnswers: 0,
     totalQuestions: 0,
-    hasAnswered: true
+    hasAnswered: true,
+    disablePlayButton: false
 }
+
+  componentDidMount() {
+    this.props.handleStart()
+  }
+
 
 
 // handle the field change when the input box is edited
@@ -32,8 +38,8 @@ handleFieldChange = event => {
 
 handleSubmit = event => {
     // prevent the page from going to another page
-    if (this.state.hasAnswered === false) {
-    this.setState({totalQuestions: this.state.totalQuestions + 1})
+    if (!this.state.hasAnswered) {
+    this.setState({totalQuestions: this.state.totalQuestions + 1, disablePlayButton:false})
     this.toggleAnswered();
     event.preventDefault();
     if (this.state.inputAnswer === "") {
@@ -53,7 +59,6 @@ handleSubmit = event => {
       alert("Play the next song!")
     }
 
-
     }
 
 
@@ -65,7 +70,8 @@ handleSubmit = event => {
     }
 
     playSong = () => {
-      if (!this.state.hasAnswered === false) {
+      if (this.state.hasAnswered) {
+        this.setState({disablePlayButton: true})
         this.props.handlePlay();
         this.toggleAnswered();
       } else {
@@ -82,18 +88,16 @@ handleSubmit = event => {
           <h2 className="display-4">Quiz Time</h2>
           <p className="lead">Click the play button to test your skills!</p>
           <hr className="my-2" />
-          <p className="lead">
-          <Button onClick={this.playSong}>Play the next song!
+          <Button onClick={this.playSong} disabled={this.state.disablePlayButton}>Play song!
           </Button>
           <Badge>{this.state.correctAnswers}</Badge>
 
-          </p>
           
           <Form >
           <FormGroup row>
           <Label for="inputAnswer" sm={3}>What song is this?</Label>
           <Col sm={9}>
-            <Input type="text" onChange={this.handleFieldChange} name="email" id="inputAnswer" placeholder="Enter your guess!" />
+            <Input type="text" onChange={this.handleFieldChange} name="text" id="inputAnswer" placeholder="Enter your guess!" />
           </Col>
           </FormGroup>
           <Button onClick={this.handleSubmit}>Submit</Button>

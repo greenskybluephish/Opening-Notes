@@ -1,29 +1,30 @@
 import React, { Component } from "react";
 import spotifyAPIManager from "../../modules/spotifyAPIManager"
-import { Button, Table } from 'reactstrap'
+import { Table } from 'reactstrap'
 import SongFile from "./SongFile"
 
 
 export default class UserPlaylists extends Component {
 
 state = {
-  playlistTracks: [],
-  quizTracks: []
+  playlistTracks: []
 }
 
   componentDidMount() {
-    const playlistURI = this.props.playlistURI
-    spotifyAPIManager.get.getPlaylistTracks(playlistURI).then(tracks => {
+    spotifyAPIManager.get.getPlaylistTracks(this.props.playlist.URI).then(tracks => {
       this.setState({playlistTracks: tracks})
     }
     )}
 
-  addToQuiz = (event) => {
-    const trackURI = event.target.value
-
-   const addTrackToState = this.state.quizTracks.concat(trackURI);
-   this.setState({quizTracks: addTrackToState})
+  componentDidUpdate(prevProps) {
+    if (prevProps.playlist !== this.props.playlist) {
+      spotifyAPIManager.get.getPlaylistTracks(this.props.playlist.URI).then(tracks => {
+        this.setState({playlistTracks: tracks})
+      }
+      )
+    }
   }  
+
 
 
 
@@ -32,7 +33,7 @@ state = {
 
     return (
       <div>
-      <h2>Playlist:</h2> 
+      <h2>{this.props.playlist.name}</h2> 
           <Table responsive>
             <thead>
                 <tr>
@@ -46,7 +47,7 @@ state = {
             </thead>
             <tbody>
             {this.state.playlistTracks.map((track, i) => {
-              return <SongFile addToQuiz={this.addToQuiz} key={track.track.id} index={i+1} track={track}></SongFile>
+              return <SongFile addToQuiz={this.props.addToQuiz} key={track.track.id} index={i+1} track={track}></SongFile>
             })}
             </tbody>
               </Table>
