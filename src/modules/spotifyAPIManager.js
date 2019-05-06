@@ -35,14 +35,40 @@ export default {
     async getUserPlaylists() {
 
       try {
-          const playlistsResponse = await spotifyAPI.getUserPlaylists()
-           console.log(playlistsResponse)
-
+        const playlistResponse = await fetch("https://api.spotify.com/v1/me/playlists", 
+          {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json"
+          }
+        })
+        let json = await playlistResponse.json(); 
+           return json.items
       }
       catch(err) {
           //return default array with note that can't download playlists
           console.error(err);
       }
+  },
+
+  async getPlaylistTracks(playlistURI) {
+    try { 
+      let response = await fetch(`${remoteURL}/playlists/${playlistURI}/tracks?market=US&fields=items(track(id%2Cname%2Curi%2C%20album(name)%2Cartists(name)))&limit=100`,         {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        }
+      })
+      let json = await response.json();
+      return json.items
+  
+    } 
+      catch(err) {
+        //return error note.
+        console.error(err);
+    }
   },
 
 
