@@ -516,6 +516,118 @@
         "spotify:track:6NTVXHJ6Gl2uqWzHdTz0tA"
       ],
       "id": 2
+    },
+    {
+      "userId": 1,
+      "quizName": "Maze or Bowie",
+      "quizDescription": "Don't Bowie my Maze.....",
+      "quizTrackIds": [
+        "spotify:track:04xNCRMGLm1vpjbYgIdk67",
+        "spotify:track:46GtuTjo1hyQ2RKeYaNyEv",
+        "spotify:track:73Qsd1J10EW5RseLBYeeCp",
+        "spotify:track:019wpE7wBMECXVhoHLT0W3",
+        "spotify:track:09cgBvUQk4H5C9bak6hXE6",
+        "spotify:track:4nR86x33jO6RUnex8xSf3Z",
+        "spotify:track:1yrgxt7QxWaRjRutgW1Qub",
+        "spotify:track:7ILVqyClaOvwoPAuiYDtLx",
+        "spotify:track:4ke0PmAYz99Vvykg2ooNnm",
+        "spotify:track:1VbnjzJ4vGMuceViUp38Lp",
+        "spotify:track:58XDfphWKCeOoJvMoNw9HI",
+        "spotify:track:6gFT5JIkcdKNHtBO8rIKDy",
+        "spotify:track:7xN0cR0ytACXB7mFhyQm6W",
+        "spotify:track:6nHYV0WWo6R1DVITTIieyd",
+        "spotify:track:4bjb84BUwSs7UwNQqsIpQo",
+        "spotify:track:4vKn3dCV3RP4YXzdiZmSYc",
+        "spotify:track:17HEEaDQCHwAb8Kymzotp3",
+        "spotify:track:6qZPKlm9wrcRPJLbRI4NXb",
+        "spotify:track:4DRM5X3JxJNGCMZXNrUYlV",
+        "spotify:track:7l6jbqa9YZ2iwn62myOtqW",
+        "spotify:track:1qW8zv2f8j7JB9z121XPQT",
+        "spotify:track:16A0KmksmmcgQVgrWdDwEy",
+        "spotify:track:7KlwAAnU8KEhYmuzCNnSVr",
+        "spotify:track:4ldSOWRAwojW5FnDxPYFjy",
+        "spotify:track:2FrtdE9SrpXRxyTgo9TrV9",
+        "spotify:track:21IxybYsXWSZCuV3tRaRsA",
+        "spotify:track:0aJNDN5nBJYzQ4cJVUYX1l",
+        "spotify:track:2VBJQlfkv7cwjdCW9nymAY",
+        "spotify:track:2p0MrlRLvgInbbdx44JFS8",
+        "spotify:track:3NyalETddHZ8c7cQjrPQo2",
+        "spotify:track:2Lz6urjUvVl5UIHqRWS4Q0",
+        "spotify:track:1fT2cinHWdlB4Fd0YiA8we",
+        "spotify:track:4h6sS9GsxLsZR8Zb5EKf2F",
+        "spotify:track:4nY9HLmOzZcJYOwYG8LgbV",
+        "spotify:track:2RRWIdBeRCPKBLxh2kuAYA",
+        "spotify:track:5nFnzvbgzmRW8UGvDunHw3",
+        "spotify:track:2iwB96sbdT2iX4Foq0FweD",
+        "spotify:track:3o1ie59RAqdsxgviJijwWe",
+        "spotify:track:5TJZr5zT9HIftesZToIItT",
+        "spotify:track:73E6vjTUIMnfyRA5OOqcsH",
+        "spotify:track:3kmE1lp2wTsGVd6JEO827a",
+        "spotify:track:3CbODvWgqsN7weiJ9SREwn"
+      ],
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "quizName": "test",
+      "quizDescription": "testing",
+      "quizTrackIds": [
+        "spotify:track:26Zoc9dYJvJq4qsBHPVUc5",
+        "spotify:track:1VzekKJbY38hHZoLXk07GH",
+        "spotify:track:6tqCEw7jqoU1XLxmYy2PAh",
+        "spotify:track:4JjnSYr36MXfji7SWpXpDZ",
+        "spotify:track:3djludOzT4n1fNx33BoCR6",
+        "spotify:track:5BSMkLOxY66kzX6h4t46Fa",
+        "spotify:track:2eLgp0jTcNpxHYykZJrpLK",
+        "spotify:track:3msSo65BXp2kKkUGlyVr8C",
+        "spotify:track:4wYSq8d294Xoi8Itu0h6c1",
+        "spotify:track:60ppXb2fYgLqOCgGot1kpL"
+      ],
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "quizName": "New 1try",
+      "quizDescription": "this is new",
+      "quizTrackIds": [
+        "spotify:track:5rMjuQfyhq0hNN5dxmYzyi",
+        "spotify:track:2mQYDxrvIx8HW1kmDwXS7Z",
+        "spotify:track:3kUPtdiiK033knlGKPTB9V",
+        "spotify:track:4SeSBHW3My7RdB4UW0h1m9",
+        "spotify:track:6ZDk3PGFkRKGgk6aSkw2T9",
+        "spotify:track:5Y6C3oYcqhTRPuPaWppUiS",
+        "spotify:track:5CYvswEWk1UcCBHy7nyzYC",
+        "spotify:track:4pYQb0fYwPbTD09uDhiQzU"
+      ],
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "quizName": "one more",
+      "quizDescription": "this is what we want. ",
+      "quizTrackIds": [
+        "spotify:track:7dvDCXaZIC75M03ND1x7l6",
+        "spotify:track:1bQ4zbP8Fo0qAePTSOfYji",
+        "spotify:track:1AqemxWsT0iGg5Lvkm16Bt",
+        "spotify:track:49szGzch2eFixi4ZHIT4fV",
+        "spotify:track:3WWAvWDBQANpJeNbvVbjMg",
+        "spotify:track:6knrMfSWJS4BTYUhAmqVOu"
+      ],
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "quizName": "whas",
+      "quizDescription": "asd",
+      "quizTrackIds": [
+        "spotify:track:41TS2K2un0IA1wAjrFeCFV",
+        "spotify:track:3LeOqlr75FsG7j71GMVJc4",
+        "spotify:track:3j1gqxYdX5eDJQmT9myjUd",
+        "spotify:track:1ivB1ZnkVjiTkf9ZntcVIC",
+        "spotify:track:0v4ICFOHuF8eJdVtLbSRyx",
+        "spotify:track:6x2ed25LrKVkEbKJ3dwa76"
+      ],
+      "id": 7
     }
   ],
   "quizLogs": []

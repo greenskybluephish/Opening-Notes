@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 // import API from "../../modules/spotifyAPIManager";
 import quizAPI from "../../modules/jsonAPIManager"
-
+import SongSlider from "./Slider"
 import "./test.css"
 import { Button, ListGroup, ListGroupItem, FormGroup,
   Label,
   Input,
   Card,
-  CardBody } from 'reactstrap';
+  CardBody,
+Row,
+Form,
+Col } from 'reactstrap';
 
 export default class QuizCreator extends Component {
 
@@ -39,9 +42,10 @@ submitNewQuiz = event => {
       // add the new article 
       quizAPI.postOne("quizs", newQuiz)
       alert(`${this.state.quizName} has been created!`)
-      let form = event.target.parentNode;
-      // this.props.clearQuizTracks();
+      this.props.clearQuizTracks();
+      let form = event.target.parentNode
       form.reset();
+      this.props.hideTracks();
       
   }
 }
@@ -54,7 +58,9 @@ submitNewQuiz = event => {
     return (
   <Card>
       <CardBody>
-        <form>
+      <Form>
+      <Row form>
+          <Col md={4}>
           <FormGroup>
             <Label for="quizName">Quiz Name</Label>
             <Input
@@ -65,20 +71,28 @@ submitNewQuiz = event => {
               onChange={this.handleFieldChange}
             />
           </FormGroup>
+          </Col>
+          <Col md={7}>
+          <FormGroup>
+            <Label for="quizDescription">Quiz Description</Label>
+            <Input type="text" name="text" id="quizDescription" onChange={this.handleFieldChange}/>
+          </FormGroup>
+
+          </Col>
+          </Row>
+          
           <FormGroup>
             <Label for="quizSongs">Quiz Songs:</Label>
             <ListGroup id="quizSongs">
     {this.props.quizTracks.map(track => {
-      return <ListGroupItem key={track.id}>{track.name}</ListGroupItem>
+      return <ListGroupItem key={track.id}>{track.name} - {track.album.name} <SongSlider></SongSlider></ListGroupItem>
     })}
     </ListGroup>
           </FormGroup>
-          <FormGroup>
-            <Label for="quizDescription">Quiz Description</Label>
-            <Input type="textarea" name="text" id="quizDescription" onChange={this.handleFieldChange}/>
-          </FormGroup>
+       
+       
           <Button onClick={this.submitNewQuiz}>Submit New Quiz</Button>
-        </form>
+          </Form>
       </CardBody>
     </Card>
     )

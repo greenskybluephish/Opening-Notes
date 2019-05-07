@@ -5,7 +5,7 @@ import App from './App';
 import { BrowserRouter as Router } from "react-router-dom"
 // import * as serviceWorker from './serviceWorker';
 import "./assets/css/blk-design-system.css"
-import "./assets/css/nucleo-icons.css";
+// import "./assets/css/nucleo-icons.css";
 
 ReactDOM.render(  <Router>
   <App />
