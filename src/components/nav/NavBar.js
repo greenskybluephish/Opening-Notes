@@ -3,12 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   Collapse,
-
+  NavbarBrand,
+  NavbarToggler,
   Navbar,
   NavItem,
   NavLink,
   Nav,
-  Container
+
 } from "reactstrap";
 
 
@@ -18,15 +19,15 @@ import {
 export default class NavBar extends React.Component {
 
   state = {
-    collapseOpen: false
+    isOpen: true
   }
 
-  toggleCollapse = () => {
-    document.documentElement.classList.toggle("nav-open");
+  toggle =() => {
     this.setState({
-      collapseOpen: !this.state.collapseOpen
+      isOpen: !this.state.isOpen
     });
-  };
+  }
+
   onCollapseExiting = () => {
     this.setState({
       collapseOut: "collapsing-out"
@@ -45,20 +46,16 @@ export default class NavBar extends React.Component {
   
   render() {
     return (
+      <div>
         <Navbar className="bg-info" expand="lg">
-          <Container>
-            <button className="navbar-toggler" id="navbarNav" type="button" onClick={this.toggleCollapse}>
+          <NavbarBrand>QuizTime</NavbarBrand>
+          <button onClick={this.toggle} className="navbar-toggler" id="navbarNav" type="button">
               <span className="navbar-toggler-bar navbar-kebab" />
               <span className="navbar-toggler-bar navbar-kebab" />
               <span className="navbar-toggler-bar navbar-kebab" />
             </button>
-            <Collapse
-            className={"justify-content-end " + this.state.collapseOut}
-            navbar
-            isOpen={this.state.collapseOpen}
-            onExiting={this.onCollapseExiting}
-            onExited={this.onCollapseExited}
-          >
+            <Collapse isOpen={!this.state.isOpen} navbar>
+          
               <Nav navbar>
                 <NavItem className="active">
                   <NavLink tag={Link} to="/home">
@@ -83,9 +80,8 @@ export default class NavBar extends React.Component {
 
               </Nav>
             </Collapse>
-          </Container>
         </Navbar>
-      
+        </div>
     );
   }
 }

@@ -29,7 +29,7 @@ render() {
           }],
     "id": trackId,
     "name": trackName,
-    // "uri": trackURI
+    "uri": trackURI
     } = this.props.track
 
   return (

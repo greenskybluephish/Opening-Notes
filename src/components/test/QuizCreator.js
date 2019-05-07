@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import quizAPI from "../../modules/jsonAPIManager"
 import SongSlider from "./Slider"
 import "./test.css"
-import { Button, ListGroup, ListGroupItem, FormGroup,
+import { Button, ListGroup, FormGroup,
   Label,
   Input,
   Card,
@@ -11,6 +11,8 @@ import { Button, ListGroup, ListGroupItem, FormGroup,
 Row,
 Form,
 Col } from 'reactstrap';
+import QuizSongCreator from "./QuizSongCreator"
+
 
 export default class QuizCreator extends Component {
 
@@ -85,7 +87,8 @@ submitNewQuiz = event => {
             <Label for="quizSongs">Quiz Songs:</Label>
             <ListGroup id="quizSongs">
     {this.props.quizTracks.map(track => {
-      return <ListGroupItem key={track.id}>{track.name} - {track.album.name} <SongSlider></SongSlider></ListGroupItem>
+      return <QuizSongCreator key={track.id} track={track}>
+      </QuizSongCreator>
     })}
     </ListGroup>
           </FormGroup>

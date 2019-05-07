@@ -6,3 +6,7 @@
   max-height: 300px;
   overflow: auto;
 }
+
+.song-name {
+  padding-bottom: 10px;
+}

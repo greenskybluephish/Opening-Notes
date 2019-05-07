@@ -164,7 +164,29 @@ export default {
         //return error note.
         console.error(err);
       }
+    },
+  
+  async playOneSong(track, time) {
+    const spotifyRequest = window.OAuth.create("spotify");
+    const accessToken = spotifyRequest.access_token
+    try { 
+      await fetch(`https://api.spotify.com/v1/me/player/play`, {
+        body: JSON.stringify({
+          "uris": [track],
+          "position_ms": time
+        }), 
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "PUT"
+      })
+    } 
+    catch(err) {
+      //return error note.
+      console.error(err);
     }
   }
-
-};
+}
+}
