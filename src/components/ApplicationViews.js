@@ -26,6 +26,7 @@ class ApplicationViews extends Component {
     this.setState({ userLoggedIn: status })
     const spotifyRequest = window.OAuth.create("spotify");
     const accessToken = spotifyRequest.access_token
+    sessionStorage.setItem("access_token", accessToken)
     this.setState({ access_token: accessToken });
       
   }
@@ -52,7 +53,7 @@ class ApplicationViews extends Component {
         />
         <AuthRoute
           path="/home"
-          Destination={Home} access_token={this.state.access_token}
+          Destination={Home} userLoggedIn={this.state.userLoggedIn}
         />
         <Route
           path="/login"
@@ -61,7 +62,7 @@ class ApplicationViews extends Component {
           }}
         />
         <AuthRoute
-          path="/test"
+          path="/create"
           Destination={Test} access_token={this.state.access_token}
         />
         <AuthRoute

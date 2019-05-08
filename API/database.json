@@ -516,6 +516,142 @@
         "spotify:track:6NTVXHJ6Gl2uqWzHdTz0tA"
       ],
       "id": 2
+    },
+    {
+      "userId": 1,
+      "quizName": "Maze or Bowie",
+      "quizDescription": "Don't Bowie my Maze.....",
+      "quizTrackIds": [
+        {
+          "album": "LivePhish 04/05/98",
+          "artists": "Phish",
+          "id": "04xNCRMGLm1vpjbYgIdk67",
+          "name": "Maze",
+          "startTime": 8,
+          "uri": "spotify:track:04xNCRMGLm1vpjbYgIdk67"
+        },
+        {
+          "album": "LivePhish, Vol. 12 8/13/96 (Deer Creek Music Center, Noblesville, IN)",
+          "artists": "Phish",
+          "id": "46GtuTjo1hyQ2RKeYaNyEv",
+          "name": "Maze",
+          "startTime": 7,
+          "uri": "spotify:track:46GtuTjo1hyQ2RKeYaNyEv"
+        },
+        {
+          "album": "LivePhish 10/21/95",
+          "artists": "Phish",
+          "id": "73Qsd1J10EW5RseLBYeeCp",
+          "name": "David Bowie",
+          "startTime": 8,
+          "uri": "spotify:track:73Qsd1J10EW5RseLBYeeCp"
+        },
+        {
+          "album": "LivePhish 11/14/95",
+          "artists": "Phish",
+          "id": "019wpE7wBMECXVhoHLT0W3",
+          "name": "Maze",
+          "startTime": 75,
+          "uri": "spotify:track:019wpE7wBMECXVhoHLT0W3"
+        },
+        {
+          "album": "Phish: Ventura",
+          "artists": "Phish",
+          "id": "09cgBvUQk4H5C9bak6hXE6",
+          "name": "David Bowie",
+          "startTime": 144,
+          "uri": "spotify:track:09cgBvUQk4H5C9bak6hXE6"
+        },
+        {
+          "album": "Amsterdam",
+          "artists": "Phish",
+          "id": "4nR86x33jO6RUnex8xSf3Z",
+          "name": "Maze",
+          "startTime": 2,
+          "uri": "spotify:track:4nR86x33jO6RUnex8xSf3Z"
+        },
+        {
+          "album": "Amsterdam",
+          "artists": "Phish",
+          "id": "58XDfphWKCeOoJvMoNw9HI",
+          "name": "David Bowie",
+          "startTime": 27,
+          "uri": "spotify:track:58XDfphWKCeOoJvMoNw9HI"
+        },
+        {
+          "album": "LivePhish, Vol. 10 6/22/94 (Veterans Memorial Auditorium, Columbus, OH)",
+          "artists": "Phish",
+          "id": "6gFT5JIkcdKNHtBO8rIKDy",
+          "name": "Maze",
+          "startTime": 0,
+          "uri": "spotify:track:6gFT5JIkcdKNHtBO8rIKDy"
+        },
+        {
+          "album": "Live Phish: 7/4/10 Verizon Wireless At Encore Park, Alpharetta, GA",
+          "artists": "Phish",
+          "id": "7xN0cR0ytACXB7mFhyQm6W",
+          "name": "David Bowie",
+          "startTime": 3,
+          "uri": "spotify:track:7xN0cR0ytACXB7mFhyQm6W"
+        },
+        {
+          "album": "LivePhish 12/29/97",
+          "artists": "Phish",
+          "id": "4vKn3dCV3RP4YXzdiZmSYc",
+          "name": "David Bowie",
+          "startTime": 6,
+          "uri": "spotify:track:4vKn3dCV3RP4YXzdiZmSYc"
+        },
+        {
+          "album": "Phish: Live In Utica 2010",
+          "artists": "Phish",
+          "id": "17HEEaDQCHwAb8Kymzotp3",
+          "name": "David Bowie",
+          "startTime": 54,
+          "uri": "spotify:track:17HEEaDQCHwAb8Kymzotp3"
+        },
+        {
+          "album": "Phish: Ventura",
+          "artists": "Phish",
+          "id": "6qZPKlm9wrcRPJLbRI4NXb",
+          "name": "Maze",
+          "startTime": 16,
+          "uri": "spotify:track:6qZPKlm9wrcRPJLbRI4NXb"
+        },
+        {
+          "album": "At The Roxy (Atlanta ' 93)",
+          "artists": "Phish",
+          "id": "7l6jbqa9YZ2iwn62myOtqW",
+          "name": "Maze",
+          "startTime": 0,
+          "uri": "spotify:track:7l6jbqa9YZ2iwn62myOtqW"
+        },
+        {
+          "album": "LivePhish, Vol. 9 8/26/89 (Townshend Famlly Park, Townshend, VT)",
+          "artists": "Phish",
+          "id": "1qW8zv2f8j7JB9z121XPQT",
+          "name": "David Bowie",
+          "startTime": 19,
+          "uri": "spotify:track:1qW8zv2f8j7JB9z121XPQT"
+        },
+        {
+          "album": "LivePhish, Vol. 12 8/13/96 (Deer Creek Music Center, Noblesville, IN)",
+          "artists": "Phish",
+          "id": "16A0KmksmmcgQVgrWdDwEy",
+          "name": "David Bowie",
+          "startTime": 14,
+          "uri": "spotify:track:16A0KmksmmcgQVgrWdDwEy"
+        },
+        {
+          "album": "LivePhish 07/06/98",
+          "artists": "Phish",
+          "id": "7KlwAAnU8KEhYmuzCNnSVr",
+          "name": "Maze",
+          "startTime": 13,
+          "uri": "spotify:track:7KlwAAnU8KEhYmuzCNnSVr"
+        }
+      ],
+      "id": 3
     }
   ],
   "quizLogs": []

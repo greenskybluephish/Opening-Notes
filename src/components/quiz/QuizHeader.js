@@ -17,7 +17,7 @@ export default class QuizHeader extends Component {
 
 state = {
   quizzes: [],
-  selectedQuiz: ""
+  selectedQuiz: 1
 }
 
 async componentDidMount() {
@@ -52,7 +52,7 @@ handleStart = (e) => {
           <Label for="selectedQuiz">Select Quiz</Label>
           <Input type="select" name="select" id="selectedQuiz" onChange={this.handleFieldChange} default="1">
             {this.state.quizzes.map(quiz => {
-      return (<option value={quiz.id} key={quiz.id}>{quiz.quizName}</option>)
+      return (<option className="option-text" value={quiz.id} key={quiz.id}>{quiz.quizName}</option>)
     })}
           </Input>
           </FormGroup>

@@ -1,26 +1,56 @@
 import React from "react";
 // reactstrap components
 import { Link } from "react-router-dom";
+import "./navbar.css"
 import {
+  // Button,
   Collapse,
-
+  NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
   Nav,
-  Container
+  Container,
+  Row,
+  Col
 } from "reactstrap";
-
-
+import "bootstrap/dist/css/bootstrap.min.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 
 
 export default class NavBar extends React.Component {
 
   state = {
-    collapseOpen: false
+    collapseOpen: false,
+    color: "bg-info",
+    collapseOut: ""
   }
 
+  componentDidMount() {
+    window.addEventListener("scroll", this.changeColor);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.changeColor);
+  }
+  // changeColor = () => {
+  //   if (
+  //     document.documentElement.scrollTop > 99 ||
+  //     document.body.scrollTop > 99
+  //   ) {
+  //     this.setState({
+  //       color: "bg-info"
+  //     });
+  //   } else if (
+  //     document.documentElement.scrollTop < 100 ||
+  //     document.body.scrollTop < 100
+  //   ) {
+  //     this.setState({
+  //       color: "navbar-transparent"
+  //     });
+  //   }
+  // };
   toggleCollapse = () => {
     document.documentElement.classList.toggle("nav-open");
     this.setState({
@@ -37,6 +67,11 @@ export default class NavBar extends React.Component {
       collapseOut: ""
     });
   };
+  scrollToDownload = () => {
+    document
+      .getElementById("download-section")
+      .scrollIntoView({ behavior: "smooth" });
+  };
 
   localLogout = () => {
     sessionStorage.clear();
@@ -45,20 +80,47 @@ export default class NavBar extends React.Component {
   
   render() {
     return (
-        <Navbar className="bg-info" expand="lg">
-          <Container>
-            <button className="navbar-toggler" id="navbarNav" type="button" onClick={this.toggleCollapse}>
-              <span className="navbar-toggler-bar navbar-kebab" />
-              <span className="navbar-toggler-bar navbar-kebab" />
-              <span className="navbar-toggler-bar navbar-kebab" />
+       <Navbar
+        className={this.state.color}
+        // color-on-scroll="100"
+        expand="lg"
+      >
+        <Container>
+          <div className="navbar-translate">
+            <NavbarBrand
+            to="/"
+            data-placement="bottom"
+            tag={Link}>QuizTime</NavbarBrand>
+            <button
+              aria-expanded={this.state.collapseOpen}
+              className="navbar-toggler navbar-toggler"
+              onClick={this.toggleCollapse}
+            >
+            <FontAwesomeIcon icon={faBars} />
             </button>
-            <Collapse
-            className={"justify-content-end " + this.state.collapseOut}
+          </div>
+          <Collapse             
+          className={"justify-content-end " + this.state.collapseOut}
             navbar
             isOpen={this.state.collapseOpen}
             onExiting={this.onCollapseExiting}
-            onExited={this.onCollapseExited}
-          >
+            onExited={this.onCollapseExited}>
+                        <div className="navbar-collapse-header">
+              <Row>
+                <Col className="collapse-brand" xs="6">
+                  QuizTime
+                </Col>
+                <Col className="collapse-close text-right" xs="6">
+                  <button
+                    aria-expanded={this.state.collapseOpen}
+                    className="navbar-toggler"
+                    onClick={this.toggleCollapse}
+                  >
+                   <FontAwesomeIcon icon={faBars} />
+                  </button>
+                </Col>
+              </Row>
+            </div>
               <Nav navbar>
                 <NavItem className="active">
                   <NavLink tag={Link} to="/home">
@@ -66,8 +128,8 @@ export default class NavBar extends React.Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} to="/test">
-                    Test
+                  <NavLink tag={Link} to="/create">
+                    Quiz Creator
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -80,12 +142,10 @@ export default class NavBar extends React.Component {
                 Log Out
                 </NavLink>
                 </NavItem>
-
               </Nav>
             </Collapse>
-          </Container>
+            </Container>
         </Navbar>
-      
     );
   }
 }

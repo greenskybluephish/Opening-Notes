@@ -32,7 +32,7 @@ export default class Quiz extends Component {
 
       this.player = new window.Spotify.Player({
         name: "Brians's Spotify Player",
-        getOAuthToken: cb => { cb(token); },
+        getOAuthToken: cb => { cb(token); }
       });
 
       this.createEventHandlers();
@@ -71,7 +71,16 @@ export default class Quiz extends Component {
 
   selectQuiz = (quizId) => {
     quizAPI.getOneEntry("quizs", quizId).then(quiz => {
-      const quizTracks = quiz.quizTrackIds
+      let quizTrackInfo = quiz.quizTrackIds
+      let quizTracks = [];
+      while (quizTrackInfo.length !== 0) {
+        let randomIndex = Math.floor(Math.random() * quizTrackInfo.length)
+          quizTracks.push(quizTrackInfo[randomIndex]);
+          quizTrackInfo.splice(randomIndex, 1);
+      }
+      console.log(quizTracks);
+      
+
        this.setState({ quizTracks: quizTracks, startQuiz: true})
   })
   }
@@ -81,13 +90,19 @@ export default class Quiz extends Component {
 
 
   handleStart = () => { 
-    spotifyAPI.put.startPlayback(this.state.deviceId, this.state.quizTracks).then(() => {
-      
-    })
+    const quizTrackIds = this.state.quizTracks.map(track => track.uri)
+    const firstStart = this.state.quizTracks[0].startTime
+      spotifyAPI.put.startPlayback(this.state.deviceId, quizTrackIds, (firstStart * 1000)).then(() => {
     setTimeout(() => {
       this.handleStop();
-      this.nextTrack();
-    }, 2000);
+      this.nextTrackInfo();
+
+    }, 12000);
+    
+  
+    })
+
+
   }
 
   handleSeek = () => {
@@ -102,10 +117,11 @@ export default class Quiz extends Component {
   handlePlay = () => {
 
     this.handleSeek();
+    
       setTimeout(() => {
-        this.nextTrack();
+        this.nextTrackInfo();
         this.handleStop();
-      }, 10000);
+      }, 12000);
     }
   
 
@@ -115,29 +131,28 @@ export default class Quiz extends Component {
 
 
 
-  nextTrack = () => {
-    this.player.getCurrentState().then(state => {
-      if (!state) {
+  nextTrackInfo = () => {
+    this.player.getCurrentState().then(status => {
+      if (!status) {
         console.error('User is not playing music through the Web Playback SDK');
         alert("Please close spotify on all devices.")
         return;
       }
-      console.log(state)
+      console.log(status)
       let newState = {}
-      let currentTrack = state.track_window.current_track.name
+      let currentTrack = status.track_window.current_track.name
       newState.currentTrack = currentTrack
-      let nextTrack = state.track_window.next_tracks[0].id;
+      let nextTrack = status.track_window.next_tracks[0].id;
       newState.nextTrack = nextTrack
       newState.offset = (this.state.offset + 1)
-      spotifyAPI.get.spotifyTrackInfo(nextTrack).then(startTime => {
-      console.log(startTime)
+      let startTime = this.state.quizTracks[this.state.offset].startTime
       newState.nextStart = startTime
       this.setState(newState)
       });
       
       
-    });
-  }
+    };
+  
 
 
 

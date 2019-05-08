@@ -19,8 +19,9 @@ export default class QuizBox extends Component {
     inputAnswer: "",
     correctAnswers: 0,
     totalQuestions: 0,
-    hasAnswered: true,
-    disablePlayButton: false
+    hasAnswered: false,
+    disablePlayButton: false,
+    disableSubmitButton: true
 }
 
   componentDidMount() {
@@ -40,12 +41,15 @@ handleSubmit = event => {
     // prevent the page from going to another page
     if (!this.state.hasAnswered) {
     this.setState({totalQuestions: this.state.totalQuestions + 1, disablePlayButton:false})
-    this.toggleAnswered();
+    this.toggle("hasAnswered");
     event.preventDefault();
     if (this.state.inputAnswer === "") {
       alert("Please enter an answer!")
     }
-      else if (this.props.currentTrack === this.state.inputAnswer) {
+      else {
+        let inputAnswer= this.state.inputAnswer.toLowerCase();
+        let correctAnswer = this.props.currentTrack.toLowerCase();
+        if (correctAnswer.includes(inputAnswer) && inputAnswer.length >= 3) {
         this.setState({correctAnswers: this.state.correctAnswers + 1})
         alert("Correct")
         let form = event.target.parentNode;
@@ -55,7 +59,8 @@ handleSubmit = event => {
         let form = event.target.parentNode;
         form.reset();
       }
-    } else {
+    }
+   } else {
       alert("Play the next song!")
     }
 
@@ -63,17 +68,18 @@ handleSubmit = event => {
 
 
 
-    toggleAnswered = () => {
+    toggle = (stateToToggle) => {
       this.setState({
-        hasAnswered: !this.state.hasAnswered
+        [stateToToggle]: !this.state[stateToToggle]
       })
     }
 
     playSong = () => {
       if (this.state.hasAnswered) {
-        this.setState({disablePlayButton: true})
+        this.toggle("disablePlayButton")
         this.props.handlePlay();
-        this.toggleAnswered();
+        this.setState()
+        this.toggle("hasAnswered");
       } else {
         alert("Please submit an answer.")
       }

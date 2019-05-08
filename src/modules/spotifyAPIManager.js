@@ -55,7 +55,7 @@ export default {
     const spotifyRequest = window.OAuth.create("spotify");
     const accessToken = spotifyRequest.access_token
     try { 
-      let response = await fetch(`${remoteURL}/playlists/${playlistURI}/tracks?market=US&fields=items(track(id%2Cname%2Curi%2C%20album(name)%2Cartists(name)))&limit=100`,         {
+      let response = await fetch(`${remoteURL}/playlists/${playlistURI}/tracks?market=US&fields=items(track(id%2Cduration_ms%2Cname%2Curi%2C%20album(name)%2Cartists(name)))&limit=100`,         {
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${accessToken}`,
@@ -63,7 +63,9 @@ export default {
         }
       })
       let json = await response.json();
-      return json.items
+      let items = json.items;
+      let tracks = items.map(tracks => tracks.track)
+      return tracks
   
     } 
       catch(err) {
@@ -141,14 +143,14 @@ export default {
         method: "PUT"
       })
     },
-    async startPlayback(deviceId, quizTracks) {
+    async startPlayback(deviceId, quizTracks, time) {
       const spotifyRequest = window.OAuth.create("spotify");
       const accessToken = spotifyRequest.access_token
       try { 
         await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
           body: JSON.stringify({
             "uris": quizTracks,
-            "position_ms": 0
+            "position_ms": time
           }), 
           headers: {
             Accept: "application/json",
@@ -162,7 +164,48 @@ export default {
         //return error note.
         console.error(err);
       }
+    },
+  
+  async playOneSong(track, time) {
+    const spotifyRequest = window.OAuth.create("spotify");
+    const accessToken = spotifyRequest.access_token
+    try { 
+      await fetch(`https://api.spotify.com/v1/me/player/play`, {
+        body: JSON.stringify({
+          "uris": [track],
+          "position_ms": time
+        }), 
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "PUT"
+      })
+    } 
+    catch(err) {
+      //return error note.
+      console.error(err);
+    }
+  },
+  async pauseSong() {
+    const spotifyRequest = window.OAuth.create("spotify");
+    const accessToken = spotifyRequest.access_token
+    try { 
+      await fetch(`https://api.spotify.com/v1/me/player/pause`, {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "PUT"
+      })
+    } 
+    catch(err) {
+      //return error note.
+      console.error(err);
     }
   }
-
-};
+  
+}
+}

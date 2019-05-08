@@ -17,23 +17,7 @@ export default class Test extends Component {
     quizTracks: []
   }
 
-   handlePlay = () => {
-    API.get.spotifyAlbumTracks().then(tracks => {
-      tracks.forEach(track => {
-        setTimeout(() => {
-          API.get.spotifyTrackInfo(track).then(async data => {
-            let song = await data
-                  let songObject = {
-                  "spotifyURI": song[0],
-                  "position_ms": song[1]
-                 }
-               API.post.toJSONServer("spotifyTracks", songObject)
-        }, 100);
 
-    })
-})
-
-    }  )}
 
     toggle = () => {
       this.setState({
@@ -53,11 +37,21 @@ export default class Test extends Component {
       this.toggle();
     }
 
+    hideTracks = () => {
+      this.setState({showTracks: false})
+    }
+
     addToQuiz = (trackURI) => {
 
       const addTrackToState = this.state.quizTracks.concat(trackURI);
       this.setState({quizTracks: addTrackToState})
      } 
+
+     removeFromQuiz = (trackURI) => {
+      const filteredQuiz = this.state.quizTracks.filter(quiz => {
+        return (quiz !== trackURI)
+      }); this.setState({quizTracks: filteredQuiz})
+     }
 
     clearQuizTracks = () => {
       this.setState({quizTracks: []})
@@ -69,7 +63,7 @@ export default class Test extends Component {
       return (
         <Container className="App">
 
-        <QuizCreator quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks}></QuizCreator>
+        <QuizCreator quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>
 
 
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -85,7 +79,7 @@ export default class Test extends Component {
           })}
           </DropdownMenu>
       </Dropdown>
-      {showPlaylist && <UserPlaylists addToQuiz={this.addToQuiz}  playlist={this.state.activePlaylist}></UserPlaylists>}
+      {showPlaylist && <UserPlaylists addToQuiz={this.addToQuiz} removeFromQuiz={this.removeFromQuiz} playlist={this.state.activePlaylist}></UserPlaylists>}
       
 
 

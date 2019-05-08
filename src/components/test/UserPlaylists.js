@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import spotifyAPIManager from "../../modules/spotifyAPIManager"
-import { Table } from 'reactstrap'
+import { Table, Button } from 'reactstrap'
 import SongFile from "./SongFile"
 
 
@@ -25,6 +25,9 @@ state = {
     }
   }  
 
+  handleClick = () => {
+    this.props.addToQuiz(this.state.playlistTracks)
+  }
 
 
 
@@ -33,7 +36,7 @@ state = {
 
     return (
       <div>
-      <h2>{this.props.playlist.name}</h2> 
+      <h2>{this.props.playlist.name}</h2> <Button onClick={this.handleClick}>Add all songs</Button>
           <Table responsive>
             <thead>
                 <tr>
@@ -47,7 +50,7 @@ state = {
             </thead>
             <tbody>
             {this.state.playlistTracks.map((track, i) => {
-              return <SongFile addToQuiz={this.props.addToQuiz} key={track.track.id} index={i+1} track={track}></SongFile>
+              return <SongFile key={track.id} index={i+1} track={track} addToQuiz={this.props.addToQuiz} removeFromQuiz={this.props.removeFromQuiz}></SongFile>
             })}
             </tbody>
               </Table>
