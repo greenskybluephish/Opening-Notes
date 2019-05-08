@@ -88,8 +88,8 @@ export default {
           let arrayLoudness = sections.map(section => section.loudness);
           let startingPoint = arrayLoudness.findIndex(section => section > -15.5)
           if (startingPoint <= 2 && startingPoint >= 0) {
-            // console.log([uri, sections[startingPoint].start*1000, 1])
-            return (sections[startingPoint].start * 1000)
+              console.log([uri, sections[startingPoint].start*1000, 1])
+            return (sections[startingPoint].start)
           } else {
             if (arrayLoudness[0] > arrayLoudness[1]) {
               // console.log([uri, 0, 2])
@@ -98,8 +98,8 @@ export default {
               let firstSections = arrayLoudness.slice(0, 5);
               let averageLoudness = firstSections.reduce((a, b) => a + b) / firstSections.length;
               let newPoint = sections.findIndex(section => section.loudness > averageLoudness);
-              // console.log([uri, sections[newPoint].start* 1000, 3])
-              return (sections[newPoint].start * 1000)
+              console.log([uri, sections[newPoint].start* 1000, 3])
+              return (sections[newPoint].start)
 
             }
           }

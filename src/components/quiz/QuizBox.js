@@ -23,7 +23,6 @@ export default class QuizBox extends Component {
     inputAnswer: "",
     correctAnswers: 0,
     totalQuestions: 0,
-    hasAnswered: false,
     disableButton: false,
     disableSubmitButton: true,
     clipLength: 12000

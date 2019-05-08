@@ -20,6 +20,12 @@ export default class QuizSongCreator extends Component {
 
   };
 
+  componentDidMount() {
+    spotifyAPI.get.spotifyTrackInfo(this.props.track.id).then(value => {
+      this.setState({value: value})
+    })
+  }
+
   log = value => {
     return this.secondsToMinutes(value); //eslint-disable-line
   };
