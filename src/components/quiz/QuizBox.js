@@ -12,6 +12,10 @@ import {
   Badge
 } from "reactstrap";
 import "./quiz.css"
+import spotifyAPI from "../../modules/spotifyAPIManager"
+
+
+
 
 export default class QuizBox extends Component {
 
@@ -20,14 +24,10 @@ export default class QuizBox extends Component {
     correctAnswers: 0,
     totalQuestions: 0,
     hasAnswered: false,
-    disablePlayButton: false,
-    disableSubmitButton: true
+    disableButton: false,
+    disableSubmitButton: true,
+    clipLength: 12000
 }
-
-  componentDidMount() {
-    this.props.handleStart()
-  }
-
 
 
 // handle the field change when the input box is edited
@@ -38,35 +38,36 @@ handleFieldChange = event => {
 }
 
 handleSubmit = event => {
-    // prevent the page from going to another page
-    if (!this.state.hasAnswered) {
-    this.setState({totalQuestions: this.state.totalQuestions + 1, disablePlayButton:false})
-    this.toggle("hasAnswered");
-    event.preventDefault();
+  const index = this.state.totalQuestions
+  event.preventDefault();
     if (this.state.inputAnswer === "") {
       alert("Please enter an answer!")
     }
       else {
+        this.toggle("disableButton")
+        this.toggle("disableSubmitButton")
         let inputAnswer= this.state.inputAnswer.toLowerCase();
-        let correctAnswer = this.props.currentTrack.toLowerCase();
+        let correctAnswer = this.props.quizTracks[index].name.toLowerCase();
+        let form = event.target.parentNode;
         if (correctAnswer.includes(inputAnswer) && inputAnswer.length >= 3) {
-        this.setState({correctAnswers: this.state.correctAnswers + 1})
-        alert("Correct")
-        let form = event.target.parentNode;
+        alert(`Correct, the answer is ${this.props.quizTracks[index].name}`)
         form.reset();
+        this.setState({totalQuestions: this.state.totalQuestions + 1})
       } else {
-        alert(`Sorry, the correct answer is ${this.props.currentTrack}`)
-        let form = event.target.parentNode;
+        alert(`Sorry, the correct answer is ${this.props.quizTracks[index].name}`)
+        this.setState({totalQuestions: this.state.totalQuestions + 1})
         form.reset();
       }
     }
-   } else {
-      alert("Play the next song!")
+   } 
+
+
+    playSong = () => {
+      const index = this.state.totalQuestions
+      const {uri, startTime} = this.props.quizTracks[index]
+      spotifyAPI.put.playOneSong(uri, startTime, this.props.deviceId)
     }
-
-    }
-
-
+    
 
     toggle = (stateToToggle) => {
       this.setState({
@@ -74,16 +75,15 @@ handleSubmit = event => {
       })
     }
 
-    playSong = () => {
-      if (this.state.hasAnswered) {
-        this.toggle("disablePlayButton")
-        this.props.handlePlay();
-        this.setState()
-        this.toggle("hasAnswered");
-      } else {
-        alert("Please submit an answer.")
+    handlePlaySong = () => {
+        this.toggle("disableButton")
+        this.playSong();
+        setTimeout(() => {
+          spotifyAPI.put.pauseSong();
+          this.toggle("disableSubmitButton")
+        }, this.state.clipLength);
       }
-    }
+
 
 
 
@@ -94,7 +94,7 @@ handleSubmit = event => {
           <h2 className="display-4">Quiz Time</h2>
           <p className="lead">Click the play button to test your skills!</p>
           <hr className="my-2" />
-          <Button onClick={this.playSong} disabled={this.state.disablePlayButton}>Play song!
+          <Button onClick={this.handlePlaySong} disabled={this.state.disableButton}>Play song!
           </Button>
           <Badge>{this.state.correctAnswers}</Badge>
 
@@ -106,7 +106,7 @@ handleSubmit = event => {
             <Input type="text" onChange={this.handleFieldChange} name="text" id="inputAnswer" placeholder="Enter your guess!" />
           </Col>
           </FormGroup>
-          <Button onClick={this.handleSubmit}>Submit</Button>
+          <Button onClick={this.handleSubmit} disabled={this.state.disableSubmitButton}>Submit</Button>
         </Form>
 
         </Jumbotron>

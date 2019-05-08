@@ -104,10 +104,6 @@ export default {
             }
           }
         })
-    },
-
-    JSONtracks() {
-      return fetch(`${baseURL}/spotifyTracks`).then(res => res.json());
     }
   },
   post: {
