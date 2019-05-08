@@ -187,6 +187,25 @@ export default {
       //return error note.
       console.error(err);
     }
+  },
+  async pauseSong() {
+    const spotifyRequest = window.OAuth.create("spotify");
+    const accessToken = spotifyRequest.access_token
+    try { 
+      await fetch(`https://api.spotify.com/v1/me/player/pause`, {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "PUT"
+      })
+    } 
+    catch(err) {
+      //return error note.
+      console.error(err);
+    }
   }
+  
 }
 }

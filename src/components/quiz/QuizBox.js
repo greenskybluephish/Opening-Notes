@@ -19,7 +19,7 @@ export default class QuizBox extends Component {
     inputAnswer: "",
     correctAnswers: 0,
     totalQuestions: 0,
-    hasAnswered: true,
+    hasAnswered: false,
     disablePlayButton: false,
     disableSubmitButton: true
 }
@@ -47,9 +47,9 @@ handleSubmit = event => {
       alert("Please enter an answer!")
     }
       else {
-        let inputAnswer= RegExp(this.state.inputAnswer.toLowerCase());
+        let inputAnswer= this.state.inputAnswer.toLowerCase();
         let correctAnswer = this.props.currentTrack.toLowerCase();
-        if (inputAnswer.test(correctAnswer) && inputAnswer.length >= 3) {
+        if (correctAnswer.includes(inputAnswer) && inputAnswer.length >= 3) {
         this.setState({correctAnswers: this.state.correctAnswers + 1})
         alert("Correct")
         let form = event.target.parentNode;

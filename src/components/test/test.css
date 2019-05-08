@@ -10,3 +10,7 @@
 .song-name {
   padding-bottom: 10px;
 }
+
+div.table-responsive {
+  overflow: visible;
+}
