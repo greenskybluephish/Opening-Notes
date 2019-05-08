@@ -5,6 +5,7 @@ import Login from "./authentication/Login";
 import Test from "./test/Test"
 import AuthRoute from "./authentication/AuthRoute"
 import Quiz from "./quiz/Quiz"
+import spotifyPlayer from "../modules/playback-function"
 
 
 
@@ -12,8 +13,8 @@ class ApplicationViews extends Component {
   state = {
     access_token: "",
     userLoggedIn: false,
-    currentUser: ""
- 
+    currentUser: "",
+    deviceId: ""
   };
 
   componentDidMount() {
@@ -28,10 +29,15 @@ class ApplicationViews extends Component {
     const accessToken = spotifyRequest.access_token
     sessionStorage.setItem("access_token", accessToken)
     this.setState({ access_token: accessToken });
-      
+    setTimeout(() => {
+      spotifyPlayer.createSpotifyPlayer().then(id=> {
+        console.log(id)
+        this.setState({deviceId: id})
+      }) 
+    }, 1000)
   }
 
-
+  
 
 
 
@@ -64,6 +70,7 @@ class ApplicationViews extends Component {
         <AuthRoute
           path="/create"
           Destination={Test} access_token={this.state.access_token}
+          deviceId={this.state.deviceId}
         />
         <AuthRoute
           path="/quiz"

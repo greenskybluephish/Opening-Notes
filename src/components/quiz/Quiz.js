@@ -25,6 +25,9 @@ export default class Quiz extends Component {
        this.playerCheckInterval = setInterval(() => this.checkForPlayer(this.props.access_token), 1000)
   }
 
+  
+
+
   checkForPlayer = (token) => {
   
     if (window.Spotify !== null) {

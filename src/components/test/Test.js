@@ -63,7 +63,7 @@ export default class Test extends Component {
       return (
         <Container className="App">
 
-        <QuizCreator quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>
+        <QuizCreator deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>
 
 
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>

@@ -113,7 +113,7 @@ export default class QuizCreator extends Component {
             <Label for="quizSongs">Quiz Songs:</Label>
             <ListGroup id="quizSongs">
     {this.props.quizTracks.map(track => {
-      return <QuizSongCreator key={track.id} track={track} clipLength={this.state.clipLength} addTrackToQuiz={this.addTrackToQuiz}>
+      return <QuizSongCreator key={track.id} track={track} clipLength={this.state.clipLength}  addTrackToQuiz={this.addTrackToQuiz} deviceId={this.props.deviceId}>
       </QuizSongCreator>
     })}
     </ListGroup>

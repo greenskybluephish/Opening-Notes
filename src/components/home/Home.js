@@ -1,23 +1,16 @@
 import React, { Component } from "react"
 import { Container } from "reactstrap"
-
+import spotifyPlayer from "../../modules/playback-function"
 
 
 export default class Home extends Component {
 
-  // state = {
-  //   token: "",
-  //   deviceId: "",
-  //   loggedIn: false,
-  //   error: "",
-  //   playerCheckInterval: null,
-  //   quizTracks: [],
-  //   currentTrack: "",
-  //   nextTrack: "",
-  //   nextStart: 0,
-  //   offset: 1,
-  //   startQuiz: false
-  // }
+
+componentDidMount() {
+  // setTimeout(() => {
+  //   spotifyPlayer.createSpotifyPlayer().then(id=> console.log(id))
+  // }, 1000)
+}
 
 
 

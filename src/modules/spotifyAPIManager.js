@@ -166,11 +166,11 @@ export default {
       }
     },
   
-  async playOneSong(track, time) {
+  async playOneSong(track, time, deviceId) {
     const spotifyRequest = window.OAuth.create("spotify");
     const accessToken = spotifyRequest.access_token
     try { 
-      await fetch(`https://api.spotify.com/v1/me/player/play`, {
+      await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
         body: JSON.stringify({
           "uris": [track],
           "position_ms": time
