@@ -52,7 +52,7 @@ handleSubmit = event => {
         if (correctAnswer.includes(inputAnswer) && inputAnswer.length >= 3) {
         alert(`Correct, the answer is ${this.props.quizTracks[index].name}`)
         form.reset();
-        this.setState({questionIndex: this.state.questionIndex + 1, correctAnswer: this.state.correctAnswers+1})
+        this.setState({questionIndex: this.state.questionIndex + 1, correctAnswers: this.state.correctAnswers+1})
       } else {
         alert(`Sorry, the correct answer is ${this.props.quizTracks[index].name}`)
         this.setState({questionIndex: this.state.questionIndex + 1})
