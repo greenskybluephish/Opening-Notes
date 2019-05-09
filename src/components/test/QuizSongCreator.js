@@ -16,14 +16,13 @@ export default class QuizSongCreator extends Component {
     saveButton: true,
     alertColor: "danger",
     isPlaying: false,
-    shouldPause: false,
-
+    shouldPause: false
   };
 
   componentDidMount() {
     spotifyAPI.get.spotifyTrackInfo(this.props.track.id).then(value => {
-      this.setState({value: value})
-    })
+      this.setState({ value: value });
+    });
   }
 
   log = value => {
@@ -35,7 +34,7 @@ export default class QuizSongCreator extends Component {
   };
 
   onAfterChange = value => {
-    let device = this.props.deviceId
+    let device = this.props.deviceId;
     console.log(value);
     if (!this.state.isPlaying) {
       this.setState({ isPlaying: true, shouldPause: true });
@@ -70,7 +69,8 @@ export default class QuizSongCreator extends Component {
       id: this.props.track.id,
       name: this.props.track.name,
       startTime: this.state.value,
-      uri: this.props.track.uri
+      uri: this.props.track.uri,
+      duration: this.props.track.duration_ms
     };
     this.props.addTrackToQuiz(trackInfo);
     this.setState({
