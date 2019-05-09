@@ -7,6 +7,8 @@ import AuthRoute from "./authentication/AuthRoute"
 import Quiz from "./quiz/Quiz"
 import spotifyPlayer from "../modules/playback-function"
 import quizAPI from "../modules/jsonAPIManager"
+import Profile from "./profile/Profile"
+
 
 
 class ApplicationViews extends Component {
@@ -26,7 +28,7 @@ class ApplicationViews extends Component {
     if (!localStorage.getItem("oauthio_provider_spotify")) {
       localStorage.clear();
     } else {
-      this.setLoginStatus(true);
+      this.setLoginStatus(true, parseInt(sessionStorage.getItem("currentUser")));
     } 
   }
   }
@@ -35,7 +37,9 @@ class ApplicationViews extends Component {
 
 
   setLoginStatus = (status, id) => {
-    this.setState({ userLoggedIn: status, currentUser: id })
+
+    this.setState({ userLoggedIn: status, currentUser: id})
+
     const spotifyRequest = window.OAuth.create("spotify");
     const accessToken = spotifyRequest.access_token
     sessionStorage.setItem("access_token", accessToken)
@@ -85,6 +89,10 @@ class ApplicationViews extends Component {
         <AuthRoute
           path="/quiz"
           Destination={Quiz} player={this.player} access_token={this.state.access_token} deviceId={this.state.deviceId}
+        />
+        <AuthRoute
+          path="/profile"
+          Destination={Profile} currentUser={this.state.currentUser}
         />
       </React.Fragment>
     );

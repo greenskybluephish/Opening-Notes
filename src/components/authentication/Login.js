@@ -21,6 +21,7 @@ class Login extends Component {
       let registeredUser = this.props.users.find(user => user.spotifyUsername === spotifyUsername)
       if (registeredUser) {
         this.props.setLoginStatus(true, registeredUser.id);
+        sessionStorage.setItem("currentUser", registeredUser.id)
       }
       else {
         let newUser = {
@@ -30,7 +31,9 @@ class Login extends Component {
         quizAPI.postOne("users", newUser).then(()=> {
           quizAPI.getAll("users").then(userArray => {
             let registeredUser = userArray.find(user => user.spotifyUsername === spotifyUsername)
+            sessionStorage.setItem("currentUser", registeredUser.id);
             this.props.setLoginStatus(true, registeredUser.id);
+            
         })
       }
   )}

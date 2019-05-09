@@ -128,6 +128,11 @@ export default class NavBar extends React.Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink tag={Link} to="/profile">
+                    My Profile
+                  </NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink tag={Link} to="/create">
                     Quiz Creator
                   </NavLink>

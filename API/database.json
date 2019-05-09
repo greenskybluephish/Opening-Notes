@@ -2,7 +2,7 @@
   "users": [
     {
       "spotifyUsername": "Briantjobe",
-      "displayName": "Briantjobe",
+      "displayName": "llama",
       "id": 1
     },
     {
@@ -621,7 +621,104 @@
         }
       ],
       "clipLength": 12,
-      "id": 3
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "quizName": "Umph Magoo",
+      "quizDescription": "Extra goo.",
+      "quizTrackIds": [
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "6bUNXHRoXyUoqkYWl8O7we",
+          "name": "2x2 (09.02.17 St. Louis, Missouri) [Live]",
+          "startTime": 34.82914,
+          "uri": "spotify:track:6bUNXHRoXyUoqkYWl8O7we"
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "4mWMFIh5bksXH7pVvLicdF",
+          "name": "FF (04.27.17 Lake Buena Vista, Florida) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:4mWMFIh5bksXH7pVvLicdF"
+        },
+        {
+          "album": "Live from Missoula, MT (3.4.17)",
+          "artists": "Umphrey's McGee",
+          "id": "16xWQ00MuNaIHx07Mvy1h0",
+          "name": "Out of Order (Live)",
+          "startTime": 23,
+          "uri": "spotify:track:16xWQ00MuNaIHx07Mvy1h0"
+        },
+        {
+          "album": "Live from Missoula, MT (3.4.17)",
+          "artists": "Umphrey's McGee",
+          "id": "2paQVijMu7FAMmeBYD8tZC",
+          "name": "Uncle Wally (Live)",
+          "startTime": 16.38495,
+          "uri": "spotify:track:2paQVijMu7FAMmeBYD8tZC"
+        },
+        {
+          "album": "Live from Missoula, MT (3.4.17)",
+          "artists": "Umphrey's McGee",
+          "id": "7CVOGd9CviVG5id2boX6kp",
+          "name": "Anchor Drops (Live)",
+          "startTime": 0,
+          "uri": "spotify:track:7CVOGd9CviVG5id2boX6kp"
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "2FdHhZ4I74CcFMxUEUWz9M",
+          "name": "Phil's Farm (10.20.16 Philadelphia, Pa) [Live]",
+          "startTime": 6.70561,
+          "uri": "spotify:track:2FdHhZ4I74CcFMxUEUWz9M"
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "4PMCj2v7AAViCysRyScXlo",
+          "name": "1348 (12.30.16 Chicago, Il) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:4PMCj2v7AAViCysRyScXlo"
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "0IYGYzTZxrtvSSfNHXXbAj",
+          "name": "Bad Friday (01.22.16 New York, Ny) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:0IYGYzTZxrtvSSfNHXXbAj"
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "0LKkTVd3MvQF9mrfvpgV3U",
+          "name": "In the Kitchen (07.02.16 Morrison, Co) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:0LKkTVd3MvQF9mrfvpgV3U"
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "7qensloTQCaJdrdxYCSpFN",
+          "name": "Sociable Jimmy (12.29.17 Denver, Colorado) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:7qensloTQCaJdrdxYCSpFN"
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "5bcKgoJyDrzacwjY9hrGQo",
+          "name": "Last Man Swerving (01.13.17 Atlanta, Georgia) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:5bcKgoJyDrzacwjY9hrGQo"
+        }
+      ],
+      "clipLength": 11,
+      "id": 2
     }
   ],
   "quizLogs": []
