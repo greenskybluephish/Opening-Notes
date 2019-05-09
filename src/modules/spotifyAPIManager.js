@@ -76,6 +76,8 @@ export default {
 
 
     spotifyTrackInfo(uri) {
+      const spotifyRequest = window.OAuth.create("spotify");
+      const accessToken = spotifyRequest.access_token
       return fetch(`https://api.spotify.com/v1/audio-analysis/${uri}`,
         {
           headers: {
