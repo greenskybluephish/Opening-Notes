@@ -7,7 +7,6 @@ import { Button, ListGroup, FormGroup,
   Input,
   Card,
   CardBody,
-  CardHeader,
   CardTitle,
   CardText,
 Row,
@@ -24,7 +23,8 @@ export default class QuizCreator extends Component {
     quizName: "",
     quizDescription: "",
     clipLength: 11,
-    newQuizTracks: []
+    newQuizTracks: [],
+    currentUser: 1
   }
 
   handleFieldChange = event => {
@@ -43,14 +43,15 @@ export default class QuizCreator extends Component {
   event.preventDefault();
   if(this.state.quizName === ""){
       alert("Please enter a name for your quiz")
-  } else if(this.props.quizTracks.length  < 6){
-      alert("Please add more songs to your quiz")
+  } else if(this.state.newQuizTracks.length  < 6){
+      alert("Add more songs to your quiz")
   } else {
       const newQuiz = {
           userId: 1,
           quizName: this.state.quizName,
           quizDescription: this.state.quizDescription,
-          quizTrackIds: this.state.newQuizTracks
+          quizTrackIds: this.state.newQuizTracks,
+          clipLength: this.state.clipLength
       }
       // add the new article 
       quizAPI.postOne("quizs", newQuiz)

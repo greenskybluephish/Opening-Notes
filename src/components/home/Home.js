@@ -1,15 +1,13 @@
 import React, { Component } from "react"
 import { Container } from "reactstrap"
-import spotifyPlayer from "../../modules/playback-function"
+
 
 
 export default class Home extends Component {
 
 
 componentDidMount() {
-  // setTimeout(() => {
-  //   spotifyPlayer.createSpotifyPlayer().then(id=> console.log(id))
-  // }, 1000)
+
 }
 
 

@@ -27,9 +27,7 @@ render() {
           {
           "name": artistName
           }],
-    "id": trackId,
     "name": trackName,
-    "uri": trackURI
     } = this.props.track
 
   return (

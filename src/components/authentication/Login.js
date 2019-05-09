@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { Button, Container } from "reactstrap";
 import "./login.css";
+import quizAPI from "../../modules/jsonAPIManager"
+
 
 class Login extends Component {
   
@@ -13,11 +15,29 @@ class Login extends Component {
     window.OAuth.initialize("rKtNmq0HtvZws6tMLOJFcXiyypo");
 //uses OAuth.io to authenticate user and stores token needed for API calls.
     window.OAuth.popup("spotify", { cache: true }).done(spotify => {
-    console.log("loggedIn")
+    console.log("loggedIn");
+    spotify.me().done(data => {
+      let spotifyUsername = data.name;
+      let registeredUser = this.props.users.find(user => user.spotifyUsername === spotifyUsername)
+      if (registeredUser) {
+        this.props.setLoginStatus(true, registeredUser.id);
+      }
+      else {
+        let newUser = {
+          "spotifyUsername": spotifyUsername,
+          "displayName": spotifyUsername
+        }
+        quizAPI.postOne("users", newUser).then(()=> {
+          quizAPI.getAll("users").then(userArray => {
+            let registeredUser = userArray.find(user => user.spotifyUsername === spotifyUsername)
+            this.props.setLoginStatus(true, registeredUser.id);
+        })
+      }
+  )}
       // do some stuff with result
-        this.props.setLoginStatus(true);
+        
     });
-  };
+  })};
 
   componentDidUpdate(prevProps) {
     if (prevProps.userLoggedIn !== this.props.userLoggedIn) {

@@ -22,7 +22,7 @@ export default class QuizBox extends Component {
   state = {
     inputAnswer: "",
     correctAnswers: 0,
-    totalQuestions: 0,
+    questionIndex: 0,
     disableButton: false,
     disableSubmitButton: true,
     clipLength: 12000
@@ -37,7 +37,7 @@ handleFieldChange = event => {
 }
 
 handleSubmit = event => {
-  const index = this.state.totalQuestions
+  const index = this.state.questionIndex
   event.preventDefault();
     if (this.state.inputAnswer === "") {
       alert("Please enter an answer!")
@@ -51,10 +51,10 @@ handleSubmit = event => {
         if (correctAnswer.includes(inputAnswer) && inputAnswer.length >= 3) {
         alert(`Correct, the answer is ${this.props.quizTracks[index].name}`)
         form.reset();
-        this.setState({totalQuestions: this.state.totalQuestions + 1})
+        this.setState({questionIndex: this.state.questionIndex + 1})
       } else {
         alert(`Sorry, the correct answer is ${this.props.quizTracks[index].name}`)
-        this.setState({totalQuestions: this.state.totalQuestions + 1})
+        this.setState({questionIndex: this.state.questionIndex + 1})
         form.reset();
       }
     }
@@ -62,7 +62,7 @@ handleSubmit = event => {
 
 
     playSong = () => {
-      const index = this.state.totalQuestions
+      const index = this.state.questionIndex
       const {uri, startTime} = this.props.quizTracks[index]
       spotifyAPI.put.playOneSong(uri, startTime, this.props.deviceId)
     }

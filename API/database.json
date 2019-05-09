@@ -1,5 +1,16 @@
 {
-  "users": [],
+  "users": [
+    {
+      "spotifyUsername": "Briantjobe",
+      "displayName": "Briantjobe",
+      "id": 1
+    },
+    {
+      "spotifyUsername": "Brian",
+      "displayName": "Brian",
+      "id": 2
+    }
+  ],
   "spotifyTracks": [
     {
       "spotifyURI": "5Bp7e2qHa9cSwsUfviGEWf",
@@ -477,48 +488,6 @@
   "quizs": [
     {
       "userId": 1,
-      "quizName": "First Quiz",
-      "quizDescription": "random",
-      "quizTrackIds": [
-        "spotify:track:26Zoc9dYJvJq4qsBHPVUc5",
-        "spotify:track:6eXyQI9X5Z8OVdDlkvPFO8",
-        "spotify:track:5fCudsJmtDxbGdU18xMSeL",
-        "spotify:track:45FoQmlbpQBhl3SnGyWU7U",
-        "spotify:track:73bYKfLynimEWR6v9iSyOw",
-        "spotify:track:18XJpJtd74tWgX7pZrUyNz",
-        "spotify:track:6nHYV0WWo6R1DVITTIieyd",
-        "spotify:track:5U4rmXFOvpIu5rDvpOcWuh",
-        "spotify:track:1jxOIWC7dr0M7S0FVQU2Lz",
-        "spotify:track:6f3iZqyXkkr3laypJoHe8x"
-      ],
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "quizName": "Phish One",
-      "quizDescription": "Phish songs bobby.",
-      "quizTrackIds": [
-        "spotify:track:6Nrm0Uyv03Ws6fmq3whIbz",
-        "spotify:track:4JjnSYr36MXfji7SWpXpDZ",
-        "spotify:track:5OlHyYyN0imakPb54OyHaF",
-        "spotify:track:1WJBZ1imWH0htikPnrl6bQ",
-        "spotify:track:5BSMkLOxY66kzX6h4t46Fa",
-        "spotify:track:27cSQg8EfPzZbgaeWiZE7h",
-        "spotify:track:3msSo65BXp2kKkUGlyVr8C",
-        "spotify:track:08a6Oke8HJYKgBIj0cD2d7",
-        "spotify:track:0v4ICFOHuF8eJdVtLbSRyx",
-        "spotify:track:2HlZK6lKbIBIYU2lNdpdah",
-        "spotify:track:6x2ed25LrKVkEbKJ3dwa76",
-        "spotify:track:6q5bwBUx1i2lehnKwkwFUW",
-        "spotify:track:7bYPSaKkmNOKttOsVgqaG8",
-        "spotify:track:6jAqFpxmF6JaaFtkEAa0br",
-        "spotify:track:661qyzTuB99Wh67iCcZ81R",
-        "spotify:track:6NTVXHJ6Gl2uqWzHdTz0tA"
-      ],
-      "id": 2
-    },
-    {
-      "userId": 1,
       "quizName": "Maze or Bowie",
       "quizDescription": "Don't Bowie my Maze.....",
       "quizTrackIds": [
@@ -651,6 +620,7 @@
           "uri": "spotify:track:7KlwAAnU8KEhYmuzCNnSVr"
         }
       ],
+      "clipLength": 12,
       "id": 3
     }
   ],
