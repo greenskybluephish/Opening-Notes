@@ -29,6 +29,7 @@ export default class QuizBox extends Component {
 }
 
 
+
 // handle the field change when the input box is edited
 handleFieldChange = event => {
     const stateToChange = {}
@@ -51,7 +52,7 @@ handleSubmit = event => {
         if (correctAnswer.includes(inputAnswer) && inputAnswer.length >= 3) {
         alert(`Correct, the answer is ${this.props.quizTracks[index].name}`)
         form.reset();
-        this.setState({questionIndex: this.state.questionIndex + 1})
+        this.setState({questionIndex: this.state.questionIndex + 1, correctAnswer: this.state.correctAnswers+1})
       } else {
         alert(`Sorry, the correct answer is ${this.props.quizTracks[index].name}`)
         this.setState({questionIndex: this.state.questionIndex + 1})
@@ -59,6 +60,14 @@ handleSubmit = event => {
       }
     }
    } 
+
+   componentDidUpdate() {
+     if (this.state.questionIndex === this.props.quizTracks.length) { 
+       this.props.endQuiz();
+     }
+   }
+
+
 
 
     playSong = () => {
@@ -92,12 +101,14 @@ handleSubmit = event => {
         <Jumbotron>
           <h2 className="display-4">Quiz Time</h2>
           <p className="lead">Click the play button to test your skills!</p>
+          <Badge color="primary" pill>Question {this.state.questionIndex+1} of {this.props.quizTracks.length}</Badge>
+          <Badge color="primary" pill>Current Score: {this.state.correctAnswers}</Badge>
+          
           <hr className="my-2" />
           <Button onClick={this.handlePlaySong} disabled={this.state.disableButton}>Play song!
           </Button>
-          <Badge>{this.state.correctAnswers}</Badge>
 
-          
+
           <Form >
           <FormGroup row>
           <Label for="inputAnswer" sm={3}>What song is this?</Label>

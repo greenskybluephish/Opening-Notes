@@ -12,7 +12,7 @@ export default class RadioButtons extends Component {
 
 
   state= {
-    selectedOption: 11
+    selectedOption: 12
   }
 
 
@@ -43,7 +43,7 @@ export default class RadioButtons extends Component {
           </FormGroup>
           <FormGroup check inline className="form-check-radio">
             <Label className="form-check-label">
-              <Input type="radio" name="clipLength" id="clipLength2" value={11} checked={this.state.selectedOption === 11} onChange={this.handleOptionChange}/>
+              <Input type="radio" name="clipLength" id="clipLength2" value={12} checked={this.state.selectedOption === 11} onChange={this.handleOptionChange}/>
               12 Seconds
               <span className="form-check-sign"></span>
             </Label>

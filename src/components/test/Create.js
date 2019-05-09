@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import API from "../../modules/spotifyAPIManager";
 import UserPlaylists from "./UserPlaylists"
-import { Dropdown, DropdownToggle, DropdownItem, DropdownMenu, Container} from "reactstrap"
+import { Dropdown, DropdownToggle, DropdownItem, DropdownMenu, Container, Button} from "reactstrap"
 import "./test.css"
 import QuizCreator from "./QuizCreator";
+import QuizEditor from "./QuizEditor"
 
-
-export default class Test extends Component {
+export default class Create extends Component {
 
 
   state = {
@@ -14,7 +14,9 @@ export default class Test extends Component {
     dropdownOpen: false,
     showTracks: false,
     activePlaylist: "",
-    quizTracks: []
+    quizTracks: [],
+    renderQuizCreator: true,
+    renderQuizEditor: false
   }
 
 
@@ -24,6 +26,14 @@ export default class Test extends Component {
         dropdownOpen: !this.state.dropdownOpen
       });
     }
+
+    toggleEditor = () => {
+      this.setState({
+        renderQuizCreator: !this.state.renderQuizCreator, 
+        renderQuizEditor: !this.state.renderQuizEditor 
+      });
+    };
+
     
   async componentDidMount () {
      let items = await API.get.getUserPlaylists();
@@ -54,7 +64,7 @@ export default class Test extends Component {
      }
 
     clearQuizTracks = () => {
-      this.setState({quizTracks: []})
+      this.setState({quizTracks: [], renderQuizEditor: false, renderQuizCreator: true})
     }
 
 
@@ -63,7 +73,14 @@ export default class Test extends Component {
       return (
         <Container className="App">
 
-        <QuizCreator deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>
+  <Button onClick={this.toggleEditor} id="renderQuizCreator" color="primary" size="lg">Create a New Quiz</Button>{' '}
+  <Button onClick={this.toggleEditor} id="renderQuizEditor" color="secondary" size="lg">Edit a previous quiz</Button>
+
+
+  {this.state.renderQuizCreator && <QuizCreator currentUser={this.props.currentUser} deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>}
+
+  {this.state.renderQuizEditor && <QuizEditor deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks} removeFromQuiz={this.removeFromQuiz}
+  currentUser={this.props.currentUser}></QuizEditor>}
 
 
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>

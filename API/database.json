@@ -715,10 +715,90 @@
           "name": "Last Man Swerving (01.13.17 Atlanta, Georgia) [Live]",
           "startTime": 0,
           "uri": "spotify:track:5bcKgoJyDrzacwjY9hrGQo"
+        },
+        {
+          "album": "Live from Missoula, MT (3.4.17)",
+          "artists": "Umphrey's McGee",
+          "id": "5XNa3WYYE6xPySsqvH0jWO",
+          "name": "All in Time, Pt. 1 (Live)",
+          "startTime": 30.17115,
+          "uri": "spotify:track:5XNa3WYYE6xPySsqvH0jWO"
         }
       ],
       "clipLength": 11,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "quizName": "test",
+      "quizDescription": "tester",
+      "quizTrackIds": [
+        {
+          "album": "All for Money",
+          "artists": "Greensky Bluegrass",
+          "id": "3kUPtdiiK033knlGKPTB9V",
+          "name": "Do Harm",
+          "startTime": 3,
+          "uri": "spotify:track:3kUPtdiiK033knlGKPTB9V",
+          "duration": 181267
+        },
+        {
+          "album": "Lawn Boy",
+          "artists": "Phish",
+          "id": "4pYQb0fYwPbTD09uDhiQzU",
+          "name": "Bouncing Around the Room",
+          "startTime": 0,
+          "uri": "spotify:track:4pYQb0fYwPbTD09uDhiQzU",
+          "duration": 235840
+        },
+        {
+          "album": "SB2",
+          "artists": "Gramatik",
+          "id": "02uRToy7bttYcKCO3vIStA",
+          "name": "Hit That Jive",
+          "startTime": 0,
+          "uri": "spotify:track:02uRToy7bttYcKCO3vIStA",
+          "duration": 203050
+        },
+        {
+          "album": "Free Somehow",
+          "artists": "Widespread Panic",
+          "id": "0uCo4XkdFA9MBvVfkL9HGo",
+          "name": "Up All Night",
+          "startTime": 0,
+          "uri": "spotify:track:0uCo4XkdFA9MBvVfkL9HGo",
+          "duration": 226466
+        },
+        {
+          "album": "All Access: Volume Two",
+          "artists": "Greensky Bluegrass",
+          "id": "1qYI5TYXjlMD7uJMF6JyYj",
+          "name": "I Know You Rider",
+          "startTime": 0,
+          "uri": "spotify:track:1qYI5TYXjlMD7uJMF6JyYj",
+          "duration": 500893
+        },
+        {
+          "album": "Phish: 1/2/2016 Madison Square Garden, New York, NY",
+          "artists": "Phish",
+          "id": "1xpRutuKPIYX0n8YgoIJPx",
+          "name": "Suzy Greenberg - Live",
+          "startTime": 0,
+          "uri": "spotify:track:1xpRutuKPIYX0n8YgoIJPx",
+          "duration": 349093
+        },
+        {
+          "album": "If Sorrows Swim",
+          "artists": "Greensky Bluegrass",
+          "id": "7L85xI5IqTqORHxWci2AbC",
+          "name": "The Four",
+          "startTime": 0,
+          "uri": "spotify:track:7L85xI5IqTqORHxWci2AbC",
+          "duration": 213306
+        }
+      ],
+      "clipLength": 6,
+      "id": 3
     }
   ],
   "quizLogs": []

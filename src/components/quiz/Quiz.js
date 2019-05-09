@@ -27,24 +27,9 @@ export default class Quiz extends Component {
   })
   }
 
-
-  playSong = () => {
-    const index = this.state.offset
-    const {uri, startTime} = this.props.quizTracks[index]
-    spotifyAPI.put.playOneSong(uri, startTime, this.props.deviceId)
+  endQuiz = () => {
+    this.setState({startQuiz:false, quizTracks: []})
   }
-
-
-  handlePlay = () => {
-    this.playSong();
-      setTimeout(() => {
-        spotifyAPI.put.pauseSong();
-      }, this.state.clipLength);
-    }
-  
-
-
-
 
 
 
@@ -55,7 +40,7 @@ export default class Quiz extends Component {
               <h2> Phish Quiz! </h2>
       {!this.state.startQuiz && <QuizHeader selectQuiz={this.selectQuiz}></QuizHeader> }
           
-      {this.state.startQuiz&& <QuizBox quizTracks={this.state.quizTracks} deviceId={this.props.deviceId}></QuizBox>}
+      {this.state.startQuiz&& <QuizBox endQuiz={this.endQuiz} quizTracks={this.state.quizTracks} deviceId={this.props.deviceId}></QuizBox>}
       </div>
         </Container>
       )

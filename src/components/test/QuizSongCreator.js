@@ -70,7 +70,8 @@ export default class QuizSongCreator extends Component {
       id: this.props.track.id,
       name: this.props.track.name,
       startTime: this.state.value,
-      uri: this.props.track.uri
+      uri: this.props.track.uri,
+      duration: this.props.track.duration_ms
     };
     this.props.addTrackToQuiz(trackInfo);
     this.setState({

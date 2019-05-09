@@ -84,7 +84,7 @@ class ApplicationViews extends Component {
         <AuthRoute
           path="/create"
           Destination={Create} access_token={this.state.access_token}
-          deviceId={this.state.deviceId}
+          deviceId={this.state.deviceId} currentUser={this.state.currentUser}
         />
         <AuthRoute
           path="/quiz"
