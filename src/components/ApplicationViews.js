@@ -2,9 +2,12 @@ import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import Home from "./home/Home";
 import Login from "./authentication/Login";
-import Test from "./test/Test"
+import Create from "./test/Create"
 import AuthRoute from "./authentication/AuthRoute"
 import Quiz from "./quiz/Quiz"
+import spotifyPlayer from "../modules/playback-function"
+import quizAPI from "../modules/jsonAPIManager"
+import Profile from "./profile/Profile"
 
 
 
@@ -12,26 +15,43 @@ class ApplicationViews extends Component {
   state = {
     access_token: "",
     userLoggedIn: false,
-    currentUser: ""
- 
+    currentUser: "",
+    deviceId: "",
+    users: []
   };
 
   componentDidMount() {
-    if (localStorage.getItem("oauthio_cache") !== null && this.state.userLoggedIn === false) {
-      this.setLoginStatus(true);
+    quizAPI.getAll("users").then(userArray =>{
+      this.setState({users: userArray})  
+    })
+  if (localStorage.getItem("oauthio_cache") !== null && this.state.userLoggedIn === false) {
+    if (!localStorage.getItem("oauthio_provider_spotify")) {
+      localStorage.clear();
+    } else {
+      this.setLoginStatus(true, parseInt(sessionStorage.getItem("currentUser")));
     } 
   }
+  }
 
-  setLoginStatus = (status) => {
-    this.setState({ userLoggedIn: status })
+
+
+
+  setLoginStatus = (status, id) => {
+
+    this.setState({ userLoggedIn: status, currentUser: id})
+
     const spotifyRequest = window.OAuth.create("spotify");
     const accessToken = spotifyRequest.access_token
     sessionStorage.setItem("access_token", accessToken)
     this.setState({ access_token: accessToken });
-      
+    setTimeout(() => {
+      spotifyPlayer.createSpotifyPlayer().then(id=> {
+        this.setState({deviceId: id})
+      }) 
+    }, 1000)
   }
 
-
+  
 
 
 
@@ -58,16 +78,21 @@ class ApplicationViews extends Component {
         <Route
           path="/login"
           render={() => {
-            return <Login userLoggedIn={this.state.userLoggedIn} setLoginStatus={this.setLoginStatus} />;
+            return <Login userLoggedIn={this.state.userLoggedIn} setLoginStatus={this.setLoginStatus} users={this.state.users}/>;
           }}
         />
         <AuthRoute
           path="/create"
-          Destination={Test} access_token={this.state.access_token}
+          Destination={Create} access_token={this.state.access_token}
+          deviceId={this.state.deviceId}
         />
         <AuthRoute
           path="/quiz"
           Destination={Quiz} player={this.player} access_token={this.state.access_token} deviceId={this.state.deviceId}
+        />
+        <AuthRoute
+          path="/profile"
+          Destination={Profile} currentUser={this.state.currentUser}
         />
       </React.Fragment>
     );
