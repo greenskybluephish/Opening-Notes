@@ -11,14 +11,10 @@ import {
   Col,
   Badge
 } from "reactstrap";
-import "./quiz.css"
-import spotifyAPI from "../../modules/spotifyAPIManager"
-
-
-
+import "./quiz.css";
+import spotifyAPI from "../../modules/spotifyAPIManager";
 
 export default class QuizBox extends Component {
-
   state = {
     inputAnswer: "",
     correctAnswers: 0,
@@ -26,74 +22,69 @@ export default class QuizBox extends Component {
     disableButton: false,
     disableSubmitButton: true,
     clipLength: 12000
-}
+  };
 
+  // handle the field change when the input box is edited
+  handleFieldChange = event => {
+    const stateToChange = {};
+    stateToChange[event.target.id] = event.target.value;
+    this.setState(stateToChange);
+  };
 
-
-// handle the field change when the input box is edited
-handleFieldChange = event => {
-    const stateToChange = {}
-    stateToChange[event.target.id] = event.target.value
-    this.setState(stateToChange)
-}
-
-handleSubmit = event => {
-  const index = this.state.questionIndex
-  event.preventDefault();
+  handleSubmit = event => {
+    const index = this.state.questionIndex;
+    event.preventDefault();
     if (this.state.inputAnswer === "") {
-      alert("Please enter an answer!")
-    }
-      else {
-        this.toggle("disableButton")
-        this.toggle("disableSubmitButton")
-        let inputAnswer= this.state.inputAnswer.toLowerCase();
-        let correctAnswer = this.props.quizTracks[index].name.toLowerCase();
-        let form = event.target.parentNode;
-        if (correctAnswer.includes(inputAnswer) && inputAnswer.length >= 3) {
-        alert(`Correct, the answer is ${this.props.quizTracks[index].name}`)
+      alert("Please enter an answer!");
+    } else {
+      this.toggle("disableButton");
+      this.toggle("disableSubmitButton");
+      let inputAnswer = this.state.inputAnswer.toLowerCase();
+      let correctAnswer = this.props.quizTracks[index].name.toLowerCase();
+      let form = event.target.parentNode;
+      if (correctAnswer.includes(inputAnswer) && inputAnswer.length >= 3) {
+        alert(`Correct, the answer is ${this.props.quizTracks[index].name}`);
         form.reset();
-        this.setState({questionIndex: this.state.questionIndex + 1, correctAnswers: this.state.correctAnswers+1})
+        this.setState({
+          questionIndex: this.state.questionIndex + 1,
+          correctAnswers: this.state.correctAnswers + 1
+        });
       } else {
-        alert(`Sorry, the correct answer is ${this.props.quizTracks[index].name}`)
-        this.setState({questionIndex: this.state.questionIndex + 1})
+        alert(
+          `Sorry, the correct answer is ${this.props.quizTracks[index].name}`
+        );
+        this.setState({ questionIndex: this.state.questionIndex + 1 });
         form.reset();
       }
     }
-   } 
+  };
 
-   componentDidUpdate() {
-     if (this.state.questionIndex === this.props.quizTracks.length) { 
-       this.props.endQuiz();
-     }
-   }
-
-
-
-
-    playSong = () => {
-      const index = this.state.questionIndex
-      const {uri, startTime} = this.props.quizTracks[index]
-      spotifyAPI.put.playOneSong(uri, startTime, this.props.deviceId)
+  componentDidUpdate() {
+    if (this.state.questionIndex === this.props.quizTracks.length) {
+      this.props.endQuiz();
     }
-    
+  }
 
-    toggle = (stateToToggle) => {
-      this.setState({
-        [stateToToggle]: !this.state[stateToToggle]
-      })
-    }
+  playSong = () => {
+    const index = this.state.questionIndex;
+    const { uri, startTime } = this.props.quizTracks[index];
+    spotifyAPI.put.playOneSong(uri, startTime, this.props.deviceId);
+  };
 
-    handlePlaySong = () => {
-        this.toggle("disableButton")
-        this.playSong();
-        setTimeout(() => {
-          spotifyAPI.put.pauseSong();
-          this.toggle("disableSubmitButton")
-        }, this.state.clipLength);
-      }
+  toggle = stateToToggle => {
+    this.setState({
+      [stateToToggle]: !this.state[stateToToggle]
+    });
+  };
 
-
-
+  handlePlaySong = () => {
+    this.toggle("disableButton");
+    this.playSong();
+    setTimeout(() => {
+      spotifyAPI.put.pauseSong();
+      this.toggle("disableSubmitButton");
+    }, this.state.clipLength);
+  };
 
   render() {
     return (
@@ -101,24 +92,44 @@ handleSubmit = event => {
         <Jumbotron>
           <h2 className="display-4">Quiz Time</h2>
           <p className="lead">Click the play button to test your skills!</p>
-          <Badge color="primary" pill>Question {this.state.questionIndex+1} of {this.props.quizTracks.length}</Badge>
-          <Badge color="primary" pill>Current Score: {this.state.correctAnswers}</Badge>
-          
+          <Badge color="primary" pill>
+            Question {this.state.questionIndex + 1} of{" "}
+            {this.props.quizTracks.length}
+          </Badge>
+          <Badge color="primary" pill>
+            Current Score: {this.state.correctAnswers}
+          </Badge>
+
           <hr className="my-2" />
-          <Button onClick={this.handlePlaySong} disabled={this.state.disableButton}>Play song!
+          <Button
+            onClick={this.handlePlaySong}
+            disabled={this.state.disableButton}
+          >
+            Play song!
           </Button>
 
-
-          <Form >
-          <FormGroup row>
-          <Label for="inputAnswer" sm={3}>What song is this?</Label>
-          <Col sm={9}>
-            <Input type="text" onChange={this.handleFieldChange} name="text" id="inputAnswer" placeholder="Enter your guess!" />
-          </Col>
-          </FormGroup>
-          <Button onClick={this.handleSubmit} disabled={this.state.disableSubmitButton}>Submit</Button>
-        </Form>
-
+          <Form>
+            <FormGroup row>
+              <Label for="inputAnswer" sm={3}>
+                What song is this?
+              </Label>
+              <Col sm={9}>
+                <Input
+                  type="text"
+                  onChange={this.handleFieldChange}
+                  name="text"
+                  id="inputAnswer"
+                  placeholder="Enter your guess!"
+                />
+              </Col>
+            </FormGroup>
+            <Button
+              onClick={this.handleSubmit}
+              disabled={this.state.disableSubmitButton}
+            >
+              Submit
+            </Button>
+          </Form>
         </Jumbotron>
       </Container>
     );

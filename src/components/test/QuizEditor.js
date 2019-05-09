@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 // import API from "../../modules/spotifyAPIManager";
-import quizAPI from "../../modules/jsonAPIManager"
-import "./test.css"
-import { Button, ListGroup, FormGroup,
+import quizAPI from "../../modules/jsonAPIManager";
+import "./test.css";
+import {
+  Button,
+  ListGroup,
+  FormGroup,
   Label,
   Input,
   Card,
@@ -10,16 +13,15 @@ import { Button, ListGroup, FormGroup,
   CardTitle,
   CardText,
   Container,
-Row,
-Form,
-Col } from 'reactstrap';
-import QuizSongCreator from "./QuizSongCreator"
-import RadioButtons from "./RadioButtons"
-import QuizSongEditor from "./QuizSongEditor"
-
+  Row,
+  Form,
+  Col
+} from "reactstrap";
+import QuizSongCreator from "./QuizSongCreator";
+import RadioButtons from "./RadioButtons";
+import QuizSongEditor from "./QuizSongEditor";
 
 export default class QuizEditor extends Component {
-
   state = {
     quizName: "",
     quizDescription: "",
@@ -28,170 +30,206 @@ export default class QuizEditor extends Component {
     myQuizzes: [],
     showEditForm: false,
     selectedQuiz: 1
-  }
+  };
 
- async componentDidMount() {
-    let response = await quizAPI.getAll(`quizs?userId=${this.props.currentUser}`) 
-    this.setState({myQuizzes: response})
-    
+  async componentDidMount() {
+    let response = await quizAPI.getAll(
+      `quizs?userId=${this.props.currentUser}`
+    );
+    this.setState({ myQuizzes: response });
   }
 
   showEditForm = () => {
-    let quizToEdit = this.state.myQuizzes.find(quiz => quiz.id == this.state.selectedQuiz)
+    let quizToEdit = this.state.myQuizzes.find(
+      quiz => quiz.id == this.state.selectedQuiz
+    );
     this.setState({
-    quizName: quizToEdit.quizName,
-    quizDescription: quizToEdit.quizDescription,
-    clipLength: quizToEdit.clipLength,
-    newQuizTracks: quizToEdit.quizTrackIds,
-    showEditForm: true
-    }) 
-
-  }
+      quizName: quizToEdit.quizName,
+      quizDescription: quizToEdit.quizDescription,
+      clipLength: quizToEdit.clipLength,
+      newQuizTracks: quizToEdit.quizTrackIds,
+      showEditForm: true
+    });
+  };
 
   handleFieldChange = event => {
-    const stateToChange = {}
-    stateToChange[event.target.id] = event.target.value
-    this.setState(stateToChange)
-}
+    const stateToChange = {};
+    stateToChange[event.target.id] = event.target.value;
+    this.setState(stateToChange);
+  };
 
-  addTrackToQuiz = (trackInfo) => {
+  addTrackToQuiz = trackInfo => {
+    const addTrackToState = this.state.newQuizTracks.concat(trackInfo);
+    this.setState({ newQuizTracks: addTrackToState });
+  };
 
-  const addTrackToState = this.state.newQuizTracks.concat(trackInfo);
-  this.setState({newQuizTracks: addTrackToState})
- } 
-
- addEditedTrack = (oldTrackId, newQuizTrack) => {
-  let oldQuizTrack = this.state.newQuizTracks.find(quiz => quiz.id === oldTrackId)
-  const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
-    return (quiz !== oldQuizTrack)})
+  addEditedTrack = (oldTrackId, newQuizTrack) => {
+    let oldQuizTrack = this.state.newQuizTracks.find(
+      quiz => quiz.id === oldTrackId
+    );
+    const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
+      return quiz !== oldQuizTrack;
+    });
     let updatedQuiz = filteredQuiz.concat(newQuizTrack);
-  this.setState({newQuizTracks: updatedQuiz})
- }
+    this.setState({ newQuizTracks: updatedQuiz });
+  };
 
- removeTrack = (oldTrackId) => {
-  let oldQuizTrack = this.state.newQuizTracks.find(quiz => quiz.id === oldTrackId)
-  const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
-    return (quiz !== oldQuizTrack)})
-    this.setState({newQuizTracks: filteredQuiz})
- }
+  removeTrack = oldTrackId => {
+    let oldQuizTrack = this.state.newQuizTracks.find(
+      quiz => quiz.id === oldTrackId
+    );
+    const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
+      return quiz !== oldQuizTrack;
+    });
+    this.setState({ newQuizTracks: filteredQuiz });
+  };
 
   submitEditedQuiz = event => {
-  event.preventDefault();
-  if(this.state.quizName === ""){
-      alert("Please enter a name for your quiz")
-  } else if(this.state.newQuizTracks.length  < 6){
-      alert("Add more songs to your quiz")
-  } else {
+    event.preventDefault();
+    if (this.state.quizName === "") {
+      alert("Please enter a name for your quiz");
+    } else if (this.state.newQuizTracks.length < 6) {
+      alert("Add more songs to your quiz");
+    } else {
       const editedQuiz = {
-          quizName: this.state.quizName,
-          quizDescription: this.state.quizDescription,
-          quizTrackIds: this.state.newQuizTracks,
-          clipLength: this.state.clipLength
-      }
-      // add the new article 
-      quizAPI.patchEntry("quizs", this.state.selectedQuiz, editedQuiz)
-      alert(`${this.state.quizName} has been edited!`)
+        quizName: this.state.quizName,
+        quizDescription: this.state.quizDescription,
+        quizTrackIds: this.state.newQuizTracks,
+        clipLength: this.state.clipLength
+      };
+      // add the new article
+      quizAPI.patchEntry("quizs", this.state.selectedQuiz, editedQuiz);
+      alert(`${this.state.quizName} has been edited!`);
       this.props.clearQuizTracks();
-      let form = event.target.parentNode
+      let form = event.target.parentNode;
       form.reset();
       this.props.hideTracks();
-      
-  }
-}
+    }
+  };
 
-deleteQuiz = () => {
-  if (window.confirm("Are you sure you want to delete the quiz?")) {
+  deleteQuiz = () => {
+    if (window.confirm("Are you sure you want to delete the quiz?")) {
+      quizAPI.deleteEntry("quizs", this.state.selectedQuiz).then(() => {
+        alert("Quiz has been deleted.");
+        this.props.hideTracks();
+        this.props.clearQuizTracks();
+      });
+    }
+  };
 
-  quizAPI.deleteEntry("quizs", this.state.selectedQuiz).then(()=> {
-    alert("Quiz has been deleted.");
-    this.props.hideTracks();
-    this.props.clearQuizTracks();
-  })
-}
-}
-
-  changeClipLength = (value) => {
-    this.setState({clipLength: value})
-  }
-
-
-
+  changeClipLength = value => {
+    this.setState({ clipLength: value });
+  };
 
   render() {
     return (
       <>
-    <Container>
-                <Form >
-          <FormGroup row>
-          <Label for="selectedQuiz">Select Quiz</Label>
-          <Input type="select" name="select" id="selectedQuiz" onChange={this.handleFieldChange} default={1}>
-            {this.state.myQuizzes.map(quiz => {
-      return (<option className="option-text" value={quiz.id} key={quiz.id}>{quiz.quizName}</option>)
-    })}
-          </Input>
-          </FormGroup>
-          <Button onClick={this.showEditForm}>Edit this quiz.
-            </Button>
-        </Form>
-    </Container>
+        <Container>
+          <Form>
+            <FormGroup row>
+              <Label for="selectedQuiz">Select Quiz</Label>
+              <Input
+                type="select"
+                name="select"
+                id="selectedQuiz"
+                onChange={this.handleFieldChange}
+                default={1}
+              >
+                {this.state.myQuizzes.map(quiz => {
+                  return (
+                    <option
+                      className="option-text"
+                      value={quiz.id}
+                      key={quiz.id}
+                    >
+                      {quiz.quizName}
+                    </option>
+                  );
+                })}
+              </Input>
+            </FormGroup>
+            <Button onClick={this.showEditForm}>Edit this quiz.</Button>
+          </Form>
+        </Container>
 
- {this.state.showEditForm && <Card>
-  <CardTitle tag="h3">Quiz Editor</CardTitle>
-  
-  
-      <CardBody>
-      {/* <Row>
+        {this.state.showEditForm && (
+          <Card>
+            <CardTitle tag="h3">Quiz Editor</CardTitle>
+
+            <CardBody>
+              {/* <Row>
           <Col sm="12" md={{ size: 10, offset: 1 }}>
       <CardText>Edit the quiz.</CardText></Col>
         </Row>
         <hr></hr> */}
-      <Form>
-      <Row form>
-          <Col md={4}>
-          <FormGroup>
-            <Label for="quizName">Quiz Name</Label>
-            <Input
-              type="text"
-              name="quizName"
-              id="quizName"
-              value={this.state.quizName}
-              onChange={this.handleFieldChange}
-            />
-          </FormGroup>
-          </Col>
-          <Col md={7}>
-          <FormGroup>
-            <Label for="quizDescription">Quiz Description</Label>
-            <Input type="text" name="text" id="quizDescription" onChange={this.handleFieldChange} value={this.state.quizDescription}/>
-          </FormGroup>
-
-          </Col>
-          </Row>
-          <Row>
-          
-            <RadioButtons changeClipLength={this.changeClipLength}>
-            </RadioButtons>
-          </Row>
-          <FormGroup>
-            <Label for="quizSongs">Quiz Songs:</Label>
-            <ListGroup id="quizSongs">
-    {this.state.newQuizTracks.map(track => {
-      return <QuizSongEditor key={track.id} addEditedTrack={this.addEditedTrack} track={track} clipLength={this.state.clipLength} removeTrack={this.removeTrack}  addTrackToQuiz={this.addTrackToQuiz} deviceId={this.props.deviceId}>
-      </QuizSongEditor>
-    })}
-    {this.props.quizTracks.map(track => {
-      return <QuizSongCreator key={track.id} track={track} clipLength={this.state.clipLength}  addTrackToQuiz={this.addTrackToQuiz} deviceId={this.props.deviceId}>
-      </QuizSongCreator>
-    })}
-    </ListGroup>
-          </FormGroup>
-       
-       
-          <Button onClick={this.submitEditedQuiz}>Submit Edited Quiz</Button>{' '}
-          <Button onClick={this.deleteQuiz}>Delete this quiz</Button>
-          </Form>
-      </CardBody>
-    </Card>}
-    </>
-    )
-}}
+              <Form>
+                <Row form>
+                  <Col md={4}>
+                    <FormGroup>
+                      <Label for="quizName">Quiz Name</Label>
+                      <Input
+                        type="text"
+                        name="quizName"
+                        id="quizName"
+                        value={this.state.quizName}
+                        onChange={this.handleFieldChange}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md={7}>
+                    <FormGroup>
+                      <Label for="quizDescription">Quiz Description</Label>
+                      <Input
+                        type="text"
+                        name="text"
+                        id="quizDescription"
+                        onChange={this.handleFieldChange}
+                        value={this.state.quizDescription}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <RadioButtons changeClipLength={this.changeClipLength} />
+                </Row>
+                <FormGroup>
+                  <Label for="quizSongs">Quiz Songs:</Label>
+                  <ListGroup id="quizSongs">
+                    {this.state.newQuizTracks.map(track => {
+                      return (
+                        <QuizSongEditor
+                          key={track.id}
+                          addEditedTrack={this.addEditedTrack}
+                          track={track}
+                          clipLength={this.state.clipLength}
+                          removeTrack={this.removeTrack}
+                          addTrackToQuiz={this.addTrackToQuiz}
+                          deviceId={this.props.deviceId}
+                        />
+                      );
+                    })}
+                    {this.props.quizTracks.map(track => {
+                      return (
+                        <QuizSongCreator
+                          key={track.id}
+                          track={track}
+                          clipLength={this.state.clipLength}
+                          addTrackToQuiz={this.addTrackToQuiz}
+                          deviceId={this.props.deviceId}
+                        />
+                      );
+                    })}
+                  </ListGroup>
+                </FormGroup>
+                <Button onClick={this.submitEditedQuiz}>
+                  Submit Edited Quiz
+                </Button>{" "}
+                <Button onClick={this.deleteQuiz}>Delete this quiz</Button>
+              </Form>
+            </CardBody>
+          </Card>
+        )}
+      </>
+    );
+  }
+}
