@@ -1,7 +1,7 @@
 {
   "name": "frontend-capstone",
   "version": "0.1.0",
-  "homepage": "http://greenskybluephish.github.io/spotify-frontend",
+  "homepage": "https://greenskybluephish.github.io/spotify-frontend",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
