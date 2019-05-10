@@ -25,7 +25,7 @@ export default class QuizEditor extends Component {
   state = {
     quizName: "",
     quizDescription: "",
-    clipLength: 12,
+    clipLength: 12000,
     newQuizTracks: [],
     myQuizzes: [],
     showEditForm: false,
@@ -157,11 +157,6 @@ export default class QuizEditor extends Component {
             <CardTitle tag="h3">Quiz Editor</CardTitle>
 
             <CardBody>
-              {/* <Row>
-          <Col sm="12" md={{ size: 10, offset: 1 }}>
-      <CardText>Edit the quiz.</CardText></Col>
-        </Row>
-        <hr></hr> */}
               <Form>
                 <Row form>
                   <Col md={4}>

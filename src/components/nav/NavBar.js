@@ -137,11 +137,11 @@ export default class NavBar extends React.Component {
                     Quiz Creator
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink tag={Link} to="/quiz" >
                     Quiz
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
                 <NavItem>
                   <NavLink href="/" onClick={this.localLogout}>
                 Log Out

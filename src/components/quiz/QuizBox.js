@@ -13,6 +13,8 @@ import {
 } from "reactstrap";
 import "./quiz.css";
 import spotifyAPI from "../../modules/spotifyAPIManager";
+import quizAPI from "../../modules/jsonAPIManager";
+
 
 export default class QuizBox extends Component {
   state = {
@@ -21,7 +23,6 @@ export default class QuizBox extends Component {
     questionIndex: 0,
     disableButton: false,
     disableSubmitButton: true,
-    clipLength: 12000
   };
 
   // handle the field change when the input box is edited
@@ -61,14 +62,21 @@ export default class QuizBox extends Component {
 
   componentDidUpdate() {
     if (this.state.questionIndex === this.props.quizTracks.length) {
+      let quizScore = {
+        quizId: parseInt(this.props.quizId),
+        userId: parseInt(this.props.currentUser),
+        score: (this.state.correctAnswers*100/this.props.quizTracks.length) 
+      }
+      quizAPI.postOne("quizLogs", quizScore)
+      alert(`Quiz Complete! You answered ${this.state.correctAnswers} out of ${this.props.quizTracks.length} questions correctly. `)
       this.props.endQuiz();
     }
   }
 
   playSong = () => {
-    const index = this.state.questionIndex;
-    const { uri, startTime } = this.props.quizTracks[index];
-    spotifyAPI.put.playOneSong(uri, startTime, this.props.deviceId);
+    const uris = this.props.quizTracks.map(track => track.uri)
+    const startTime = this.props.quizTracks[0].startTime;
+    spotifyAPI.put.startPlayback(uris, startTime, this.props.deviceId);
   };
 
   toggle = stateToToggle => {
@@ -77,13 +85,32 @@ export default class QuizBox extends Component {
     });
   };
 
+
+  handleSeek = () => {
+    const startTime = this.props.quizTracks[this.state.questionIndex].startTime;
+    this.props.player.nextTrack().then(()=> {
+      this.props.player.seek(startTime);
+    });
+  }
+
+  // handleStop = () => {
+  //   this.props.player.pause();
+  //   };
+
+
+
+
   handlePlaySong = () => {
-    this.toggle("disableButton");
+    if (this.state.questionIndex === 0) {
     this.playSong();
+    } else {
+      this.handleSeek()
+    }
+    this.toggle("disableButton");
     setTimeout(() => {
-      spotifyAPI.put.pauseSong();
+      this.props.player.pause();
       this.toggle("disableSubmitButton");
-    }, this.state.clipLength);
+    }, this.props.clipLength);
   };
 
   render() {

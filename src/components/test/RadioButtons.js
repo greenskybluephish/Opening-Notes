@@ -12,7 +12,7 @@ export default class RadioButtons extends Component {
 
 
   state= {
-    selectedOption: 12
+    selectedOption: 12000
   }
 
 
@@ -36,21 +36,21 @@ export default class RadioButtons extends Component {
           <legend className="col-form-label">Select the clip length for your quiz:</legend>
           <FormGroup check inline className="form-check-radio">
             <Label className="form-check-label">
-                <Input type="radio" name="clipLength" id="clipLength1" value={6} checked={this.state.selectedOption === 6} onChange={this.handleOptionChange}/>
+                <Input type="radio" name="clipLength" id="clipLength1" value={6000} checked={this.state.selectedOption === 6000} onChange={this.handleOptionChange}/>
                 6 Seconds
                 <span className="form-check-sign"></span>
             </Label>
           </FormGroup>
           <FormGroup check inline className="form-check-radio">
             <Label className="form-check-label">
-              <Input type="radio" name="clipLength" id="clipLength2" value={12} checked={this.state.selectedOption === 11} onChange={this.handleOptionChange}/>
+              <Input type="radio" name="clipLength" id="clipLength2" value={12000} checked={this.state.selectedOption === 12000} onChange={this.handleOptionChange}/>
               12 Seconds
               <span className="form-check-sign"></span>
             </Label>
           </FormGroup>
           <FormGroup check inline className="form-check-radio">
             <Label className="form-check-label">
-              <Input type="radio" name="clipLength" id="clipLength3" value={24} checked={this.state.selectedOption === 24} onChange={this.handleOptionChange}/>
+              <Input type="radio" name="clipLength" id="clipLength3" value={24000} checked={this.state.selectedOption === 24000} onChange={this.handleOptionChange}/>
               24 Seconds
               <span className="form-check-sign"></span>
             </Label>

@@ -141,11 +141,11 @@ export default {
         method: "PUT"
       })
     },
-    async startPlayback(deviceId, quizTracks, time) {
+    async startPlayback(quizTracks, time) {
       const spotifyRequest = window.OAuth.create("spotify");
       const accessToken = spotifyRequest.access_token
       try { 
-        await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
+        await fetch(`https://api.spotify.com/v1/me/player/play`, {
           body: JSON.stringify({
             "uris": quizTracks,
             "position_ms": time
@@ -191,6 +191,30 @@ export default {
     const accessToken = spotifyRequest.access_token
     try { 
       await fetch(`https://api.spotify.com/v1/me/player/pause`, {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "PUT"
+      })
+    } 
+    catch(err) {
+      //return error note.
+      console.error(err);
+    }
+  },
+  async transferPlayback(deviceId) {
+    const spotifyRequest = window.OAuth.create("spotify");
+    const accessToken = spotifyRequest.access_token
+    try { 
+      await fetch(`https://api.spotify.com/v1/me/player/`, {
+        body: JSON.stringify({
+          "device_ids": [
+            deviceId
+          ],
+        "play": false
+        }), 
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${accessToken}`,

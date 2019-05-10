@@ -46,7 +46,7 @@ export default class QuizSongCreator extends Component {
               this.setState({ isPlaying: false, shouldPause: false });
               spotifyAPI.put.pauseSong();
             }
-          }, this.props.clipLength * 1000)
+          }, this.props.clipLength)
         );
     } else {
       this.setState({ isPlaying: false, shouldPause: false });
@@ -57,7 +57,7 @@ export default class QuizSongCreator extends Component {
             if (!this.state.shouldPause) {
               spotifyAPI.put.pauseSong();
             }
-          }, this.props.clipLength * 1000)
+          }, this.props.clipLength)
         );
     }
   };
@@ -68,7 +68,7 @@ export default class QuizSongCreator extends Component {
       artists: this.props.track.artists[0].name,
       id: this.props.track.id,
       name: this.props.track.name,
-      startTime: this.state.value,
+      startTime: this.state.value*1000,
       uri: this.props.track.uri,
       duration: this.props.track.duration_ms
     };
