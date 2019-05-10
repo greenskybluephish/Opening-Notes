@@ -1,12 +1,14 @@
 {
   "name": "frontend-capstone",
   "version": "0.1.0",
+  "homepage": "http://greenskybluephish.github.io/spotify-frontend",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": "^4.3.1",
+    "gh-pages": "^2.0.1",
     "nouislider": "^13.1.5",
     "rc-slider": "^8.6.9",
     "react": "^16.8.6",
@@ -19,6 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
