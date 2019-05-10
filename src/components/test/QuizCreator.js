@@ -23,7 +23,7 @@ export default class QuizCreator extends Component {
   state = {
     quizName: "",
     quizDescription: "",
-    clipLength: 11,
+    clipLength: 12000,
     newQuizTracks: [],
     currentUser: 1
   };

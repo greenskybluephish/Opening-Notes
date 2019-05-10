@@ -5,9 +5,10 @@ import Login from "./authentication/Login";
 import Create from "./test/Create";
 import AuthRoute from "./authentication/AuthRoute";
 import Quiz from "./quiz/Quiz";
-import spotifyPlayer from "../modules/playback-function";
 import quizAPI from "../modules/jsonAPIManager";
 import Profile from "./profile/Profile";
+import playback from "../modules/spotifyPlayback"
+
 
 class ApplicationViews extends Component {
   state = {
@@ -19,6 +20,7 @@ class ApplicationViews extends Component {
   };
 
   componentDidMount() {
+
     quizAPI.getAll("users").then(userArray => {
       this.setState({ users: userArray });
     });
@@ -26,16 +28,13 @@ class ApplicationViews extends Component {
       localStorage.getItem("oauthio_cache") !== null &&
       this.state.userLoggedIn === false
     ) {
-      if (!localStorage.getItem("oauthio_provider_spotify")) {
-        localStorage.clear();
-      } else {
         this.setLoginStatus(
           true,
           parseInt(sessionStorage.getItem("currentUser"))
         );
       }
     }
-  }
+
 
   setLoginStatus = (status, id) => {
     this.setState({ userLoggedIn: status, currentUser: id });
@@ -44,11 +43,9 @@ class ApplicationViews extends Component {
     const accessToken = spotifyRequest.access_token;
     sessionStorage.setItem("access_token", accessToken);
     this.setState({ access_token: accessToken });
-    setTimeout(() => {
-      spotifyPlayer.createSpotifyPlayer().then(id => {
-        this.setState({ deviceId: id });
-      });
-    }, 1000);
+    playback.sPlayer().then(data => {
+      this.setState({player: data, deviceId: data._options.id}) 
+    })
   };
 
   render() {
@@ -69,6 +66,9 @@ class ApplicationViews extends Component {
           path="/home"
           Destination={Home}
           userLoggedIn={this.state.userLoggedIn}
+          player={this.state.player}
+          access_token={this.state.access_token}
+          deviceId={this.state.deviceId}
         />
         <Route
           path="/login"
@@ -78,6 +78,7 @@ class ApplicationViews extends Component {
                 userLoggedIn={this.state.userLoggedIn}
                 setLoginStatus={this.setLoginStatus}
                 users={this.state.users}
+                currentUser={this.state.currentUser}
               />
             );
           }}
@@ -88,13 +89,14 @@ class ApplicationViews extends Component {
           access_token={this.state.access_token}
           deviceId={this.state.deviceId}
           currentUser={this.state.currentUser}
+          player={this.state.player}
         />
         <AuthRoute
           path="/quiz"
           Destination={Quiz}
-          player={this.player}
           access_token={this.state.access_token}
           deviceId={this.state.deviceId}
+          player={this.state.player}
         />
         <AuthRoute
           path="/profile"

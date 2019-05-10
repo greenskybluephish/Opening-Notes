@@ -2,7 +2,7 @@
   "users": [
     {
       "spotifyUsername": "Briantjobe",
-      "displayName": "Brian ",
+      "displayName": "llama",
       "id": 1
     },
     {
@@ -22,7 +22,7 @@
           "artists": "Phish",
           "id": "04xNCRMGLm1vpjbYgIdk67",
           "name": "Maze",
-          "startTime": 8,
+          "startTime": 8000,
           "uri": "spotify:track:04xNCRMGLm1vpjbYgIdk67"
         },
         {
@@ -30,7 +30,7 @@
           "artists": "Phish",
           "id": "46GtuTjo1hyQ2RKeYaNyEv",
           "name": "Maze",
-          "startTime": 7,
+          "startTime": 7000,
           "uri": "spotify:track:46GtuTjo1hyQ2RKeYaNyEv"
         },
         {
@@ -38,7 +38,7 @@
           "artists": "Phish",
           "id": "73Qsd1J10EW5RseLBYeeCp",
           "name": "David Bowie",
-          "startTime": 8,
+          "startTime": 8000,
           "uri": "spotify:track:73Qsd1J10EW5RseLBYeeCp"
         },
         {
@@ -46,7 +46,7 @@
           "artists": "Phish",
           "id": "019wpE7wBMECXVhoHLT0W3",
           "name": "Maze",
-          "startTime": 75,
+          "startTime": 75000,
           "uri": "spotify:track:019wpE7wBMECXVhoHLT0W3"
         },
         {
@@ -54,7 +54,7 @@
           "artists": "Phish",
           "id": "09cgBvUQk4H5C9bak6hXE6",
           "name": "David Bowie",
-          "startTime": 144,
+          "startTime": 144000,
           "uri": "spotify:track:09cgBvUQk4H5C9bak6hXE6"
         },
         {
@@ -62,7 +62,7 @@
           "artists": "Phish",
           "id": "4nR86x33jO6RUnex8xSf3Z",
           "name": "Maze",
-          "startTime": 2,
+          "startTime": 2000,
           "uri": "spotify:track:4nR86x33jO6RUnex8xSf3Z"
         },
         {
@@ -70,7 +70,7 @@
           "artists": "Phish",
           "id": "58XDfphWKCeOoJvMoNw9HI",
           "name": "David Bowie",
-          "startTime": 27,
+          "startTime": 27000,
           "uri": "spotify:track:58XDfphWKCeOoJvMoNw9HI"
         },
         {
@@ -86,7 +86,7 @@
           "artists": "Phish",
           "id": "7xN0cR0ytACXB7mFhyQm6W",
           "name": "David Bowie",
-          "startTime": 3,
+          "startTime": 3000,
           "uri": "spotify:track:7xN0cR0ytACXB7mFhyQm6W"
         },
         {
@@ -94,7 +94,7 @@
           "artists": "Phish",
           "id": "4vKn3dCV3RP4YXzdiZmSYc",
           "name": "David Bowie",
-          "startTime": 6,
+          "startTime": 6000,
           "uri": "spotify:track:4vKn3dCV3RP4YXzdiZmSYc"
         },
         {
@@ -102,7 +102,7 @@
           "artists": "Phish",
           "id": "17HEEaDQCHwAb8Kymzotp3",
           "name": "David Bowie",
-          "startTime": 54,
+          "startTime": 54000,
           "uri": "spotify:track:17HEEaDQCHwAb8Kymzotp3"
         },
         {
@@ -110,7 +110,7 @@
           "artists": "Phish",
           "id": "6qZPKlm9wrcRPJLbRI4NXb",
           "name": "Maze",
-          "startTime": 16,
+          "startTime": 16000,
           "uri": "spotify:track:6qZPKlm9wrcRPJLbRI4NXb"
         },
         {
@@ -126,7 +126,7 @@
           "artists": "Phish",
           "id": "1qW8zv2f8j7JB9z121XPQT",
           "name": "David Bowie",
-          "startTime": 19,
+          "startTime": 19000,
           "uri": "spotify:track:1qW8zv2f8j7JB9z121XPQT"
         },
         {
@@ -134,7 +134,7 @@
           "artists": "Phish",
           "id": "16A0KmksmmcgQVgrWdDwEy",
           "name": "David Bowie",
-          "startTime": 14,
+          "startTime": 14000,
           "uri": "spotify:track:16A0KmksmmcgQVgrWdDwEy"
         },
         {
@@ -142,7 +142,7 @@
           "artists": "Phish",
           "id": "7KlwAAnU8KEhYmuzCNnSVr",
           "name": "Maze",
-          "startTime": 13,
+          "startTime": 13000,
           "uri": "spotify:track:7KlwAAnU8KEhYmuzCNnSVr"
         },
         {
@@ -168,7 +168,7 @@
           "artists": "Phish",
           "id": "3o1ie59RAqdsxgviJijwWe",
           "name": "David Bowie",
-          "startTime": 8,
+          "startTime": 8000,
           "uri": "spotify:track:3o1ie59RAqdsxgviJijwWe",
           "duration": 1142066
         },
@@ -177,12 +177,12 @@
           "artists": "Phish",
           "id": "5TJZr5zT9HIftesZToIItT",
           "name": "David Bowie",
-          "startTime": 11,
+          "startTime": 11000,
           "uri": "spotify:track:5TJZr5zT9HIftesZToIItT",
           "duration": 1106613
         }
       ],
-      "clipLength": 12,
+      "clipLength": 12000,
       "id": 1
     },
     {
@@ -287,41 +287,257 @@
           "uri": "spotify:track:5XNa3WYYE6xPySsqvH0jWO"
         },
         {
-          "album": "LivePhish 04/05/98",
-          "artists": "Phish",
-          "id": "04xNCRMGLm1vpjbYgIdk67",
-          "name": "Maze",
+          "album": "Hall of Fame: Class of 2014",
+          "artists": "Umphrey's McGee",
+          "id": "3u5cWxxhcgrha19GJpsITr",
+          "name": "Den (11.01.14 Boston, Massachusetts) (Live)",
           "startTime": 0,
-          "uri": "spotify:track:04xNCRMGLm1vpjbYgIdk67",
-          "duration": 485133
+          "uri": "spotify:track:3u5cWxxhcgrha19GJpsITr",
+          "duration": 369373
         }
       ],
-      "clipLength": 11,
+      "clipLength": 12000,
       "id": 2
     },
     {
       "userId": 1,
-      "quizName": "test",
-      "quizDescription": "tester",
+      "quizName": "Lost in the Sauce",
+      "quizDescription": "Get dropped in the middle of some monster Phish jams...",
       "quizTrackIds": [
         {
-          "album": "All for Money",
-          "artists": "Greensky Bluegrass",
-          "id": "3kUPtdiiK033knlGKPTB9V",
-          "name": "Do Harm",
-          "startTime": 3,
-          "uri": "spotify:track:3kUPtdiiK033knlGKPTB9V",
-          "duration": 181267
+          "album": "LivePhish, Vol. 20 12/29/94 (Providence Civic Center, Providence, RI)",
+          "artists": "Phish",
+          "id": "4h6sS9GsxLsZR8Zb5EKf2F",
+          "name": "David Bowie",
+          "startTime": 842000,
+          "uri": "spotify:track:4h6sS9GsxLsZR8Zb5EKf2F",
+          "duration": 2141186
         },
         {
-          "album": "Lawn Boy",
+          "album": "Phish: Star Lake '98",
           "artists": "Phish",
-          "id": "4pYQb0fYwPbTD09uDhiQzU",
-          "name": "Bouncing Around the Room",
-          "startTime": 0,
-          "uri": "spotify:track:4pYQb0fYwPbTD09uDhiQzU",
-          "duration": 235840
+          "id": "3mMI4utz3S6y4T1hPx4xlj",
+          "name": "Runaway Jim",
+          "startTime": 1062000,
+          "uri": "spotify:track:3mMI4utz3S6y4T1hPx4xlj",
+          "duration": 2108344
         },
+        {
+          "album": "LivePhish 05/08/93",
+          "artists": "Phish",
+          "id": "5g7BDZJYg4OIK3ktWOpukN",
+          "name": "You Enjoy Myself",
+          "startTime": 848000,
+          "uri": "spotify:track:5g7BDZJYg4OIK3ktWOpukN",
+          "duration": 1969826
+        },
+        {
+          "album": "Hampton/Winston-Salem '97",
+          "artists": "Phish",
+          "id": "2pidhUsY1jDL6dXxyo4Je6",
+          "name": "Bathtub Gin",
+          "startTime": 760000,
+          "uri": "spotify:track:2pidhUsY1jDL6dXxyo4Je6",
+          "duration": 1903013
+        },
+        {
+          "album": "Amsterdam",
+          "artists": "Phish",
+          "id": "3CPKo5dQFFCcop5qk0uJoy",
+          "name": "Stash",
+          "startTime": 790000,
+          "uri": "spotify:track:3CPKo5dQFFCcop5qk0uJoy",
+          "duration": 1847760
+        },
+        {
+          "album": "LivePhish, Vol. 16 10/31/98 (Thomas & Mack Center, Las Vegas, NV)",
+          "artists": "Phish",
+          "id": "7MDaMlQB5e9nWNCsWibLBW",
+          "name": "Wolfman's Brother",
+          "startTime": 867000,
+          "uri": "spotify:track:7MDaMlQB5e9nWNCsWibLBW",
+          "duration": 1843266
+        },
+        {
+          "album": "LivePhish 2/28/03 (Nassau Coliseum, Uniondale, NY)",
+          "artists": "Phish",
+          "id": "64zqQ6v2d3wJVVk5cfnV8z",
+          "name": "Tweezer",
+          "startTime": 709000,
+          "uri": "spotify:track:64zqQ6v2d3wJVVk5cfnV8z",
+          "duration": 1628946
+        },
+        {
+          "album": "Hampton/Winston-Salem '97",
+          "artists": "Phish",
+          "id": "5xiv6HVE3pBksBOhRRFLIQ",
+          "name": "Halley's Comet",
+          "startTime": 650000,
+          "uri": "spotify:track:5xiv6HVE3pBksBOhRRFLIQ",
+          "duration": 1560173
+        },
+        {
+          "album": "LivePhish 12/30/97 Madison Square Garden, New York, NY",
+          "artists": "Phish",
+          "id": "2CqYXWVqGkRlqaBJNqK2yJ",
+          "name": "AC/DC Bag",
+          "startTime": 616000,
+          "uri": "spotify:track:2CqYXWVqGkRlqaBJNqK2yJ",
+          "duration": 1539733
+        },
+        {
+          "album": "The Baker's Dozen: Live At Madison Square Garden",
+          "artists": "Phish",
+          "id": "16Cb3e1ss8YfFWNnsEPN8d",
+          "name": "Simple (Live) - 8/6/17 Glazed",
+          "startTime": 540000,
+          "uri": "spotify:track:16Cb3e1ss8YfFWNnsEPN8d",
+          "duration": 1509586
+        },
+        {
+          "album": "The Baker's Dozen: Live At Madison Square Garden",
+          "artists": "Phish",
+          "id": "2o5CwcwWsxLY6N6jB6RArZ",
+          "name": "Chalk Dust Torture (Live) - 7/28/17 Chocolate",
+          "startTime": 487000,
+          "uri": "spotify:track:2o5CwcwWsxLY6N6jB6RArZ",
+          "duration": 1445506
+        },
+        {
+          "album": "LivePhish, Vol. 11 11/17/97 (McNichols Sports Arena, Denver, CO)",
+          "artists": "Phish",
+          "id": "158HkkFddKcp5JyQRXdcyA",
+          "name": "Ghost",
+          "startTime": 407000,
+          "uri": "spotify:track:158HkkFddKcp5JyQRXdcyA",
+          "duration": 1284626
+        },
+        {
+          "album": "LivePhish, Vol. 6 11/27/98 (The Centrum, Worcester, MA)",
+          "artists": "Phish",
+          "id": "7fObn4HFr6ZwFFiGsEJrHY",
+          "name": "Weekapaug Groove",
+          "startTime": 441000,
+          "uri": "spotify:track:7fObn4HFr6ZwFFiGsEJrHY",
+          "duration": 1213133
+        },
+        {
+          "album": "LivePhish, Vol. 10 6/22/94 (Veterans Memorial Auditorium, Columbus, OH)",
+          "artists": "Phish",
+          "id": "0wliOSpoD7FrVyQWPHbXg0",
+          "name": "Run Like an Antelope (6/24/94)",
+          "startTime": 692000,
+          "uri": "spotify:track:0wliOSpoD7FrVyQWPHbXg0",
+          "duration": 1195693
+        },
+        {
+          "album": "St. Louis '93 (Live)",
+          "artists": "Phish",
+          "id": "0cUhnljHU0ZlPRqSDTkgLL",
+          "name": "Reba - Live",
+          "startTime": 599000,
+          "uri": "spotify:track:0cUhnljHU0ZlPRqSDTkgLL",
+          "duration": 1165613
+        },
+        {
+          "album": "LivePhish, Vol. 8 7/10/99 (E Centre, Camden, NJ)",
+          "artists": "Phish",
+          "id": "31EdfIbDnergbYH9lHakMI",
+          "name": "Fluffhead",
+          "startTime": 316000,
+          "uri": "spotify:track:31EdfIbDnergbYH9lHakMI",
+          "duration": 1110800
+        }
+      ],
+      "clipLength": 24000,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "quizName": "WSMFP",
+      "quizDescription": "you know. ",
+      "quizTrackIds": [
+        {
+          "album": "09/28/95 Tennessee Amphitheaater, Knoxville, TN",
+          "artists": "Widespread Panic",
+          "id": "1boCMWTtQkKjlO6QV4pKMj",
+          "name": "Tall Boy",
+          "startTime": 14000,
+          "uri": "spotify:track:1boCMWTtQkKjlO6QV4pKMj",
+          "duration": 317560
+        },
+        {
+          "album": "07/29/01 Oak Mountain Amphitheatre, Pelham, AL",
+          "artists": "Widespread Panic",
+          "id": "6LqzidTb34rA6Et3uFZKVI",
+          "name": "Climb to Safety",
+          "startTime": 2000,
+          "uri": "spotify:track:6LqzidTb34rA6Et3uFZKVI",
+          "duration": 322733
+        },
+        {
+          "album": "07/29/01 Oak Mountain Amphitheatre, Pelham, AL",
+          "artists": "Widespread Panic",
+          "id": "0wgRRee3gnBzlhIOCwUCp0",
+          "name": "Porch Song",
+          "startTime": 8000,
+          "uri": "spotify:track:0wgRRee3gnBzlhIOCwUCp0",
+          "duration": 207040
+        },
+        {
+          "album": "12/31/17 Fox Theatre, Atlanta, GA",
+          "artists": "Widespread Panic",
+          "id": "0CoIQkQ5Svrz4kdinPQWMR",
+          "name": "Can't Get High",
+          "startTime": 10000,
+          "uri": "spotify:track:0CoIQkQ5Svrz4kdinPQWMR",
+          "duration": 230680
+        },
+        {
+          "album": "12/31/17 Fox Theatre, Atlanta, GA",
+          "artists": "Widespread Panic",
+          "id": "2ucgEYrTLQ6XnFv7FeOyAa",
+          "name": "Driving Song",
+          "startTime": 31000,
+          "uri": "spotify:track:2ucgEYrTLQ6XnFv7FeOyAa",
+          "duration": 308893
+        },
+        {
+          "album": "12/31/17 Fox Theatre, Atlanta, GA",
+          "artists": "Widespread Panic",
+          "id": "4d7dHbJgHLrDCmAKBa1VG8",
+          "name": "Fishwater",
+          "startTime": 37000,
+          "uri": "spotify:track:4d7dHbJgHLrDCmAKBa1VG8",
+          "duration": 775680
+        },
+        {
+          "album": "12/31/17 Fox Theatre, Atlanta, GA",
+          "artists": "Widespread Panic",
+          "id": "6aIFqYUX9GaOERligreo2Z",
+          "name": "Chilly Water",
+          "startTime": 0,
+          "uri": "spotify:track:6aIFqYUX9GaOERligreo2Z",
+          "duration": 828133
+        },
+        {
+          "album": "12/31/17 Fox Theatre, Atlanta, GA",
+          "artists": "Widespread Panic",
+          "id": "6lqWP6WzY33olkSd58WpH9",
+          "name": "Ain't Life Grand",
+          "startTime": 0,
+          "uri": "spotify:track:6lqWP6WzY33olkSd58WpH9",
+          "duration": 284706
+        }
+      ],
+      "clipLength": 6000,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "quizName": "test",
+      "quizDescription": "this is what we want. ",
+      "quizTrackIds": [
         {
           "album": "SB2",
           "artists": "Gramatik",
@@ -345,89 +561,48 @@
           "artists": "Greensky Bluegrass",
           "id": "1qYI5TYXjlMD7uJMF6JyYj",
           "name": "I Know You Rider",
-          "startTime": 0,
+          "startTime": 3000,
           "uri": "spotify:track:1qYI5TYXjlMD7uJMF6JyYj",
           "duration": 500893
         },
         {
-          "album": "Phish: 1/2/2016 Madison Square Garden, New York, NY",
-          "artists": "Phish",
-          "id": "1xpRutuKPIYX0n8YgoIJPx",
-          "name": "Suzy Greenberg - Live",
+          "album": "Say It Loud",
+          "artists": "GRiZ",
+          "id": "6ZDk3PGFkRKGgk6aSkw2T9",
+          "name": "A Fine Way to Die",
           "startTime": 0,
-          "uri": "spotify:track:1xpRutuKPIYX0n8YgoIJPx",
-          "duration": 349093
+          "uri": "spotify:track:6ZDk3PGFkRKGgk6aSkw2T9",
+          "duration": 400982
         },
         {
-          "album": "If Sorrows Swim",
-          "artists": "Greensky Bluegrass",
-          "id": "7L85xI5IqTqORHxWci2AbC",
-          "name": "The Four",
+          "album": "Fly Between Falls",
+          "artists": "ALO",
+          "id": "4SeSBHW3My7RdB4UW0h1m9",
+          "name": "Girl, I Wanna Lay You Down",
           "startTime": 0,
-          "uri": "spotify:track:7L85xI5IqTqORHxWci2AbC",
-          "duration": 213306
+          "uri": "spotify:track:4SeSBHW3My7RdB4UW0h1m9",
+          "duration": 218973
+        },
+        {
+          "album": "Lawn Boy",
+          "artists": "Phish",
+          "id": "4pYQb0fYwPbTD09uDhiQzU",
+          "name": "Bouncing Around the Room",
+          "startTime": 5000,
+          "uri": "spotify:track:4pYQb0fYwPbTD09uDhiQzU",
+          "duration": 235840
         }
       ],
-      "clipLength": 6,
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "quizName": "hello",
-      "quizDescription": "quuiz",
-      "quizTrackIds": [
-        {
-          "album": "Amsterdam",
-          "artists": "Phish",
-          "id": "2jT3iJ9w0WD51E2VRDPzOD",
-          "name": "Divided Sky",
-          "startTime": 0,
-          "uri": "spotify:track:2jT3iJ9w0WD51E2VRDPzOD"
-        },
-        {
-          "album": "Amsterdam",
-          "artists": "Phish",
-          "id": "6jcO51f5vHa9cJfCnfX1Rf",
-          "name": "Soul Shakedown Party",
-          "startTime": 0,
-          "uri": "spotify:track:6jcO51f5vHa9cJfCnfX1Rf"
-        },
-        {
-          "album": "Amsterdam",
-          "artists": "Phish",
-          "id": "6nnNtd2jWP9GemBULz9Ufm",
-          "name": "Wilson",
-          "startTime": 0,
-          "uri": "spotify:track:6nnNtd2jWP9GemBULz9Ufm"
-        },
-        {
-          "album": "Amsterdam",
-          "artists": "Phish",
-          "id": "3LeOqlr75FsG7j71GMVJc4",
-          "name": "My Soul",
-          "startTime": 0,
-          "uri": "spotify:track:3LeOqlr75FsG7j71GMVJc4"
-        },
-        {
-          "album": "Amsterdam",
-          "artists": "Phish",
-          "id": "1ivB1ZnkVjiTkf9ZntcVIC",
-          "name": "The Squirming Coil",
-          "startTime": 0,
-          "uri": "spotify:track:1ivB1ZnkVjiTkf9ZntcVIC"
-        },
-        {
-          "album": "Amsterdam",
-          "artists": "Phish",
-          "id": "3GgcI3Efpom6Se3xRho66s",
-          "name": "Down With Disease",
-          "startTime": 0,
-          "uri": "spotify:track:3GgcI3Efpom6Se3xRho66s"
-        }
-      ],
-      "clipLength": 11,
-      "id": 4
+      "clipLength": 12000,
+      "id": 5
     }
   ],
-  "quizLogs": []
+  "quizLogs": [
+    {
+      "userId": 1,
+      "quizId": 4,
+      "score": 87.5,
+      "id": 1
+    }
+  ]
 }

@@ -29,9 +29,11 @@ export default class Profile extends Component {
   }
 
     handleSubmit = event => {
+      let form = event.target.parentNode
       quizAPI.patchEntry("users", this.props.currentUser, {"displayName": this.state.inputName}).then(()=> {
         quizAPI.getOneEntry("users", this.props.currentUser).then(user => {
           this.setState({displayName: user.displayName})
+          form.reset();
       })
 
     })}

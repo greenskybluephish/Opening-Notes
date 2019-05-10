@@ -1,62 +1,44 @@
-import React, { Component } from "react"
-import spotifyAPI from "../../modules/spotifyAPIManager"
+import spotifyAPI from "./spotifyAPIManager"
 
 
-export default class SpotifyPlayer extends Component {
+export default {
 
-  state = {
-    deviceId: "",
-    loggedIn: false,
-    error: "",
-    playerCheckInterval: null,
-  }
-
-  componentDidMount() {
-       this.playerCheckInterval = setInterval(() => this.checkForPlayer(this.props.access_token), 1000)
-  }
-
-  checkForPlayer = (token) => {
-  
-    if (window.Spotify !== null) {
-      clearInterval(this.playerCheckInterval);
-
-      let player = new window.Spotify.Player({
-        name: "Brians's Spotify Player",
-        getOAuthToken: cb => { cb(token); }
-      });
-
-      this.createEventHandlers();
-
-      // finally, connect!
-      player.connect();
-    }
-  }
-
-  createEventHandlers = () => {
-    this.player.on('initialization_error', e => { console.error(e); });
-    this.player.on('authentication_error', e => {
-      console.error(e);
-      this.setState({ loggedIn: false });
+  async waitForSpotifyWebPlaybackSDKToLoad () {
+    return new Promise(resolve => {
+      if (window.Spotify) {
+        resolve(window.Spotify);
+      } else {
+        window.onSpotifyWebPlaybackSDKReady = () => {
+          resolve(window.Spotify);
+        };
+      }
     });
-
-    this.player.on('account_error', e => { console.error(e); });
-    this.player.on('player_state_changed', state => { console.log(state); });
-
-    // Ready
-    this.player.on('ready', async data => {
-      const iframe = document.querySelector('iframe[src="https://sdk.scdn.co/embedded/index.html"]');
+  },
+  
+  async sPlayer () {
+    const spotifyRequest = window.OAuth.create("spotify");
+    const accessToken = await spotifyRequest.access_token;
+    const { Player } = await this.waitForSpotifyWebPlaybackSDKToLoad();
+    const sdk = new Player({
+      name: "Quiz Player",
+      volume: 1.0,
+      getOAuthToken: callback => { callback(accessToken); }
+    });
+    let connected = await sdk.connect();
+    if (connected) {
+      console.log("yeah")
+    }       
+    sdk.addListener('ready', async ({ device_id }) => {
+    await spotifyAPI.put.transferPlayback(device_id)
+    const iframe = document.querySelector('iframe[src="https://sdk.scdn.co/embedded/index.html"]');
       if (iframe) {
         iframe.style.display = 'block';
         iframe.style.position = 'absolute';
         iframe.style.top = '-1000px';
         iframe.style.left = '-1000px';
       }
-      let { device_id } = data;
-       await this.setState({ deviceId: device_id, loggedIn: true });
-       console.log("Quiz time!");
-    });
-  }
-  render()  {
-    return
+      console.log("ready");
+    })
+    return sdk
   }
 }
