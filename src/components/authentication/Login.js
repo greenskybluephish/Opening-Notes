@@ -5,6 +5,17 @@ import "./login.css";
 import quizAPI from "../../modules/jsonAPIManager";
 
 class Login extends Component {
+
+  checkRegisteredUser = () => {
+
+
+
+  }
+
+
+
+
+
   handleClick = e => {
     // Prevents page reload
     e.preventDefault();
@@ -13,7 +24,8 @@ class Login extends Component {
     window.OAuth.initialize("rKtNmq0HtvZws6tMLOJFcXiyypo");
     //uses OAuth.io to authenticate user and stores token needed for API calls.
     window.OAuth.popup("spotify", { cache: true }).done(spotify => {
-      console.log("loggedIn");
+      sessionStorage.setItem("access_token", spotify.access_token);
+
       spotify.me().done(data => {
         let spotifyUsername = data.name;
         let registeredUser = this.props.users.find(
@@ -27,6 +39,7 @@ class Login extends Component {
             spotifyUsername: spotifyUsername,
             displayName: spotifyUsername
           };
+
           quizAPI.postOne("users", newUser).then(() => {
             quizAPI.getAll("users").then(userArray => {
               let registeredUser = userArray.find(
@@ -42,8 +55,8 @@ class Login extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.userLoggedIn !== this.props.userLoggedIn) {
-      this.props.history.push("/home");
+    if (prevProps.userLoggedIn !== this.props.userLoggedIn || this.props.userLoggedIn === true) {
+      this.props.history.push("/");
     }
   }
 

@@ -47,7 +47,7 @@ export default class QuizCreator extends Component {
       alert("Add more songs to your quiz");
     } else {
       const newQuiz = {
-        userId: 1,
+        userId: this.props.currentUser,
         quizName: this.state.quizName,
         quizDescription: this.state.quizDescription,
         quizTrackIds: this.state.newQuizTracks,

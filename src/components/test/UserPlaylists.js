@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import spotifyAPIManager from "../../modules/spotifyAPIManager"
+import spotifyAPI from "../../modules/spotifyAPIManager"
 import { Table, Button } from 'reactstrap'
 import SongFile from "./SongFile"
 
@@ -11,14 +11,14 @@ state = {
 }
 
   componentDidMount() {
-    spotifyAPIManager.get.getPlaylistTracks(this.props.playlist.URI).then(tracks => {
+    spotifyAPI.getPlaylistTracks(this.props.playlist.URI).then(tracks => {
       this.setState({playlistTracks: tracks})
     }
     )}
 
   componentDidUpdate(prevProps) {
     if (prevProps.playlist !== this.props.playlist) {
-      spotifyAPIManager.get.getPlaylistTracks(this.props.playlist.URI).then(tracks => {
+      spotifyAPI.getPlaylistTracks(this.props.playlist.URI).then(tracks => {
         this.setState({playlistTracks: tracks})
       }
       )

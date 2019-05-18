@@ -9,6 +9,8 @@ state = {
 }
 
 handleClick = (event) => {
+
+
   this.setState({disableButton: true})
   this.props.addToQuiz(this.props.track)
 }

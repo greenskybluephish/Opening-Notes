@@ -20,7 +20,7 @@ export default class QuizSongCreator extends Component {
   };
 
   componentDidMount() {
-    spotifyAPI.get.spotifyTrackInfo(this.props.track.id).then(value => {
+    spotifyAPI.spotifyTrackInfo(this.props.track.id).then(value => {
       this.setState({ value: value });
     });
   }
@@ -38,24 +38,24 @@ export default class QuizSongCreator extends Component {
     console.log(value);
     if (!this.state.isPlaying) {
       this.setState({ isPlaying: true, shouldPause: true });
-      spotifyAPI.put
+      spotifyAPI
         .playOneSong(this.props.track.uri, this.state.value * 1000, device)
         .then(
           setTimeout(() => {
             if (this.state.shouldPause) {
               this.setState({ isPlaying: false, shouldPause: false });
-              spotifyAPI.put.pauseSong();
+              spotifyAPI.pauseSong();
             }
           }, this.props.clipLength)
         );
     } else {
       this.setState({ isPlaying: false, shouldPause: false });
-      spotifyAPI.put
+      spotifyAPI
         .playOneSong(this.props.track.uri, this.state.value * 1000, device)
         .then(
           setTimeout(() => {
             if (!this.state.shouldPause) {
-              spotifyAPI.put.pauseSong();
+              spotifyAPI.pauseSong();
             }
           }, this.props.clipLength)
         );

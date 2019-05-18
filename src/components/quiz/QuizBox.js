@@ -76,7 +76,7 @@ export default class QuizBox extends Component {
   playSong = () => {
     const uris = this.props.quizTracks.map(track => track.uri)
     const startTime = this.props.quizTracks[0].startTime;
-    spotifyAPI.put.startPlayback(uris, startTime, this.props.deviceId);
+    spotifyAPI.startPlayback(uris, startTime, this.props.deviceId);
   };
 
   toggle = stateToToggle => {

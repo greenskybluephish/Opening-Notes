@@ -8,15 +8,18 @@ import Quiz from "./quiz/Quiz";
 import quizAPI from "../modules/jsonAPIManager";
 import Profile from "./profile/Profile";
 import playback from "../modules/spotifyPlayback"
+import spotifyAPI from "../modules/spotifyAPIManager"
+import "../assets/scss/blk-design-system.scss"
+import "../assets/css/nucleo-icons.css"
 
 
 class ApplicationViews extends Component {
   state = {
-    access_token: "",
     userLoggedIn: false,
     currentUser: "",
     deviceId: "",
-    users: []
+    users: [],
+    playerIsReady: false
   };
 
   componentDidMount() {
@@ -35,15 +38,31 @@ class ApplicationViews extends Component {
       }
     }
 
+  connectSpotifyPlayer = (sdk) => {
+    let connected = sdk.connect();
+    if (connected) {    
+    sdk.addListener('ready', async ({ device_id }) => {
+    await spotifyAPI.transferPlayback(device_id)
+    const iframe = document.querySelector('iframe[src="https://sdk.scdn.co/embedded/index.html"]');
+      if (iframe) {
+        iframe.style.display = 'block';
+        iframe.style.position = 'absolute';
+        iframe.style.top = '-1000px';
+        iframe.style.left = '-1000px';
+      }
+      this.setState({playerIsReady: true})
+      console.log("true")
+    })
+  }
+  }
+
+
+
 
   setLoginStatus = (status, id) => {
-    this.setState({ userLoggedIn: status, currentUser: id });
-
-    const spotifyRequest = window.OAuth.create("spotify");
-    const accessToken = spotifyRequest.access_token;
-    sessionStorage.setItem("access_token", accessToken);
-    this.setState({ access_token: accessToken });
+    this.setState({userLoggedIn: status, currentUser: id  });
     playback.sPlayer().then(data => {
+      this.connectSpotifyPlayer(data)
       this.setState({player: data, deviceId: data._options.id}) 
     })
   };
@@ -51,25 +70,21 @@ class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route
-          exact
-          path="/"
-          render={props => {
-            if (this.state.userLoggedIn) {
-              return <Redirect to="/home" />;
-            } else {
-              return <Redirect to="/login" />;
-            }
-          }}
-        />
         <AuthRoute
+          path="/"
+          Destination={Home}
+          userLoggedIn={this.state.userLoggedIn}
+          player={this.state.player}
+          deviceId={this.state.deviceId}
+          playerIsReady={this.state.playerIsReady}>
+          </AuthRoute>
+        {/* <AuthRoute
           path="/home"
           Destination={Home}
           userLoggedIn={this.state.userLoggedIn}
           player={this.state.player}
-          access_token={this.state.access_token}
           deviceId={this.state.deviceId}
-        />
+        /> */}
         <Route
           path="/login"
           render={() => {
@@ -78,7 +93,6 @@ class ApplicationViews extends Component {
                 userLoggedIn={this.state.userLoggedIn}
                 setLoginStatus={this.setLoginStatus}
                 users={this.state.users}
-                currentUser={this.state.currentUser}
               />
             );
           }}
@@ -86,7 +100,6 @@ class ApplicationViews extends Component {
         <AuthRoute
           path="/create"
           Destination={Create}
-          access_token={this.state.access_token}
           deviceId={this.state.deviceId}
           currentUser={this.state.currentUser}
           player={this.state.player}
@@ -94,7 +107,6 @@ class ApplicationViews extends Component {
         <AuthRoute
           path="/quiz"
           Destination={Quiz}
-          access_token={this.state.access_token}
           deviceId={this.state.deviceId}
           player={this.state.player}
         />

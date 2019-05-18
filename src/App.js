@@ -4,8 +4,12 @@ import ApplicationViews from "./components/ApplicationViews"
 
 
 
+
+
 class App extends Component {
 
+
+    
     render() {
         return (
             <React.Fragment>

@@ -1,13 +1,39 @@
 import React, { Component } from "react"
-import { Container, Button } from "reactstrap"
+import { Container } from "reactstrap"
 import Quiz from "../quiz/Quiz"
+import { css } from '@emotion/core';
+// First way to import
+import { RingLoader } from 'react-spinners';
+
+
+
 
 export default class Home extends Component {
 
 
+
+
+
   render() {
+    const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
+
       return (
-        <Container>
+        <>
+        <div className='sweet-loading'>
+        <RingLoader
+          css={override}
+          sizeUnit={"px"}
+          size={150}
+          color={'#123abc'}
+          loading={!this.props.playerIsReady}
+        />
+      </div> 
+
+       {this.props.playerIsReady && <Container>
           <div className="App">
           <h2> Hey bro...what song is this? </h2>
             <div>
@@ -20,7 +46,8 @@ export default class Home extends Component {
             </div>
           </div>
         
-        </Container>
+        </Container>}
+        </>
       )
     }
   }

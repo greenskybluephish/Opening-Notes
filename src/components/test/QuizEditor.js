@@ -11,7 +11,6 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardText,
   Container,
   Row,
   Form,
@@ -41,7 +40,7 @@ export default class QuizEditor extends Component {
 
   showEditForm = () => {
     let quizToEdit = this.state.myQuizzes.find(
-      quiz => quiz.id == this.state.selectedQuiz
+      quiz => quiz.id === this.state.selectedQuiz
     );
     this.setState({
       quizName: quizToEdit.quizName,

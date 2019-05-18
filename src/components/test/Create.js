@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../../modules/spotifyAPIManager";
+import spotifyAPI from "../../modules/spotifyAPIManager";
 import UserPlaylists from "./UserPlaylists"
 import { Dropdown, DropdownToggle, DropdownItem, DropdownMenu, Container, Button} from "reactstrap"
 import "./test.css"
@@ -36,15 +36,14 @@ export default class Create extends Component {
 
     
   async componentDidMount () {
-     let items = await API.get.getUserPlaylists();
+     let items = await spotifyAPI.getUserPlaylists();
       const playlistInfo = items.map(playlist => {
         return { name: playlist.name, URI: playlist.id}
       }); this.setState({playlistInfo: playlistInfo})
      }
 
     showTracks = (playlist, e) => {
-      this.setState({showTracks: true, activePlaylist: playlist})
-      this.toggle();
+      this.setState({showTracks: true, activePlaylist: playlist, dropdownOpen: false})
     }
 
     hideTracks = () => {
@@ -53,8 +52,8 @@ export default class Create extends Component {
 
     addToQuiz = (trackURI) => {
 
-      const addTrackToState = this.state.quizTracks.concat(trackURI);
-      this.setState({quizTracks: addTrackToState})
+      const newState = this.state.quizTracks.concat(trackURI);
+      this.setState({quizTracks: newState})
      } 
 
      removeFromQuiz = (trackURI) => {
