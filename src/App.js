@@ -8,13 +8,20 @@ import ApplicationViews from "./components/ApplicationViews"
 
 class App extends Component {
 
+    state = {
+        userLoggedIn: false
+    }
 
-    
+    setLoginStatus = (status) => {
+        this.setState({userLoggedIn: status})
+    }
+
+
     render() {
         return (
             <React.Fragment>
-                <NavBar />
-                <ApplicationViews />
+                {this.state.userLoggedIn && <NavBar />}
+                <ApplicationViews setLoginStatus={this.setLoginStatus} userLoggedIn={this.state.userLoggedIn} />
             </React.Fragment>
         )
     }

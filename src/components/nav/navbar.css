@@ -1,4 +1,6 @@
-
+.navbar-transparent.navbar:hover{
+  background-color: #1d8cf8 important!;
+}
 
 .navbar {
   margin-bottom: 15px;

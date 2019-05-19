@@ -6,14 +6,6 @@ import quizAPI from "../../modules/jsonAPIManager";
 
 class Login extends Component {
 
-  checkRegisteredUser = () => {
-
-
-
-  }
-
-
-
 
 
   handleClick = e => {
@@ -32,7 +24,7 @@ class Login extends Component {
           user => user.spotifyUsername === spotifyUsername
         );
         if (registeredUser) {
-          this.props.setLoginStatus(true, registeredUser.id);
+          this.props.setLoginStatus(registeredUser.id);
           sessionStorage.setItem("currentUser", registeredUser.id);
         } else {
           let newUser = {
@@ -46,7 +38,7 @@ class Login extends Component {
                 user => user.spotifyUsername === spotifyUsername
               );
               sessionStorage.setItem("currentUser", registeredUser.id);
-              this.props.setLoginStatus(true, registeredUser.id);
+              this.props.setLoginStatus(registeredUser.id);
             });
           });
         }
@@ -63,8 +55,8 @@ class Login extends Component {
   render() {
     return (
       <Container>
-        <h1>Welcome to Common Ground</h1>
-        <h3>Please log in to continue</h3>
+        <h1>Opening Notes</h1>
+        <h3>Log in with your Spotify account below</h3>
         <Button onClick={this.handleClick} size="lg" bg-color="primary">
           <span className="fa fa-spotify" /> Sign in with Spotify
         </Button>

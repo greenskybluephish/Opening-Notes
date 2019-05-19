@@ -15,8 +15,7 @@ export default class Create extends Component {
     showTracks: false,
     activePlaylist: "",
     quizTracks: [],
-    renderQuizCreator: true,
-    renderQuizEditor: false
+    renderQuizCreator: true
   }
 
 
@@ -29,8 +28,7 @@ export default class Create extends Component {
 
     toggleEditor = () => {
       this.setState({
-        renderQuizCreator: !this.state.renderQuizCreator, 
-        renderQuizEditor: !this.state.renderQuizEditor 
+        renderQuizCreator: !this.state.renderQuizCreator
       });
     };
 
@@ -63,7 +61,7 @@ export default class Create extends Component {
      }
 
     clearQuizTracks = () => {
-      this.setState({quizTracks: [], renderQuizEditor: false, renderQuizCreator: true})
+      this.setState({quizTracks: [], renderQuizCreator: true})
     }
 
 
@@ -78,11 +76,11 @@ export default class Create extends Component {
 
   {this.state.renderQuizCreator && <QuizCreator currentUser={this.props.currentUser} deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>}
 
-  {this.state.renderQuizEditor && <QuizEditor deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks} removeFromQuiz={this.removeFromQuiz}
+  {!this.state.renderQuizCreator && <QuizEditor deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks} removeFromQuiz={this.removeFromQuiz}
   currentUser={this.props.currentUser}></QuizEditor>}
 
 
-          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <Dropdown direction="right" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
         Playlists
         </DropdownToggle>

@@ -24,7 +24,7 @@ export default class NavBar extends React.Component {
   render() {
     return (
 
-        <Navbar className="bg-info" light expand="lg">
+        <Navbar className="navbar-transparent" light expand="md">
         <Container>
           
               <Nav navbar>

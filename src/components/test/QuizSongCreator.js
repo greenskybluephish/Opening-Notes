@@ -109,21 +109,21 @@ export default class QuizSongCreator extends Component {
                   tipProps={{ overlayClassName: "foo" }}
                   value={this.state.value}
                   min={0}
-                  max={this.msToSeconds(this.props.track.duration_ms)}
+                  max={this.msToSeconds(this.props.track.duration)}
                   step={1}
                   onChange={this.onSliderChange}
                   onAfterChange={this.onAfterChange}
                 />
               </Col>
               <Col sm="2" md="1">
-                {this.msToMinutes(this.props.track.duration_ms)}
+                {this.msToMinutes(this.props.track.duration)}
               </Col>
             </Row>
           )}
 
           <Row className="song-name">
             <Col xs="8" md="6">
-              {this.props.track.name} - {this.props.track.album.name}
+              {this.props.track.name} - {this.props.track.album}
             </Col>
             {this.state.saveButton && (
               <Col xs="6" md="4">

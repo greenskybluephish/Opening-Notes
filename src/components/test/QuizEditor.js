@@ -53,7 +53,7 @@ export default class QuizEditor extends Component {
 
   handleFieldChange = event => {
     const stateToChange = {};
-    stateToChange[event.target.id] = event.target.value;
+    stateToChange[event.target.id] = parseInt(event.target.value);
     this.setState(stateToChange);
   };
 

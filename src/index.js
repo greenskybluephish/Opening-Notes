@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom"
 
 import "./assets/css/nucleo-icons.css"
 // import 'bootstrap/dist/css/bootstrap.min.css'
-import "./assets/scss/blk-design-system.scss"
+import "./assets/css/blk-design-system.css"
 
 ReactDOM.render(  <Router>
   <App />

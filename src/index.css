@@ -1,1 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700&display=swap');
 
+
+body {
+  justify-content: center;
+  background-color: #282c34;
+  background-image: url(images\crowd.jpg);
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+@media only screen and (max-width: 992px) {
+  body { 
+    background-image: url(images/crowdsmall.jpg); 
+  }
+}
+
+h1.title {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  color: white
+}

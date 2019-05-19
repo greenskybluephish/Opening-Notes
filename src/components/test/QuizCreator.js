@@ -25,7 +25,6 @@ export default class QuizCreator extends Component {
     quizDescription: "",
     clipLength: 12000,
     newQuizTracks: [],
-    currentUser: 1
   };
 
   handleFieldChange = event => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
+import { Container, Jumbotron } from "reactstrap";
 import spotifyAPI from "../../modules/spotifyAPIManager";
 import QuizBox from "../quiz/QuizBox";
 import quizAPI from "../../modules/jsonAPIManager";
@@ -33,7 +33,7 @@ export default class Quiz extends Component {
 
   render() {
     return (
-      <Container>
+      <Jumbotron color="default">
         <div className="App">
           {!this.state.startQuiz && <QuizHeader selectQuiz={this.selectQuiz} />}
 
@@ -49,7 +49,7 @@ export default class Quiz extends Component {
             />
           )}
         </div>
-      </Container>
+      </Jumbotron>
     );
   }
 }

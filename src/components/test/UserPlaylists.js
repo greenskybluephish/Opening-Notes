@@ -12,7 +12,18 @@ state = {
 
   componentDidMount() {
     spotifyAPI.getPlaylistTracks(this.props.playlist.URI).then(tracks => {
-      this.setState({playlistTracks: tracks})
+      const playlistTracks = tracks.map(track => {
+        let trackInfo = {
+        album: track.album.name,
+        artists: track.artists[0].name,
+        id: track.id,
+        name: track.name,
+        uri: track.uri,
+        duration: track.duration_ms
+      };
+       return trackInfo})
+
+      this.setState({playlistTracks: playlistTracks})
     }
     )}
 

@@ -29,10 +29,9 @@ class ApplicationViews extends Component {
     });
     if (
       localStorage.getItem("oauthio_cache") !== null &&
-      this.state.userLoggedIn === false
+      this.props.userLoggedIn === false
     ) {
         this.setLoginStatus(
-          true,
           parseInt(sessionStorage.getItem("currentUser"))
         );
       }
@@ -59,8 +58,9 @@ class ApplicationViews extends Component {
 
 
 
-  setLoginStatus = (status, id) => {
-    this.setState({userLoggedIn: status, currentUser: id  });
+  setLoginStatus = (id) => {
+    this.props.setLoginStatus(true)
+    this.setState({currentUser: id });
     playback.sPlayer().then(data => {
       this.connectSpotifyPlayer(data)
       this.setState({player: data, deviceId: data._options.id}) 
@@ -73,24 +73,17 @@ class ApplicationViews extends Component {
         <AuthRoute
           path="/"
           Destination={Home}
-          userLoggedIn={this.state.userLoggedIn}
+          userLoggedIn={this.props.userLoggedIn}
           player={this.state.player}
           deviceId={this.state.deviceId}
           playerIsReady={this.state.playerIsReady}>
           </AuthRoute>
-        {/* <AuthRoute
-          path="/home"
-          Destination={Home}
-          userLoggedIn={this.state.userLoggedIn}
-          player={this.state.player}
-          deviceId={this.state.deviceId}
-        /> */}
         <Route
           path="/login"
           render={() => {
             return (
               <Login
-                userLoggedIn={this.state.userLoggedIn}
+                userLoggedIn={this.props.userLoggedIn}
                 setLoginStatus={this.setLoginStatus}
                 users={this.state.users}
               />
