@@ -8,8 +8,12 @@ body {
   width: 100%;
   background-size: cover;
   background-attachment: fixed;
+  
 }
 
+body #root {
+  font-family: 'Roboto', serif
+}
 
 @media only screen and (max-width: 992px) {
   body { 
@@ -17,8 +21,9 @@ body {
   }
 }
 
-h1.title {
+div h1 {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
+  font-size: 5em;
   color: white
 }

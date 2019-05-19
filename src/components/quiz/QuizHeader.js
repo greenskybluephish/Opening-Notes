@@ -44,7 +44,7 @@ handleStart = (e) => {
       <Container>
           <div className="App">
             <div>
-              <h2> Lets play a quiz! </h2>
+              <h2> Quiz Time </h2>
             </div>
           </div>
           <Form >

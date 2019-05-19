@@ -42,7 +42,7 @@ export default class QuizCreator extends Component {
     event.preventDefault();
     if (this.state.quizName === "") {
       alert("Please enter a name for your quiz");
-    } else if (this.state.newQuizTracks.length < 6) {
+    } else if (this.state.newQuizTracks.length < 4) {
       alert("Add more songs to your quiz");
     } else {
       const newQuiz = {

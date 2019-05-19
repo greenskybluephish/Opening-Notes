@@ -2,7 +2,7 @@
   "users": [
     {
       "spotifyUsername": "Briantjobe",
-      "displayName": "llama",
+      "displayName": "Brian",
       "id": 1
     },
     {
@@ -595,6 +595,51 @@
       ],
       "clipLength": 12000,
       "id": 5
+    },
+    {
+      "userId": 1,
+      "quizName": "test",
+      "quizDescription": "tester",
+      "quizTrackIds": [
+        {
+          "id": "0wliOSpoD7FrVyQWPHbXg0",
+          "name": "Run Like an Antelope (6/24/94)",
+          "startTime": 0,
+          "uri": "spotify:track:0wliOSpoD7FrVyQWPHbXg0"
+        },
+        {
+          "id": "5J9syDZVk5haJTUEXvv4I2",
+          "name": "Stash - Live - Clifford Ball, 1994",
+          "startTime": 0,
+          "uri": "spotify:track:5J9syDZVk5haJTUEXvv4I2"
+        },
+        {
+          "id": "3djludOzT4n1fNx33BoCR6",
+          "name": "Tweezer",
+          "startTime": 0,
+          "uri": "spotify:track:3djludOzT4n1fNx33BoCR6"
+        },
+        {
+          "id": "5OlHyYyN0imakPb54OyHaF",
+          "name": "Reba",
+          "startTime": 0,
+          "uri": "spotify:track:5OlHyYyN0imakPb54OyHaF"
+        },
+        {
+          "id": "6tqCEw7jqoU1XLxmYy2PAh",
+          "name": "You Enjoy Myself - Live",
+          "startTime": 15623.6,
+          "uri": "spotify:track:6tqCEw7jqoU1XLxmYy2PAh"
+        },
+        {
+          "id": "26Zoc9dYJvJq4qsBHPVUc5",
+          "name": "Llama",
+          "startTime": 0,
+          "uri": "spotify:track:26Zoc9dYJvJq4qsBHPVUc5"
+        }
+      ],
+      "clipLength": 12000,
+      "id": 6
     }
   ],
   "quizLogs": [

@@ -70,8 +70,8 @@ export default class Create extends Component {
       return (
         <Container className="App">
 
-  <Button onClick={this.toggleEditor} id="renderQuizCreator" color="primary" size="lg">Create a New Quiz</Button>{' '}
-  <Button onClick={this.toggleEditor} id="renderQuizEditor" color="secondary" size="lg">Edit a previous quiz</Button>
+  <Button className="btn-neutral" onClick={this.toggleEditor} id="renderQuizCreator" color="info" size="lg">Create a New Quiz</Button>{' '}
+  <Button className="btn-neutral"  onClick={this.toggleEditor} id="renderQuizEditor" color="info" size="lg">Edit a previous quiz</Button>
 
 
   {this.state.renderQuizCreator && <QuizCreator currentUser={this.props.currentUser} deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>}
