@@ -203,15 +203,6 @@
       "quizDescription": "Dropped in the middle of some monster Phish jams...",
       "quizTrackIds": [
         {
-          "album": "LivePhish, Vol. 20 12/29/94 (Providence Civic Center, Providence, RI)",
-          "artists": "Phish",
-          "id": "4h6sS9GsxLsZR8Zb5EKf2F",
-          "name": "David Bowie",
-          "startTime": 842000,
-          "uri": "spotify:track:4h6sS9GsxLsZR8Zb5EKf2F",
-          "duration": 2141186
-        },
-        {
           "album": "Phish: Star Lake '98",
           "artists": "Phish",
           "id": "3mMI4utz3S6y4T1hPx4xlj",
@@ -264,15 +255,6 @@
           "startTime": 709000,
           "uri": "spotify:track:64zqQ6v2d3wJVVk5cfnV8z",
           "duration": 1628946
-        },
-        {
-          "album": "Hampton/Winston-Salem '97",
-          "artists": "Phish",
-          "id": "5xiv6HVE3pBksBOhRRFLIQ",
-          "name": "Halley's Comet",
-          "startTime": 650000,
-          "uri": "spotify:track:5xiv6HVE3pBksBOhRRFLIQ",
-          "duration": 1560173
         },
         {
           "album": "LivePhish 12/30/97 Madison Square Garden, New York, NY",
@@ -345,6 +327,24 @@
           "startTime": 316000,
           "uri": "spotify:track:31EdfIbDnergbYH9lHakMI",
           "duration": 1110800
+        },
+        {
+          "album": "Hampton/Winston-Salem '97",
+          "artists": "Phish",
+          "id": "5xiv6HVE3pBksBOhRRFLIQ",
+          "name": "Halley's Comet",
+          "startTime": 650000,
+          "uri": "spotify:track:5xiv6HVE3pBksBOhRRFLIQ",
+          "duration": 1560173
+        },
+        {
+          "album": "LivePhish, Vol. 20 12/29/94 (Providence Civic Center, Providence, RI)",
+          "artists": "Phish",
+          "id": "4h6sS9GsxLsZR8Zb5EKf2F",
+          "name": "David Bowie",
+          "startTime": 842000,
+          "uri": "spotify:track:4h6sS9GsxLsZR8Zb5EKf2F",
+          "duration": 2141186
         }
       ],
       "clipLength": 24000,
@@ -415,8 +415,8 @@
     },
     {
       "userId": 1,
-      "quizName": "Test",
-      "quizDescription": "Tester",
+      "quizName": "Umphreys Mcgee",
+      "quizDescription": "Extra Gee",
       "quizTrackIds": [
         {
           "album": "Hall of Fame: Class of 2016",
@@ -565,42 +565,6 @@
       ],
       "clipLength": 6000,
       "id": 6
-    },
-    {
-      "userId": 1,
-      "quizName": "Demo Day",
-      "quizDescription": "Show Time!",
-      "quizTrackIds": [
-        {
-          "album": "Hampton/Winston-Salem '97",
-          "artists": "Phish",
-          "id": "2pidhUsY1jDL6dXxyo4Je6",
-          "name": "Bathtub Gin",
-          "startTime": 32791.649999999994,
-          "uri": "spotify:track:2pidhUsY1jDL6dXxyo4Je6",
-          "duration": 1903013
-        },
-        {
-          "album": "St. Louis '93 (Live)",
-          "artists": "Phish",
-          "id": "0cUhnljHU0ZlPRqSDTkgLL",
-          "name": "Reba - Live",
-          "startTime": 6761.8099999999995,
-          "uri": "spotify:track:0cUhnljHU0ZlPRqSDTkgLL",
-          "duration": 1165613
-        },
-        {
-          "album": "St. Louis '93 (Live)",
-          "artists": "Phish",
-          "id": "5aO7aAlZ746I6ixBi38II3",
-          "name": "Runaway Jim - Live",
-          "startTime": 0,
-          "uri": "spotify:track:5aO7aAlZ746I6ixBi38II3",
-          "duration": 469106
-        }
-      ],
-      "clipLength": 6000,
-      "id": 7
     }
   ],
   "quizLogs": [
