@@ -24,7 +24,7 @@ export default class QuizCreator extends Component {
     quizName: "",
     quizDescription: "",
     clipLength: 6000,
-    newQuizTracks: [],
+    newQuizTracks: []
   };
 
   handleFieldChange = event => {
@@ -38,19 +38,20 @@ export default class QuizCreator extends Component {
     this.setState({ newQuizTracks: addTrackToState });
   };
 
-  removeFromQuizList = (track) => {
-    this.props.removeFromQuiz(track)
+  removeFromQuizList = track => {
+    this.props.removeFromQuiz(track);
     const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
-      return (quiz.id !== track.id)
-    }); this.setState({newQuizTracks: filteredQuiz})
+      return quiz.id !== track.id;
+    });
+    this.setState({ newQuizTracks: filteredQuiz });
+  };
 
-  }
-
-  editTrack = (track) => {
+  editTrack = track => {
     const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
-      return (quiz.id !== track.id)
-    }); this.setState({newQuizTracks: filteredQuiz})
-  }
+      return quiz.id !== track.id;
+    });
+    this.setState({ newQuizTracks: filteredQuiz });
+  };
 
   submitNewQuiz = event => {
     event.preventDefault();
@@ -89,10 +90,12 @@ export default class QuizCreator extends Component {
           <Row>
             <Col sm="12" md={{ size: 10, offset: 1 }}>
               <CardText>
-                To create a new quiz, simply select one of your playlists below and start adding songs. 
-                 You can change the
-                difficulty of the quiz by making the song clips 6, 12, or 24
-                seconds long. The slider next to each track is set at the estimated start time for the song, or you can move it around to find the exact clip you want to use.{" "}
+                To create a new quiz, simply select one of your playlists below
+                and start adding songs. You can change the difficulty of the
+                quiz by making the song clips 6, 12, or 24 seconds long. The
+                slider next to each track is set at the estimated start time for
+                the song, or you can move it around to find the exact clip you
+                want to use.{" "}
               </CardText>
             </Col>
           </Row>

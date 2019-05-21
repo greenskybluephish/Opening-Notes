@@ -14,14 +14,13 @@ import "./quiz.css";
 import spotifyAPI from "../../modules/spotifyAPIManager";
 import quizAPI from "../../modules/jsonAPIManager";
 
-
 export default class QuizBox extends Component {
   state = {
     inputAnswer: "",
     correctAnswers: 0,
     questionIndex: 0,
     disableButton: false,
-    disableSubmitButton: true,
+    disableSubmitButton: true
   };
 
   // handle the field change when the input box is edited
@@ -64,16 +63,20 @@ export default class QuizBox extends Component {
       let quizScore = {
         quizId: parseInt(this.props.quizId),
         userId: parseInt(this.props.currentUser),
-        score: (this.state.correctAnswers*100/this.props.quizTracks.length) 
-      }
-      quizAPI.postOne("quizLogs", quizScore)
-      alert(`Quiz Complete! You answered ${this.state.correctAnswers} out of ${this.props.quizTracks.length} questions correctly. `)
+        score: (this.state.correctAnswers * 100) / this.props.quizTracks.length
+      };
+      quizAPI.postOne("quizLogs", quizScore);
+      alert(
+        `Quiz Complete! You answered ${this.state.correctAnswers} out of ${
+          this.props.quizTracks.length
+        } questions correctly. `
+      );
       this.props.endQuiz();
     }
   }
 
   playSong = () => {
-    const uris = this.props.quizTracks.map(track => track.uri)
+    const uris = this.props.quizTracks.map(track => track.uri);
     const startTime = this.props.quizTracks[0].startTime;
     spotifyAPI.startPlayback(uris, startTime, this.props.deviceId);
   };
@@ -84,26 +87,18 @@ export default class QuizBox extends Component {
     });
   };
 
-
   handleSeek = () => {
     const startTime = this.props.quizTracks[this.state.questionIndex].startTime;
-    this.props.player.nextTrack().then(()=> {
+    this.props.player.nextTrack().then(() => {
       this.props.player.seek(startTime);
     });
-  }
-
-  // handleStop = () => {
-  //   this.props.player.pause();
-  //   };
-
-
-
+  };
 
   handlePlaySong = () => {
     if (this.state.questionIndex === 0) {
-    this.playSong();
+      this.playSong();
     } else {
-      this.handleSeek()
+      this.handleSeek();
     }
     this.toggle("disableButton");
     setTimeout(() => {
@@ -115,46 +110,44 @@ export default class QuizBox extends Component {
   render() {
     return (
       <Container>
+        <Badge color="primary" pill>
+          Question {this.state.questionIndex + 1} of{" "}
+          {this.props.quizTracks.length}
+        </Badge>
+        <Badge color="primary" pill>
+          Current Score: {this.state.correctAnswers}
+        </Badge>
 
+        <hr className="my-2" />
+        <Button
+          onClick={this.handlePlaySong}
+          disabled={this.state.disableButton}
+        >
+          Play song!
+        </Button>
 
-          <Badge color="primary" pill>
-            Question {this.state.questionIndex + 1} of{" "}
-            {this.props.quizTracks.length}
-          </Badge>
-          <Badge color="primary" pill>
-            Current Score: {this.state.correctAnswers}
-          </Badge>
-
-          <hr className="my-2" />
+        <Form>
+          <FormGroup row>
+            <Label className="label" for="inputAnswer" sm={3}>
+              What song is this?
+            </Label>
+            <Col sm={9}>
+              <Input
+                type="text"
+                onChange={this.handleFieldChange}
+                name="text"
+                id="inputAnswer"
+                placeholder="Enter your guess!"
+              />
+            </Col>
+          </FormGroup>
           <Button
-            onClick={this.handlePlaySong}
-            disabled={this.state.disableButton}
+            onClick={this.handleSubmit}
+            disabled={this.state.disableSubmitButton}
           >
-            Play song!
+            Submit
           </Button>
-
-          <Form>
-            <FormGroup row>
-              <Label className="label" for="inputAnswer" sm={3}>
-                What song is this?
-              </Label>
-              <Col sm={9}>
-                <Input
-                  type="text"
-                  onChange={this.handleFieldChange}
-                  name="text"
-                  id="inputAnswer"
-                  placeholder="Enter your guess!"
-                />
-              </Col>
-            </FormGroup>
-            <Button
-              onClick={this.handleSubmit}
-              disabled={this.state.disableSubmitButton}
-            >
-              Submit
-            </Button>
-          </Form>
+        </Form>
       </Container>
     );
   }

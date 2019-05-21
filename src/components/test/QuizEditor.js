@@ -79,19 +79,20 @@ export default class QuizEditor extends Component {
     this.setState({ newQuizTracks: updatedQuiz });
   };
 
-  editTrack = (track) => {
+  editTrack = track => {
     const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
-      return (quiz.id !== track.id)
-    }); this.setState({newQuizTracks: filteredQuiz})
-  }
+      return quiz.id !== track.id;
+    });
+    this.setState({ newQuizTracks: filteredQuiz });
+  };
 
-  removeFromQuizList = (track) => {
-    this.props.removeFromQuiz(track)
+  removeFromQuizList = track => {
+    this.props.removeFromQuiz(track);
     const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
-      return (quiz.id !== track.id)
-    }); this.setState({newQuizTracks: filteredQuiz})
-
-  }
+      return quiz.id !== track.id;
+    });
+    this.setState({ newQuizTracks: filteredQuiz });
+  };
 
   submitEditedQuiz = event => {
     event.preventDefault();

@@ -28,9 +28,7 @@ export default class RadioButtons extends Component {
   render() {
   return (
     <>
-    
       <Card>
-      
         <CardBody>
         <FormGroup tag="fieldset">
           <legend className="col-form-label">Select the clip length for your quiz:</legend>

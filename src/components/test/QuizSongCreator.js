@@ -34,8 +34,8 @@ export default class QuizSongCreator extends Component {
   };
 
   removeTrack = () => {
-    this.props.removeFromQuizList(this.props.track)
-  }
+    this.props.removeFromQuizList(this.props.track);
+  };
 
   handleEdit = () => {
     this.props.editTrack(this.props.track);
@@ -44,8 +44,7 @@ export default class QuizSongCreator extends Component {
       saveButton: !this.state.saveButton,
       alertColor: "danger"
     });
-  }
-
+  };
 
   onAfterChange = value => {
     let device = this.props.deviceId;
@@ -82,12 +81,12 @@ export default class QuizSongCreator extends Component {
       artists: this.props.track.artists,
       id: this.props.track.id,
       name: this.props.track.name,
-      startTime: this.state.value*1000,
+      startTime: this.state.value * 1000,
       uri: this.props.track.uri,
       duration: this.props.track.duration
     };
     this.props.addTrackToQuiz(trackInfo);
-    if(this.props.editor) {
+    if (this.props.editor) {
       this.props.removeFromQuiz(trackInfo);
     }
     this.setState({
@@ -144,26 +143,20 @@ export default class QuizSongCreator extends Component {
             </Col>
             {this.state.saveButton && (
               <>
-              <Col xs="6" md="3">
-                <Button onClick={this.saveStartButton}>
-                  {" "}
-                  Save this start value{" "}
-                </Button>{" "}
-              </Col>
-              <Col xs="6" md="3">
-                <Button onClick={this.removeTrack}>
-                  {" "}
-                  Remove song{" "}
-                </Button>{" "}
-              </Col>
+                <Col xs="6" md="3">
+                  <Button onClick={this.saveStartButton}>
+                    {" "}
+                    Save this start value{" "}
+                  </Button>{" "}
+                </Col>
+                <Col xs="6" md="3">
+                  <Button onClick={this.removeTrack}> Remove song </Button>{" "}
+                </Col>
               </>
             )}
             {!this.state.saveButton && (
               <Col xs="6" md="4">
-                <Button onClick={this.handleEdit}>
-                  {" "}
-                  Edit this value{" "}
-                </Button>{" "}
+                <Button onClick={this.handleEdit}> Edit this value </Button>{" "}
               </Col>
             )}
           </Row>

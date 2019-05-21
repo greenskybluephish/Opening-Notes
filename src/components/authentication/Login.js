@@ -5,9 +5,6 @@ import "./login.css";
 import quizAPI from "../../modules/jsonAPIManager";
 
 class Login extends Component {
-
-
-
   handleClick = e => {
     // Prevents page reload
     e.preventDefault();
@@ -47,7 +44,10 @@ class Login extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.userLoggedIn !== this.props.userLoggedIn || this.props.userLoggedIn === true) {
+    if (
+      prevProps.userLoggedIn !== this.props.userLoggedIn ||
+      this.props.userLoggedIn === true
+    ) {
       this.props.history.push("/");
     }
   }
@@ -55,12 +55,15 @@ class Login extends Component {
   render() {
     return (
       <Container className="login">
-        <h1 >Opening Notes</h1>
+        <h1>Opening Notes</h1>
         <h3 className="login-heading">A quiz app for concert goers.</h3>
         <h4 className="login-heading">Click the Spotify logo to begin</h4>
-        <img id="spotify-login" alt="login" src={require(`../../images/320px-Spotify_logo_horizontal_black.jpg`)} onClick={this.handleClick}/>
-          {/* <span className="fa fa-spotify" /> Sign in with Spotify */}
-        {/* </img> */}
+        <img
+          id="spotify-login"
+          alt="login"
+          src={require(`../../images/320px-Spotify_logo_horizontal_black.jpg`)}
+          onClick={this.handleClick}
+        />
       </Container>
     );
   }

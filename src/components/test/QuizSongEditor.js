@@ -16,31 +16,28 @@ export default class QuizSongEditor extends Component {
     saveButton: false,
     alertColor: "success",
     isPlaying: false,
-    shouldPause: false,
-
+    shouldPause: false
   };
 
   componentDidMount() {
-    let startTime = this.props.track.startTime/1000
-      this.setState({value: startTime})
-    }
-  
+    let startTime = this.props.track.startTime / 1000;
+    this.setState({ value: startTime });
+  }
 
   log = value => {
     return this.secondsToMinutes(value); //eslint-disable-line
   };
 
   removeTrack = () => {
-    this.props.removeFromQuizList(this.props.track)
-  }
-
+    this.props.removeFromQuizList(this.props.track);
+  };
 
   onSliderChange = value => {
     this.setState({ value: value });
   };
 
   onAfterChange = value => {
-    let device = this.props.deviceId
+    let device = this.props.deviceId;
     console.log(value);
     if (!this.state.isPlaying) {
       this.setState({ isPlaying: true, shouldPause: true });
@@ -68,14 +65,13 @@ export default class QuizSongEditor extends Component {
     }
   };
 
-
   editTrackButton = () => {
     this.setState({
       showSlider: !this.state.showSlider,
       saveButton: !this.state.saveButton,
       alertColor: "danger"
     });
-  }
+  };
 
   saveStartButton = () => {
     const trackInfo = {
@@ -83,7 +79,7 @@ export default class QuizSongEditor extends Component {
       artists: this.props.track.artists,
       id: this.props.track.id,
       name: this.props.track.name,
-      startTime: this.state.value*1000,
+      startTime: this.state.value * 1000,
       uri: this.props.track.uri,
       duration: this.props.track.duration
     };
@@ -94,8 +90,6 @@ export default class QuizSongEditor extends Component {
       alertColor: "success"
     });
   };
-
-
 
   msToMinutes = milliseconds => {
     const minutes = Math.floor(milliseconds / 60000);
@@ -144,18 +138,15 @@ export default class QuizSongEditor extends Component {
             </Col>
             {this.state.saveButton && (
               <>
-              <Col xs="6" md="3">
-                <Button onClick={this.saveStartButton}>
-                  {" "}
-                  Save this start value{" "}
-                </Button>{" "}
-              </Col>
-              <Col xs="6" md="3">
-                <Button onClick={this.removeTrack}>
-                  {" "}
-                  Remove song{" "}
-                </Button>{" "}
-              </Col>
+                <Col xs="6" md="3">
+                  <Button onClick={this.saveStartButton}>
+                    {" "}
+                    Save this start value{" "}
+                  </Button>{" "}
+                </Col>
+                <Col xs="6" md="3">
+                  <Button onClick={this.removeTrack}> Remove song </Button>{" "}
+                </Col>
               </>
             )}
             {!this.state.saveButton && (
