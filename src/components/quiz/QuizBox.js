@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // reactstrap components
 import {
-  Jumbotron,
   Button,
   FormGroup,
   Form,
@@ -116,9 +115,8 @@ export default class QuizBox extends Component {
   render() {
     return (
       <Container>
-        <Jumbotron>
-          <h2 className="display-4">Quiz Time</h2>
-          <p className="lead">Click the play button to test your skills!</p>
+
+
           <Badge color="primary" pill>
             Question {this.state.questionIndex + 1} of{" "}
             {this.props.quizTracks.length}
@@ -137,7 +135,7 @@ export default class QuizBox extends Component {
 
           <Form>
             <FormGroup row>
-              <Label for="inputAnswer" sm={3}>
+              <Label className="label" for="inputAnswer" sm={3}>
                 What song is this?
               </Label>
               <Col sm={9}>
@@ -157,7 +155,6 @@ export default class QuizBox extends Component {
               Submit
             </Button>
           </Form>
-        </Jumbotron>
       </Container>
     );
   }

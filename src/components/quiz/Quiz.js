@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Container, Jumbotron } from "reactstrap";
-import spotifyAPI from "../../modules/spotifyAPIManager";
+import { Jumbotron } from "reactstrap";
+
 import QuizBox from "../quiz/QuizBox";
 import quizAPI from "../../modules/jsonAPIManager";
 import QuizHeader from "./QuizHeader";
@@ -38,6 +38,9 @@ export default class Quiz extends Component {
           {!this.state.startQuiz && <QuizHeader selectQuiz={this.selectQuiz} />}
 
           {this.state.startQuiz && (
+          <>    
+            <h2>{this.state.quizName}</h2>
+            <p>{this.state.quizDescription}</p>
             <QuizBox
               endQuiz={this.endQuiz}
               quizTracks={this.state.quizTracks}
@@ -47,6 +50,7 @@ export default class Quiz extends Component {
               currentUser={this.props.currentUser}
               quizId={this.state.quizId}
             />
+            </>
           )}
         </div>
       </Jumbotron>

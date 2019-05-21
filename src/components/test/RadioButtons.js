@@ -12,7 +12,7 @@ export default class RadioButtons extends Component {
 
 
   state= {
-    selectedOption: 12000
+    selectedOption: 6000
   }
 
 

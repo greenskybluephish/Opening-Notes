@@ -35,7 +35,7 @@ export default class Home extends Component {
 
        {this.props.playerIsReady && <Container>
           <div className="App">
-          {/* <h1 className="title">Opening Notes</h1> */}
+          <h1>Opening Notes</h1>
             <div>
               <Quiz          
                access_token={this.props.access_token}

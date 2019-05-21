@@ -6,8 +6,7 @@ import {
   FormGroup,
   Form,
   Input,
-  Container,
-  Label
+  Container
 } from "reactstrap";
 import "./quiz.css"
 import quizAPI from "../../modules/jsonAPIManager"
@@ -41,27 +40,29 @@ handleStart = (e) => {
 
   render() {
     return (
+      <>
+      
       <Container>
           <div className="App">
             <div>
-              <h2> Quiz Time </h2>
+              <h2> Choose a quiz </h2>
             </div>
           </div>
           <Form >
           <FormGroup row>
-          <Label for="selectedQuiz">Select Quiz</Label>
-          <Input type="select" name="select" id="selectedQuiz" onChange={this.handleFieldChange} default="1">
+          <Input type="select" name="select" id="selectedQuiz" onChange={this.handleFieldChange}>
             {this.state.quizzes.map(quiz => {
       return (<option className="option-text" value={quiz.id} key={quiz.id}>{quiz.quizName}</option>)
     })}
           </Input>
           </FormGroup>
-          <Button onClick={this.handleStart}>Click Me to Start the Quiz!
+          <Button onClick={this.handleStart}>Start the Quiz!
             </Button>
         </Form>
 
 
       </Container>
+      </>
     );
   }
 }

@@ -15,7 +15,8 @@ export default class Create extends Component {
     showTracks: false,
     activePlaylist: "",
     quizTracks: [],
-    renderQuizCreator: true
+    renderQuizCreator: false,
+    renderQuizEditor: false
   }
 
 
@@ -26,12 +27,20 @@ export default class Create extends Component {
       });
     }
 
-    toggleEditor = () => {
+    showCreator = () => {
       this.setState({
-        renderQuizCreator: !this.state.renderQuizCreator
+        quizTracks: [],
+        renderQuizCreator: true,
+        renderQuizEditor: false
       });
     };
-
+    showEditor = () => {
+      this.setState({
+        quizTracks: [],
+        renderQuizCreator: false,
+        renderQuizEditor: true
+      });
+    };
     
   async componentDidMount () {
      let items = await spotifyAPI.getUserPlaylists();
@@ -54,14 +63,14 @@ export default class Create extends Component {
       this.setState({quizTracks: newState})
      } 
 
-     removeFromQuiz = (trackURI) => {
+     removeFromQuiz = (track) => {
       const filteredQuiz = this.state.quizTracks.filter(quiz => {
-        return (quiz !== trackURI)
+        return (quiz.id !== track.id)
       }); this.setState({quizTracks: filteredQuiz})
      }
 
     clearQuizTracks = () => {
-      this.setState({quizTracks: [], renderQuizCreator: true})
+      this.setState({quizTracks: [], renderQuizCreator: false, renderQuizEditor: false})
     }
 
 
@@ -70,16 +79,16 @@ export default class Create extends Component {
       return (
         <Container className="App">
 
-  <Button className="btn-neutral" onClick={this.toggleEditor} id="renderQuizCreator" color="info" size="lg">Create a New Quiz</Button>{' '}
-  <Button className="btn-neutral"  onClick={this.toggleEditor} id="renderQuizEditor" color="info" size="lg">Edit a previous quiz</Button>
+  <Button className="btn-neutral" onClick={this.showCreator} id="renderQuizCreator" color="info" size="lg">Create a New Quiz</Button>{' '}
+  <Button className="btn-neutral"  onClick={this.showEditor} id="renderQuizEditor" color="info" size="lg">Edit a previous quiz</Button>
 
 
-  {this.state.renderQuizCreator && <QuizCreator currentUser={this.props.currentUser} deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>}
+  {this.state.renderQuizCreator && <QuizCreator currentUser={this.props.currentUser} deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} removeFromQuiz={this.removeFromQuiz} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks}></QuizCreator>}
 
-  {!this.state.renderQuizCreator && <QuizEditor deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks} removeFromQuiz={this.removeFromQuiz}
+  {this.state.renderQuizEditor && <QuizEditor deviceId={this.props.deviceId} quizTracks={this.state.quizTracks} clearQuizTracks={this.clearQuizTracks} hideTracks={this.hideTracks} removeFromQuiz={this.removeFromQuiz}
   currentUser={this.props.currentUser}></QuizEditor>}
 
-
+{(this.state.renderQuizCreator || this.state.renderQuizEditor) && 
           <Dropdown direction="right" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
         Playlists
@@ -92,7 +101,7 @@ export default class Create extends Component {
               </DropdownItem>)
           })}
           </DropdownMenu>
-      </Dropdown>
+      </Dropdown>}
       {showPlaylist && <UserPlaylists addToQuiz={this.addToQuiz} removeFromQuiz={this.removeFromQuiz} playlist={this.state.activePlaylist}></UserPlaylists>}
       
 

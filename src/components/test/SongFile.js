@@ -22,13 +22,8 @@ handleDelete = (event) => {
 
 render() {
   const  {
-        "album": {
-            "name": albumName
-                  },
-    "artists": [
-          {
-          "name": artistName
-          }],
+        "album": albumName,
+    "artists": artistName,
     "name": trackName,
     } = this.props.track
 

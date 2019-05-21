@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import Home from "./home/Home";
 import Login from "./authentication/Login";
@@ -76,7 +76,8 @@ class ApplicationViews extends Component {
           userLoggedIn={this.props.userLoggedIn}
           player={this.state.player}
           deviceId={this.state.deviceId}
-          playerIsReady={this.state.playerIsReady}>
+          playerIsReady={this.state.playerIsReady}
+          currentUser={this.state.currentUser}>
           </AuthRoute>
         <Route
           path="/login"

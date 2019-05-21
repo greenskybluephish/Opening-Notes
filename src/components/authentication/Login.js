@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import { Button, Container } from "reactstrap";
+import { Container } from "reactstrap";
 import "./login.css";
 import quizAPI from "../../modules/jsonAPIManager";
 
@@ -58,7 +58,7 @@ class Login extends Component {
         <h1 >Opening Notes</h1>
         <h3 className="login-heading">A quiz app for concert goers.</h3>
         <h4 className="login-heading">Click the Spotify logo to begin</h4>
-        <img id="spotify-login" src={require(`../../images/320px-Spotify_logo_horizontal_black.jpg`)} onClick={this.handleClick}/>
+        <img id="spotify-login" alt="login" src={require(`../../images/320px-Spotify_logo_horizontal_black.jpg`)} onClick={this.handleClick}/>
           {/* <span className="fa fa-spotify" /> Sign in with Spotify */}
         {/* </img> */}
       </Container>
