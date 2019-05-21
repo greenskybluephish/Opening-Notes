@@ -3,7 +3,7 @@
 }
 
 .list-group {
-  max-height: 300px;
+  max-height: 350px;
   overflow: auto;
 }
 
@@ -13,4 +13,12 @@
 
 div.table-responsive {
   overflow: visible;
+}
+
+tr {
+  background-color: rgba(31, 34, 81, 0.80)
+}
+
+tr:hover {
+  background-color: green;
 }

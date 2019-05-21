@@ -23,9 +23,8 @@ export default class QuizCreator extends Component {
   state = {
     quizName: "",
     quizDescription: "",
-    clipLength: 12000,
-    newQuizTracks: [],
-    currentUser: 1
+    clipLength: 6000,
+    newQuizTracks: []
   };
 
   handleFieldChange = event => {
@@ -39,15 +38,30 @@ export default class QuizCreator extends Component {
     this.setState({ newQuizTracks: addTrackToState });
   };
 
+  removeFromQuizList = track => {
+    this.props.removeFromQuiz(track);
+    const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
+      return quiz.id !== track.id;
+    });
+    this.setState({ newQuizTracks: filteredQuiz });
+  };
+
+  editTrack = track => {
+    const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
+      return quiz.id !== track.id;
+    });
+    this.setState({ newQuizTracks: filteredQuiz });
+  };
+
   submitNewQuiz = event => {
     event.preventDefault();
     if (this.state.quizName === "") {
       alert("Please enter a name for your quiz");
-    } else if (this.state.newQuizTracks.length < 6) {
+    } else if (this.state.newQuizTracks.length < 2) {
       alert("Add more songs to your quiz");
     } else {
       const newQuiz = {
-        userId: 1,
+        userId: this.props.currentUser,
         quizName: this.state.quizName,
         quizDescription: this.state.quizDescription,
         quizTrackIds: this.state.newQuizTracks,
@@ -76,14 +90,12 @@ export default class QuizCreator extends Component {
           <Row>
             <Col sm="12" md={{ size: 10, offset: 1 }}>
               <CardText>
-                The quiz creator allows you to import any song off of Spotify
-                into your quiz. The easiest way to add songs is to create a
-                playlist on Spotify, then add the entire playlist at once by
-                clicking the "Add All" button below. You can change the
-                difficulty of the quiz by making the song clips 6, 12, or 24
-                seconds long. You can use the slider next to each track to
-                adjust the starting time for each song, or leave it as is to
-                have the song start at the beginning.{" "}
+                To create a new quiz, simply select one of your playlists below
+                and start adding songs. You can change the difficulty of the
+                quiz by making the song clips 6, 12, or 24 seconds long. The
+                slider next to each track is set at the estimated start time for
+                the song, or you can move it around to find the exact clip you
+                want to use.{" "}
               </CardText>
             </Col>
           </Row>
@@ -124,10 +136,13 @@ export default class QuizCreator extends Component {
                   return (
                     <QuizSongCreator
                       key={track.id}
+                      removeFromQuizList={this.removeFromQuizList}
                       track={track}
                       clipLength={this.state.clipLength}
                       addTrackToQuiz={this.addTrackToQuiz}
                       deviceId={this.props.deviceId}
+                      editTrack={this.editTrack}
+                      editor={false}
                     />
                   );
                 })}

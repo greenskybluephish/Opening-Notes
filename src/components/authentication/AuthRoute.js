@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 const isAuthenticated = () => {
-  if (localStorage.getItem("oauthio_cache") !== null) {
+  if (sessionStorage.getItem("access_token") !== null) {
     return true;
   } else {
     return false;

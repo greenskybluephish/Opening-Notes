@@ -1,7 +1,11 @@
-.fa-bars {
-  color: white !important;
+.navbar-transparent.navbar:hover{
+  background-color: #1d8cf8 important!;
 }
 
 .navbar {
   margin-bottom: 15px;
+}
+
+.navbar-collapse {
+  position: relative !important;
 }

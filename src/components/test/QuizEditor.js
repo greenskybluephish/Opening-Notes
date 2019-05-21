@@ -11,7 +11,6 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardText,
   Container,
   Row,
   Form,
@@ -41,7 +40,7 @@ export default class QuizEditor extends Component {
 
   showEditForm = () => {
     let quizToEdit = this.state.myQuizzes.find(
-      quiz => quiz.id == this.state.selectedQuiz
+      quiz => quiz.id === this.state.selectedQuiz
     );
     this.setState({
       quizName: quizToEdit.quizName,
@@ -55,6 +54,12 @@ export default class QuizEditor extends Component {
   handleFieldChange = event => {
     const stateToChange = {};
     stateToChange[event.target.id] = event.target.value;
+    this.setState(stateToChange);
+  };
+
+  handleSelectQuiz = event => {
+    const stateToChange = {};
+    stateToChange[event.target.id] = parseInt(event.target.value);
     this.setState(stateToChange);
   };
 
@@ -74,12 +79,17 @@ export default class QuizEditor extends Component {
     this.setState({ newQuizTracks: updatedQuiz });
   };
 
-  removeTrack = oldTrackId => {
-    let oldQuizTrack = this.state.newQuizTracks.find(
-      quiz => quiz.id === oldTrackId
-    );
+  editTrack = track => {
     const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
-      return quiz !== oldQuizTrack;
+      return quiz.id !== track.id;
+    });
+    this.setState({ newQuizTracks: filteredQuiz });
+  };
+
+  removeFromQuizList = track => {
+    this.props.removeFromQuiz(track);
+    const filteredQuiz = this.state.newQuizTracks.filter(quiz => {
+      return quiz.id !== track.id;
     });
     this.setState({ newQuizTracks: filteredQuiz });
   };
@@ -88,7 +98,7 @@ export default class QuizEditor extends Component {
     event.preventDefault();
     if (this.state.quizName === "") {
       alert("Please enter a name for your quiz");
-    } else if (this.state.newQuizTracks.length < 6) {
+    } else if (this.state.newQuizTracks.length < 2) {
       alert("Add more songs to your quiz");
     } else {
       const editedQuiz = {
@@ -132,7 +142,7 @@ export default class QuizEditor extends Component {
                 type="select"
                 name="select"
                 id="selectedQuiz"
-                onChange={this.handleFieldChange}
+                onChange={this.handleSelectQuiz}
                 default={1}
               >
                 {this.state.myQuizzes.map(quiz => {
@@ -197,9 +207,10 @@ export default class QuizEditor extends Component {
                           addEditedTrack={this.addEditedTrack}
                           track={track}
                           clipLength={this.state.clipLength}
-                          removeTrack={this.removeTrack}
+                          removeFromQuizList={this.removeFromQuizList}
                           addTrackToQuiz={this.addTrackToQuiz}
                           deviceId={this.props.deviceId}
+                          editTrack={this.editTrack}
                         />
                       );
                     })}
@@ -208,9 +219,13 @@ export default class QuizEditor extends Component {
                         <QuizSongCreator
                           key={track.id}
                           track={track}
+                          removeFromQuiz={this.props.removeFromQuiz}
                           clipLength={this.state.clipLength}
                           addTrackToQuiz={this.addTrackToQuiz}
                           deviceId={this.props.deviceId}
+                          editTrack={this.editTrack}
+                          removeFromQuizList={this.removeFromQuizList}
+                          editor={true}
                         />
                       );
                     })}

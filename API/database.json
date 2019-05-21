@@ -2,13 +2,18 @@
   "users": [
     {
       "spotifyUsername": "Briantjobe",
-      "displayName": "llama",
+      "displayName": "Brian",
       "id": 1
     },
     {
       "spotifyUsername": "Brian",
-      "displayName": "Brian",
+      "displayName": "Carly",
       "id": 2
+    },
+    {
+      "spotifyUsername": "Inspirational",
+      "displayName": "Colonel Forbin",
+      "id": 3
     }
   ],
   "quizs": [
@@ -17,152 +22,6 @@
       "quizName": "Maze or Bowie",
       "quizDescription": "Don't Bowie my Maze.....",
       "quizTrackIds": [
-        {
-          "album": "LivePhish 04/05/98",
-          "artists": "Phish",
-          "id": "04xNCRMGLm1vpjbYgIdk67",
-          "name": "Maze",
-          "startTime": 8000,
-          "uri": "spotify:track:04xNCRMGLm1vpjbYgIdk67"
-        },
-        {
-          "album": "LivePhish, Vol. 12 8/13/96 (Deer Creek Music Center, Noblesville, IN)",
-          "artists": "Phish",
-          "id": "46GtuTjo1hyQ2RKeYaNyEv",
-          "name": "Maze",
-          "startTime": 7000,
-          "uri": "spotify:track:46GtuTjo1hyQ2RKeYaNyEv"
-        },
-        {
-          "album": "LivePhish 10/21/95",
-          "artists": "Phish",
-          "id": "73Qsd1J10EW5RseLBYeeCp",
-          "name": "David Bowie",
-          "startTime": 8000,
-          "uri": "spotify:track:73Qsd1J10EW5RseLBYeeCp"
-        },
-        {
-          "album": "LivePhish 11/14/95",
-          "artists": "Phish",
-          "id": "019wpE7wBMECXVhoHLT0W3",
-          "name": "Maze",
-          "startTime": 75000,
-          "uri": "spotify:track:019wpE7wBMECXVhoHLT0W3"
-        },
-        {
-          "album": "Phish: Ventura",
-          "artists": "Phish",
-          "id": "09cgBvUQk4H5C9bak6hXE6",
-          "name": "David Bowie",
-          "startTime": 144000,
-          "uri": "spotify:track:09cgBvUQk4H5C9bak6hXE6"
-        },
-        {
-          "album": "Amsterdam",
-          "artists": "Phish",
-          "id": "4nR86x33jO6RUnex8xSf3Z",
-          "name": "Maze",
-          "startTime": 2000,
-          "uri": "spotify:track:4nR86x33jO6RUnex8xSf3Z"
-        },
-        {
-          "album": "Amsterdam",
-          "artists": "Phish",
-          "id": "58XDfphWKCeOoJvMoNw9HI",
-          "name": "David Bowie",
-          "startTime": 27000,
-          "uri": "spotify:track:58XDfphWKCeOoJvMoNw9HI"
-        },
-        {
-          "album": "LivePhish, Vol. 10 6/22/94 (Veterans Memorial Auditorium, Columbus, OH)",
-          "artists": "Phish",
-          "id": "6gFT5JIkcdKNHtBO8rIKDy",
-          "name": "Maze",
-          "startTime": 0,
-          "uri": "spotify:track:6gFT5JIkcdKNHtBO8rIKDy"
-        },
-        {
-          "album": "Live Phish: 7/4/10 Verizon Wireless At Encore Park, Alpharetta, GA",
-          "artists": "Phish",
-          "id": "7xN0cR0ytACXB7mFhyQm6W",
-          "name": "David Bowie",
-          "startTime": 3000,
-          "uri": "spotify:track:7xN0cR0ytACXB7mFhyQm6W"
-        },
-        {
-          "album": "LivePhish 12/29/97",
-          "artists": "Phish",
-          "id": "4vKn3dCV3RP4YXzdiZmSYc",
-          "name": "David Bowie",
-          "startTime": 6000,
-          "uri": "spotify:track:4vKn3dCV3RP4YXzdiZmSYc"
-        },
-        {
-          "album": "Phish: Live In Utica 2010",
-          "artists": "Phish",
-          "id": "17HEEaDQCHwAb8Kymzotp3",
-          "name": "David Bowie",
-          "startTime": 54000,
-          "uri": "spotify:track:17HEEaDQCHwAb8Kymzotp3"
-        },
-        {
-          "album": "Phish: Ventura",
-          "artists": "Phish",
-          "id": "6qZPKlm9wrcRPJLbRI4NXb",
-          "name": "Maze",
-          "startTime": 16000,
-          "uri": "spotify:track:6qZPKlm9wrcRPJLbRI4NXb"
-        },
-        {
-          "album": "At The Roxy (Atlanta ' 93)",
-          "artists": "Phish",
-          "id": "7l6jbqa9YZ2iwn62myOtqW",
-          "name": "Maze",
-          "startTime": 0,
-          "uri": "spotify:track:7l6jbqa9YZ2iwn62myOtqW"
-        },
-        {
-          "album": "LivePhish, Vol. 9 8/26/89 (Townshend Famlly Park, Townshend, VT)",
-          "artists": "Phish",
-          "id": "1qW8zv2f8j7JB9z121XPQT",
-          "name": "David Bowie",
-          "startTime": 19000,
-          "uri": "spotify:track:1qW8zv2f8j7JB9z121XPQT"
-        },
-        {
-          "album": "LivePhish, Vol. 12 8/13/96 (Deer Creek Music Center, Noblesville, IN)",
-          "artists": "Phish",
-          "id": "16A0KmksmmcgQVgrWdDwEy",
-          "name": "David Bowie",
-          "startTime": 14000,
-          "uri": "spotify:track:16A0KmksmmcgQVgrWdDwEy"
-        },
-        {
-          "album": "LivePhish 07/06/98",
-          "artists": "Phish",
-          "id": "7KlwAAnU8KEhYmuzCNnSVr",
-          "name": "Maze",
-          "startTime": 13000,
-          "uri": "spotify:track:7KlwAAnU8KEhYmuzCNnSVr"
-        },
-        {
-          "album": "Phish: Chicago '94",
-          "artists": "Phish",
-          "id": "4nY9HLmOzZcJYOwYG8LgbV",
-          "name": "Maze",
-          "startTime": 0,
-          "uri": "spotify:track:4nY9HLmOzZcJYOwYG8LgbV",
-          "duration": 682026
-        },
-        {
-          "album": "LivePhish 07/06/98",
-          "artists": "Phish",
-          "id": "2RRWIdBeRCPKBLxh2kuAYA",
-          "name": "David Bowie",
-          "startTime": 0,
-          "uri": "spotify:track:2RRWIdBeRCPKBLxh2kuAYA",
-          "duration": 789413
-        },
         {
           "album": "LivePhish 2/28/03 (Nassau Coliseum, Uniondale, NY)",
           "artists": "Phish",
@@ -180,6 +39,159 @@
           "startTime": 11000,
           "uri": "spotify:track:5TJZr5zT9HIftesZToIItT",
           "duration": 1106613
+        },
+        {
+          "album": "LivePhish 04/05/98",
+          "artists": "Phish",
+          "id": "04xNCRMGLm1vpjbYgIdk67",
+          "name": "Maze",
+          "startTime": 8000,
+          "uri": "spotify:track:04xNCRMGLm1vpjbYgIdk67",
+          "duration": 485133
+        },
+        {
+          "album": "LivePhish, Vol. 12 8/13/96 (Deer Creek Music Center, Noblesville, IN)",
+          "artists": "Phish",
+          "id": "46GtuTjo1hyQ2RKeYaNyEv",
+          "name": "Maze",
+          "startTime": 7000,
+          "uri": "spotify:track:46GtuTjo1hyQ2RKeYaNyEv",
+          "duration": 668373
+        },
+        {
+          "album": "LivePhish 10/21/95",
+          "artists": "Phish",
+          "id": "73Qsd1J10EW5RseLBYeeCp",
+          "name": "David Bowie",
+          "startTime": 8000,
+          "uri": "spotify:track:73Qsd1J10EW5RseLBYeeCp",
+          "duration": 1005693
+        },
+        {
+          "album": "LivePhish 07/06/98",
+          "artists": "Phish",
+          "id": "2RRWIdBeRCPKBLxh2kuAYA",
+          "name": "David Bowie",
+          "startTime": 0,
+          "uri": "spotify:track:2RRWIdBeRCPKBLxh2kuAYA",
+          "duration": 789413
+        },
+        {
+          "album": "LivePhish 11/14/95",
+          "artists": "Phish",
+          "id": "019wpE7wBMECXVhoHLT0W3",
+          "name": "Maze",
+          "startTime": 77000,
+          "uri": "spotify:track:019wpE7wBMECXVhoHLT0W3",
+          "duration": 826266
+        },
+        {
+          "album": "Phish: Ventura",
+          "artists": "Phish",
+          "id": "09cgBvUQk4H5C9bak6hXE6",
+          "name": "David Bowie",
+          "startTime": 147000,
+          "uri": "spotify:track:09cgBvUQk4H5C9bak6hXE6",
+          "duration": 1289480
+        },
+        {
+          "album": "Amsterdam",
+          "artists": "Phish",
+          "id": "4nR86x33jO6RUnex8xSf3Z",
+          "name": "Maze",
+          "startTime": 2000,
+          "uri": "spotify:track:4nR86x33jO6RUnex8xSf3Z",
+          "duration": 829093
+        },
+        {
+          "album": "Amsterdam",
+          "artists": "Phish",
+          "id": "58XDfphWKCeOoJvMoNw9HI",
+          "name": "David Bowie",
+          "startTime": 26000,
+          "uri": "spotify:track:58XDfphWKCeOoJvMoNw9HI",
+          "duration": 971933
+        },
+        {
+          "album": "LivePhish, Vol. 10 6/22/94 (Veterans Memorial Auditorium, Columbus, OH)",
+          "artists": "Phish",
+          "id": "6gFT5JIkcdKNHtBO8rIKDy",
+          "name": "Maze",
+          "startTime": 0,
+          "uri": "spotify:track:6gFT5JIkcdKNHtBO8rIKDy",
+          "duration": 622106
+        },
+        {
+          "album": "Live Phish: 7/4/10 Verizon Wireless At Encore Park, Alpharetta, GA",
+          "artists": "Phish",
+          "id": "7xN0cR0ytACXB7mFhyQm6W",
+          "name": "David Bowie",
+          "startTime": 1000,
+          "uri": "spotify:track:7xN0cR0ytACXB7mFhyQm6W",
+          "duration": 666573
+        },
+        {
+          "album": "LivePhish 12/29/97",
+          "artists": "Phish",
+          "id": "4vKn3dCV3RP4YXzdiZmSYc",
+          "name": "David Bowie",
+          "startTime": 6000,
+          "uri": "spotify:track:4vKn3dCV3RP4YXzdiZmSYc",
+          "duration": 1188666
+        },
+        {
+          "album": "Phish: Live In Utica 2010",
+          "artists": "Phish",
+          "id": "17HEEaDQCHwAb8Kymzotp3",
+          "name": "David Bowie",
+          "startTime": 54000,
+          "uri": "spotify:track:17HEEaDQCHwAb8Kymzotp3",
+          "duration": 853920
+        },
+        {
+          "album": "Phish: Ventura",
+          "artists": "Phish",
+          "id": "6qZPKlm9wrcRPJLbRI4NXb",
+          "name": "Maze",
+          "startTime": 16000,
+          "uri": "spotify:track:6qZPKlm9wrcRPJLbRI4NXb",
+          "duration": 730840
+        },
+        {
+          "album": "At The Roxy (Atlanta ' 93)",
+          "artists": "Phish",
+          "id": "7l6jbqa9YZ2iwn62myOtqW",
+          "name": "Maze",
+          "startTime": 0,
+          "uri": "spotify:track:7l6jbqa9YZ2iwn62myOtqW",
+          "duration": 533200
+        },
+        {
+          "album": "LivePhish, Vol. 9 8/26/89 (Townshend Famlly Park, Townshend, VT)",
+          "artists": "Phish",
+          "id": "1qW8zv2f8j7JB9z121XPQT",
+          "name": "David Bowie",
+          "startTime": 18000,
+          "uri": "spotify:track:1qW8zv2f8j7JB9z121XPQT",
+          "duration": 883693
+        },
+        {
+          "album": "LivePhish, Vol. 12 8/13/96 (Deer Creek Music Center, Noblesville, IN)",
+          "artists": "Phish",
+          "id": "16A0KmksmmcgQVgrWdDwEy",
+          "name": "David Bowie",
+          "startTime": 14000,
+          "uri": "spotify:track:16A0KmksmmcgQVgrWdDwEy",
+          "duration": 1002266
+        },
+        {
+          "album": "LivePhish 07/06/98",
+          "artists": "Phish",
+          "id": "7KlwAAnU8KEhYmuzCNnSVr",
+          "name": "Maze",
+          "startTime": 13000,
+          "uri": "spotify:track:7KlwAAnU8KEhYmuzCNnSVr",
+          "duration": 723560
         }
       ],
       "clipLength": 12000,
@@ -187,122 +199,8 @@
     },
     {
       "userId": 1,
-      "quizName": "Umph Magoo",
-      "quizDescription": "Extra goo.",
-      "quizTrackIds": [
-        {
-          "album": "Hall of Fame: Class of 2017",
-          "artists": "Umphrey's McGee",
-          "id": "6bUNXHRoXyUoqkYWl8O7we",
-          "name": "2x2 (09.02.17 St. Louis, Missouri) [Live]",
-          "startTime": 34.82914,
-          "uri": "spotify:track:6bUNXHRoXyUoqkYWl8O7we"
-        },
-        {
-          "album": "Hall of Fame: Class of 2017",
-          "artists": "Umphrey's McGee",
-          "id": "4mWMFIh5bksXH7pVvLicdF",
-          "name": "FF (04.27.17 Lake Buena Vista, Florida) [Live]",
-          "startTime": 0,
-          "uri": "spotify:track:4mWMFIh5bksXH7pVvLicdF"
-        },
-        {
-          "album": "Live from Missoula, MT (3.4.17)",
-          "artists": "Umphrey's McGee",
-          "id": "16xWQ00MuNaIHx07Mvy1h0",
-          "name": "Out of Order (Live)",
-          "startTime": 23,
-          "uri": "spotify:track:16xWQ00MuNaIHx07Mvy1h0"
-        },
-        {
-          "album": "Live from Missoula, MT (3.4.17)",
-          "artists": "Umphrey's McGee",
-          "id": "2paQVijMu7FAMmeBYD8tZC",
-          "name": "Uncle Wally (Live)",
-          "startTime": 16.38495,
-          "uri": "spotify:track:2paQVijMu7FAMmeBYD8tZC"
-        },
-        {
-          "album": "Live from Missoula, MT (3.4.17)",
-          "artists": "Umphrey's McGee",
-          "id": "7CVOGd9CviVG5id2boX6kp",
-          "name": "Anchor Drops (Live)",
-          "startTime": 0,
-          "uri": "spotify:track:7CVOGd9CviVG5id2boX6kp"
-        },
-        {
-          "album": "Hall of Fame: Class of 2016",
-          "artists": "Umphrey's McGee",
-          "id": "2FdHhZ4I74CcFMxUEUWz9M",
-          "name": "Phil's Farm (10.20.16 Philadelphia, Pa) [Live]",
-          "startTime": 6.70561,
-          "uri": "spotify:track:2FdHhZ4I74CcFMxUEUWz9M"
-        },
-        {
-          "album": "Hall of Fame: Class of 2016",
-          "artists": "Umphrey's McGee",
-          "id": "4PMCj2v7AAViCysRyScXlo",
-          "name": "1348 (12.30.16 Chicago, Il) [Live]",
-          "startTime": 0,
-          "uri": "spotify:track:4PMCj2v7AAViCysRyScXlo"
-        },
-        {
-          "album": "Hall of Fame: Class of 2016",
-          "artists": "Umphrey's McGee",
-          "id": "0IYGYzTZxrtvSSfNHXXbAj",
-          "name": "Bad Friday (01.22.16 New York, Ny) [Live]",
-          "startTime": 0,
-          "uri": "spotify:track:0IYGYzTZxrtvSSfNHXXbAj"
-        },
-        {
-          "album": "Hall of Fame: Class of 2016",
-          "artists": "Umphrey's McGee",
-          "id": "0LKkTVd3MvQF9mrfvpgV3U",
-          "name": "In the Kitchen (07.02.16 Morrison, Co) [Live]",
-          "startTime": 0,
-          "uri": "spotify:track:0LKkTVd3MvQF9mrfvpgV3U"
-        },
-        {
-          "album": "Hall of Fame: Class of 2017",
-          "artists": "Umphrey's McGee",
-          "id": "7qensloTQCaJdrdxYCSpFN",
-          "name": "Sociable Jimmy (12.29.17 Denver, Colorado) [Live]",
-          "startTime": 0,
-          "uri": "spotify:track:7qensloTQCaJdrdxYCSpFN"
-        },
-        {
-          "album": "Hall of Fame: Class of 2017",
-          "artists": "Umphrey's McGee",
-          "id": "5bcKgoJyDrzacwjY9hrGQo",
-          "name": "Last Man Swerving (01.13.17 Atlanta, Georgia) [Live]",
-          "startTime": 0,
-          "uri": "spotify:track:5bcKgoJyDrzacwjY9hrGQo"
-        },
-        {
-          "album": "Live from Missoula, MT (3.4.17)",
-          "artists": "Umphrey's McGee",
-          "id": "5XNa3WYYE6xPySsqvH0jWO",
-          "name": "All in Time, Pt. 1 (Live)",
-          "startTime": 30.17115,
-          "uri": "spotify:track:5XNa3WYYE6xPySsqvH0jWO"
-        },
-        {
-          "album": "Hall of Fame: Class of 2014",
-          "artists": "Umphrey's McGee",
-          "id": "3u5cWxxhcgrha19GJpsITr",
-          "name": "Den (11.01.14 Boston, Massachusetts) (Live)",
-          "startTime": 0,
-          "uri": "spotify:track:3u5cWxxhcgrha19GJpsITr",
-          "duration": 369373
-        }
-      ],
-      "clipLength": 12000,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "quizName": "Lost in the Sauce",
-      "quizDescription": "Get dropped in the middle of some monster Phish jams...",
+      "quizName": "Lost in space",
+      "quizDescription": "Dropped in the middle of some monster Phish jams...",
       "quizTrackIds": [
         {
           "album": "LivePhish, Vol. 20 12/29/94 (Providence Civic Center, Providence, RI)",
@@ -455,62 +353,8 @@
     {
       "userId": 1,
       "quizName": "WSMFP",
-      "quizDescription": "you know. ",
+      "quizDescription": "JB and the boys. ",
       "quizTrackIds": [
-        {
-          "album": "09/28/95 Tennessee Amphitheaater, Knoxville, TN",
-          "artists": "Widespread Panic",
-          "id": "1boCMWTtQkKjlO6QV4pKMj",
-          "name": "Tall Boy",
-          "startTime": 14000,
-          "uri": "spotify:track:1boCMWTtQkKjlO6QV4pKMj",
-          "duration": 317560
-        },
-        {
-          "album": "07/29/01 Oak Mountain Amphitheatre, Pelham, AL",
-          "artists": "Widespread Panic",
-          "id": "6LqzidTb34rA6Et3uFZKVI",
-          "name": "Climb to Safety",
-          "startTime": 2000,
-          "uri": "spotify:track:6LqzidTb34rA6Et3uFZKVI",
-          "duration": 322733
-        },
-        {
-          "album": "07/29/01 Oak Mountain Amphitheatre, Pelham, AL",
-          "artists": "Widespread Panic",
-          "id": "0wgRRee3gnBzlhIOCwUCp0",
-          "name": "Porch Song",
-          "startTime": 8000,
-          "uri": "spotify:track:0wgRRee3gnBzlhIOCwUCp0",
-          "duration": 207040
-        },
-        {
-          "album": "12/31/17 Fox Theatre, Atlanta, GA",
-          "artists": "Widespread Panic",
-          "id": "0CoIQkQ5Svrz4kdinPQWMR",
-          "name": "Can't Get High",
-          "startTime": 10000,
-          "uri": "spotify:track:0CoIQkQ5Svrz4kdinPQWMR",
-          "duration": 230680
-        },
-        {
-          "album": "12/31/17 Fox Theatre, Atlanta, GA",
-          "artists": "Widespread Panic",
-          "id": "2ucgEYrTLQ6XnFv7FeOyAa",
-          "name": "Driving Song",
-          "startTime": 31000,
-          "uri": "spotify:track:2ucgEYrTLQ6XnFv7FeOyAa",
-          "duration": 308893
-        },
-        {
-          "album": "12/31/17 Fox Theatre, Atlanta, GA",
-          "artists": "Widespread Panic",
-          "id": "4d7dHbJgHLrDCmAKBa1VG8",
-          "name": "Fishwater",
-          "startTime": 37000,
-          "uri": "spotify:track:4d7dHbJgHLrDCmAKBa1VG8",
-          "duration": 775680
-        },
         {
           "album": "12/31/17 Fox Theatre, Atlanta, GA",
           "artists": "Widespread Panic",
@@ -523,11 +367,11 @@
         {
           "album": "12/31/17 Fox Theatre, Atlanta, GA",
           "artists": "Widespread Panic",
-          "id": "6lqWP6WzY33olkSd58WpH9",
-          "name": "Ain't Life Grand",
-          "startTime": 0,
-          "uri": "spotify:track:6lqWP6WzY33olkSd58WpH9",
-          "duration": 284706
+          "id": "4d7dHbJgHLrDCmAKBa1VG8",
+          "name": "Fishwater",
+          "startTime": 37000,
+          "uri": "spotify:track:4d7dHbJgHLrDCmAKBa1VG8",
+          "duration": 775680
         }
       ],
       "clipLength": 6000,
@@ -535,66 +379,228 @@
     },
     {
       "userId": 1,
-      "quizName": "test",
-      "quizDescription": "this is what we want. ",
+      "quizName": "Opening",
+      "quizDescription": "Notes",
       "quizTrackIds": [
         {
-          "album": "SB2",
-          "artists": "Gramatik",
-          "id": "02uRToy7bttYcKCO3vIStA",
-          "name": "Hit That Jive",
-          "startTime": 0,
-          "uri": "spotify:track:02uRToy7bttYcKCO3vIStA",
-          "duration": 203050
-        },
-        {
-          "album": "Free Somehow",
-          "artists": "Widespread Panic",
-          "id": "0uCo4XkdFA9MBvVfkL9HGo",
-          "name": "Up All Night",
-          "startTime": 0,
-          "uri": "spotify:track:0uCo4XkdFA9MBvVfkL9HGo",
-          "duration": 226466
-        },
-        {
-          "album": "All Access: Volume Two",
-          "artists": "Greensky Bluegrass",
-          "id": "1qYI5TYXjlMD7uJMF6JyYj",
-          "name": "I Know You Rider",
-          "startTime": 3000,
-          "uri": "spotify:track:1qYI5TYXjlMD7uJMF6JyYj",
-          "duration": 500893
-        },
-        {
-          "album": "Say It Loud",
-          "artists": "GRiZ",
-          "id": "6ZDk3PGFkRKGgk6aSkw2T9",
-          "name": "A Fine Way to Die",
-          "startTime": 0,
-          "uri": "spotify:track:6ZDk3PGFkRKGgk6aSkw2T9",
-          "duration": 400982
-        },
-        {
-          "album": "Fly Between Falls",
-          "artists": "ALO",
-          "id": "4SeSBHW3My7RdB4UW0h1m9",
-          "name": "Girl, I Wanna Lay You Down",
-          "startTime": 0,
-          "uri": "spotify:track:4SeSBHW3My7RdB4UW0h1m9",
-          "duration": 218973
-        },
-        {
-          "album": "Lawn Boy",
+          "album": "St. Louis '93 (Live)",
           "artists": "Phish",
-          "id": "4pYQb0fYwPbTD09uDhiQzU",
-          "name": "Bouncing Around the Room",
-          "startTime": 5000,
-          "uri": "spotify:track:4pYQb0fYwPbTD09uDhiQzU",
-          "duration": 235840
+          "id": "5aO7aAlZ746I6ixBi38II3",
+          "name": "Runaway Jim - Live",
+          "startTime": 0,
+          "uri": "spotify:track:5aO7aAlZ746I6ixBi38II3",
+          "duration": 469106
+        },
+        {
+          "album": "Hampton/Winston-Salem '97",
+          "artists": "Phish",
+          "id": "2pidhUsY1jDL6dXxyo4Je6",
+          "name": "Bathtub Gin",
+          "startTime": 32791.649999999994,
+          "uri": "spotify:track:2pidhUsY1jDL6dXxyo4Je6",
+          "duration": 1903013
+        },
+        {
+          "album": "St. Louis '93 (Live)",
+          "artists": "Phish",
+          "id": "0cUhnljHU0ZlPRqSDTkgLL",
+          "name": "Reba - Live",
+          "startTime": 0,
+          "uri": "spotify:track:0cUhnljHU0ZlPRqSDTkgLL",
+          "duration": 1165613
         }
       ],
-      "clipLength": 12000,
+      "clipLength": 6000,
       "id": 5
+    },
+    {
+      "userId": 1,
+      "quizName": "Test",
+      "quizDescription": "Tester",
+      "quizTrackIds": [
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "2FdHhZ4I74CcFMxUEUWz9M",
+          "name": "Phil's Farm (10.20.16 Philadelphia, Pa) [Live]",
+          "startTime": 6705.61,
+          "uri": "spotify:track:2FdHhZ4I74CcFMxUEUWz9M",
+          "duration": 1040086
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "7HIO8sGUuVL2pqq4pi31oa",
+          "name": "August (2.20.16 Asheville, Nc) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:7HIO8sGUuVL2pqq4pi31oa",
+          "duration": 857721
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "2UatF6h0FMu52G2ZXMnrwb",
+          "name": "Resolution (10.27.16 Live Oak, Fl) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:2UatF6h0FMu52G2ZXMnrwb",
+          "duration": 783333
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "1tzjFFTQLQrqLmb416omae",
+          "name": "Puppet String (12.31.16 Chicago, Il) [Live]",
+          "startTime": 16403.17,
+          "uri": "spotify:track:1tzjFFTQLQrqLmb416omae",
+          "duration": 865742
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "4uFjJ6nSQWxUjhQsyVrJT2",
+          "name": "Ringo (02.06.16 Albany, Ny) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:4uFjJ6nSQWxUjhQsyVrJT2",
+          "duration": 952600
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "1nkf7Ccaqv199hQ9gwkUIb",
+          "name": "Front Porch (01.02.16 Denver, Co) [Live]",
+          "startTime": 9327.18,
+          "uri": "spotify:track:1nkf7Ccaqv199hQ9gwkUIb",
+          "duration": 1219748
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "4PMCj2v7AAViCysRyScXlo",
+          "name": "1348 (12.30.16 Chicago, Il) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:4PMCj2v7AAViCysRyScXlo",
+          "duration": 590664
+        },
+        {
+          "album": "Hall of Fame: Class of 2016",
+          "artists": "Umphrey's McGee",
+          "id": "4vqWi1fTS8gyvXD8Q6oEzh",
+          "name": "All in Time (07.02.16 Morrison, Co) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:4vqWi1fTS8gyvXD8Q6oEzh",
+          "duration": 1179585
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "5bcKgoJyDrzacwjY9hrGQo",
+          "name": "Last Man Swerving (01.13.17 Atlanta, Georgia) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:5bcKgoJyDrzacwjY9hrGQo",
+          "duration": 844515
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "6bUNXHRoXyUoqkYWl8O7we",
+          "name": "2x2 (09.02.17 St. Louis, Missouri) [Live]",
+          "startTime": 34829.14,
+          "uri": "spotify:track:6bUNXHRoXyUoqkYWl8O7we",
+          "duration": 1152730
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "4mWMFIh5bksXH7pVvLicdF",
+          "name": "FF (04.27.17 Lake Buena Vista, Florida) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:4mWMFIh5bksXH7pVvLicdF",
+          "duration": 1041826
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "7qensloTQCaJdrdxYCSpFN",
+          "name": "Sociable Jimmy (12.29.17 Denver, Colorado) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:7qensloTQCaJdrdxYCSpFN",
+          "duration": 1067814
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "0R2BuVZoLavsWFeW4b1CXi",
+          "name": "Nemo (03.18.17 Los Angeles, California) [Live]",
+          "startTime": 12373.67,
+          "uri": "spotify:track:0R2BuVZoLavsWFeW4b1CXi",
+          "duration": 1009946
+        },
+        {
+          "album": "Hall of Fame: Class of 2017",
+          "artists": "Umphrey's McGee",
+          "id": "6mLLQrSBryfbG72uec3LtZ",
+          "name": "Higgins (08.20.17 Knoxville, Tennessee) [Live]",
+          "startTime": 0,
+          "uri": "spotify:track:6mLLQrSBryfbG72uec3LtZ",
+          "duration": 937997
+        },
+        {
+          "album": "All for Money",
+          "artists": "Greensky Bluegrass",
+          "id": "3kUPtdiiK033knlGKPTB9V",
+          "name": "Do Harm",
+          "startTime": 10523.09,
+          "uri": "spotify:track:3kUPtdiiK033knlGKPTB9V",
+          "duration": 181267
+        },
+        {
+          "album": "A Picture Of Nectar",
+          "artists": "Phish",
+          "id": "2mQYDxrvIx8HW1kmDwXS7Z",
+          "name": "Chalkdust Torture",
+          "startTime": 8641.58,
+          "uri": "spotify:track:2mQYDxrvIx8HW1kmDwXS7Z",
+          "duration": 276066
+        }
+      ],
+      "clipLength": 6000,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "quizName": "Demo Day",
+      "quizDescription": "Show Time!",
+      "quizTrackIds": [
+        {
+          "album": "Hampton/Winston-Salem '97",
+          "artists": "Phish",
+          "id": "2pidhUsY1jDL6dXxyo4Je6",
+          "name": "Bathtub Gin",
+          "startTime": 32791.649999999994,
+          "uri": "spotify:track:2pidhUsY1jDL6dXxyo4Je6",
+          "duration": 1903013
+        },
+        {
+          "album": "St. Louis '93 (Live)",
+          "artists": "Phish",
+          "id": "0cUhnljHU0ZlPRqSDTkgLL",
+          "name": "Reba - Live",
+          "startTime": 6761.8099999999995,
+          "uri": "spotify:track:0cUhnljHU0ZlPRqSDTkgLL",
+          "duration": 1165613
+        },
+        {
+          "album": "St. Louis '93 (Live)",
+          "artists": "Phish",
+          "id": "5aO7aAlZ746I6ixBi38II3",
+          "name": "Runaway Jim - Live",
+          "startTime": 0,
+          "uri": "spotify:track:5aO7aAlZ746I6ixBi38II3",
+          "duration": 469106
+        }
+      ],
+      "clipLength": 6000,
+      "id": 7
     }
   ],
   "quizLogs": [
@@ -603,6 +609,30 @@
       "quizId": 4,
       "score": 87.5,
       "id": 1
+    },
+    {
+      "quizId": 5,
+      "userId": 1,
+      "score": 75,
+      "id": 3
+    },
+    {
+      "quizId": 4,
+      "userId": 1,
+      "score": 100,
+      "id": 4
+    },
+    {
+      "quizId": 4,
+      "userId": 3,
+      "score": 100,
+      "id": 5
+    },
+    {
+      "quizId": 4,
+      "userId": 1,
+      "score": 50,
+      "id": 6
     }
   ]
 }

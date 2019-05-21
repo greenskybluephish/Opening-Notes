@@ -20,7 +20,7 @@ export default class QuizSongCreator extends Component {
   };
 
   componentDidMount() {
-    spotifyAPI.get.spotifyTrackInfo(this.props.track.id).then(value => {
+    spotifyAPI.spotifyTrackInfo(this.props.track.id).then(value => {
       this.setState({ value: value });
     });
   }
@@ -33,29 +33,42 @@ export default class QuizSongCreator extends Component {
     this.setState({ value: value });
   };
 
+  removeTrack = () => {
+    this.props.removeFromQuizList(this.props.track);
+  };
+
+  handleEdit = () => {
+    this.props.editTrack(this.props.track);
+    this.setState({
+      showSlider: !this.state.showSlider,
+      saveButton: !this.state.saveButton,
+      alertColor: "danger"
+    });
+  };
+
   onAfterChange = value => {
     let device = this.props.deviceId;
     console.log(value);
     if (!this.state.isPlaying) {
       this.setState({ isPlaying: true, shouldPause: true });
-      spotifyAPI.put
+      spotifyAPI
         .playOneSong(this.props.track.uri, this.state.value * 1000, device)
         .then(
           setTimeout(() => {
             if (this.state.shouldPause) {
               this.setState({ isPlaying: false, shouldPause: false });
-              spotifyAPI.put.pauseSong();
+              spotifyAPI.pauseSong();
             }
           }, this.props.clipLength)
         );
     } else {
       this.setState({ isPlaying: false, shouldPause: false });
-      spotifyAPI.put
+      spotifyAPI
         .playOneSong(this.props.track.uri, this.state.value * 1000, device)
         .then(
           setTimeout(() => {
             if (!this.state.shouldPause) {
-              spotifyAPI.put.pauseSong();
+              spotifyAPI.pauseSong();
             }
           }, this.props.clipLength)
         );
@@ -64,15 +77,18 @@ export default class QuizSongCreator extends Component {
 
   saveStartButton = () => {
     const trackInfo = {
-      album: this.props.track.album.name,
-      artists: this.props.track.artists[0].name,
+      album: this.props.track.album,
+      artists: this.props.track.artists,
       id: this.props.track.id,
       name: this.props.track.name,
-      startTime: this.state.value*1000,
+      startTime: this.state.value * 1000,
       uri: this.props.track.uri,
-      duration: this.props.track.duration_ms
+      duration: this.props.track.duration
     };
     this.props.addTrackToQuiz(trackInfo);
+    if (this.props.editor) {
+      this.props.removeFromQuiz(trackInfo);
+    }
     this.setState({
       showSlider: !this.state.showSlider,
       saveButton: !this.state.saveButton,
@@ -109,36 +125,38 @@ export default class QuizSongCreator extends Component {
                   tipProps={{ overlayClassName: "foo" }}
                   value={this.state.value}
                   min={0}
-                  max={this.msToSeconds(this.props.track.duration_ms)}
+                  max={this.msToSeconds(this.props.track.duration)}
                   step={1}
                   onChange={this.onSliderChange}
                   onAfterChange={this.onAfterChange}
                 />
               </Col>
               <Col sm="2" md="1">
-                {this.msToMinutes(this.props.track.duration_ms)}
+                {this.msToMinutes(this.props.track.duration)}
               </Col>
             </Row>
           )}
 
           <Row className="song-name">
             <Col xs="8" md="6">
-              {this.props.track.name} - {this.props.track.album.name}
+              {this.props.track.name} - {this.props.track.album}
             </Col>
             {this.state.saveButton && (
-              <Col xs="6" md="4">
-                <Button onClick={this.saveStartButton}>
-                  {" "}
-                  Save this start value{" "}
-                </Button>{" "}
-              </Col>
+              <>
+                <Col xs="6" md="3">
+                  <Button onClick={this.saveStartButton}>
+                    {" "}
+                    Save this start value{" "}
+                  </Button>{" "}
+                </Col>
+                <Col xs="6" md="3">
+                  <Button onClick={this.removeTrack}> Remove song </Button>{" "}
+                </Col>
+              </>
             )}
             {!this.state.saveButton && (
               <Col xs="6" md="4">
-                <Button onClick={this.saveStartButton}>
-                  {" "}
-                  Edit this value{" "}
-                </Button>{" "}
+                <Button onClick={this.handleEdit}> Edit this value </Button>{" "}
               </Col>
             )}
           </Row>

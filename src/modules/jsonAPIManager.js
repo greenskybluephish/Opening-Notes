@@ -1,5 +1,5 @@
-const localURL = "https://calm-mesa-57338.herokuapp.com";
-// const localURL = "http://localhost:5002"
+// const localURL = "https://calm-mesa-57338.herokuapp.com";
+const localURL = "http://localhost:5002"
 
 
 const jsonServer = {

@@ -1,7 +1,12 @@
 .jumbotron {
-  background-color: inherit !important;
+  background-color: rgba(31, 34, 81, 0.80) !important;
+
 }
 
 .option-text {
   color: black!important;
+}
+
+#inputAnswer{
+  color:white
 }
