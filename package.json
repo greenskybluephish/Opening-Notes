@@ -1,7 +1,7 @@
 {
-  "name": "frontend-capstone",
+  "name": "opening-notes",
   "version": "0.1.0",
-  "homepage": "https://greenskybluephish.github.io/spotify-frontend",
+  "homepage": "https://greenskybluephish.github.io/Opening-Notes",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.10",
