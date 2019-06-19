@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/spotify-frontend/static/css/main.3a873b5d.chunk.css",
-    "main.js": "/spotify-frontend/static/js/main.a2e762ae.chunk.js",
-    "main.js.map": "/spotify-frontend/static/js/main.a2e762ae.chunk.js.map",
-    "runtime~main.js": "/spotify-frontend/static/js/runtime~main.8f6556f8.js",
-    "runtime~main.js.map": "/spotify-frontend/static/js/runtime~main.8f6556f8.js.map",
-    "static/css/2.f4f8339c.chunk.css": "/spotify-frontend/static/css/2.f4f8339c.chunk.css",
-    "static/js/2.be66ed69.chunk.js": "/spotify-frontend/static/js/2.be66ed69.chunk.js",
-    "static/js/2.be66ed69.chunk.js.map": "/spotify-frontend/static/js/2.be66ed69.chunk.js.map",
-    "index.html": "/spotify-frontend/index.html",
-    "precache-manifest.38a9b1b7dd7a48dbad4ef713c8b23efc.js": "/spotify-frontend/precache-manifest.38a9b1b7dd7a48dbad4ef713c8b23efc.js",
-    "service-worker.js": "/spotify-frontend/service-worker.js",
-    "static/css/2.f4f8339c.chunk.css.map": "/spotify-frontend/static/css/2.f4f8339c.chunk.css.map",
-    "static/css/main.3a873b5d.chunk.css.map": "/spotify-frontend/static/css/main.3a873b5d.chunk.css.map",
-    "static/media/blk-design-system.css": "/spotify-frontend/static/media/square5.ff004a0e.png"
+    "main.css": "/Opening-Notes/static/css/main.33509af7.chunk.css",
+    "main.js": "/Opening-Notes/static/js/main.3df0f0cb.chunk.js",
+    "main.js.map": "/Opening-Notes/static/js/main.3df0f0cb.chunk.js.map",
+    "runtime~main.js": "/Opening-Notes/static/js/runtime~main.4e509688.js",
+    "runtime~main.js.map": "/Opening-Notes/static/js/runtime~main.4e509688.js.map",
+    "static/css/2.20d67eb1.chunk.css": "/Opening-Notes/static/css/2.20d67eb1.chunk.css",
+    "static/js/2.813f5a66.chunk.js": "/Opening-Notes/static/js/2.813f5a66.chunk.js",
+    "static/js/2.813f5a66.chunk.js.map": "/Opening-Notes/static/js/2.813f5a66.chunk.js.map",
+    "index.html": "/Opening-Notes/index.html",
+    "precache-manifest.03e9d79cff77e0f217b45b44ad111f1f.js": "/Opening-Notes/precache-manifest.03e9d79cff77e0f217b45b44ad111f1f.js",
+    "service-worker.js": "/Opening-Notes/service-worker.js",
+    "static/css/2.20d67eb1.chunk.css.map": "/Opening-Notes/static/css/2.20d67eb1.chunk.css.map",
+    "static/css/main.33509af7.chunk.css.map": "/Opening-Notes/static/css/main.33509af7.chunk.css.map",
+    "static/media/index.css": "/Opening-Notes/static/media/crowdsmall.187f9d6d.jpg",
+    "static/media/blk-design-system.css": "/Opening-Notes/static/media/square5.ff004a0e.png",
+    "static/media/nucleo-icons.css": "/Opening-Notes/static/media/nucleo.f0b489a5.woff"
   }
 }
