@@ -10,7 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "nouislider": "^13.1.5",
     "rc-slider": "^8.6.9",
     "react": "^16.8.6",
